@@ -1,0 +1,41 @@
+---
+description: "Terminal commands and external tool safety"
+alwaysApply: true
+priority: "critical"
+version: 1.0.0
+tags: ["safety", "commands", "terminal"]
+context_limit: 150
+---
+# Command & Tool Safety Rules
+
+## Terminal Commands
+- Print full command before execution
+- Use non-interactive flags by default
+- Never run rm -rf without explicit confirmation
+- Background long-running tasks with proper flags
+- Check command success/failure status
+
+## File Operations
+- Verify parent directory exists before creating files
+- Use proper path quoting for spaces
+- Check file exists before editing
+- Backup critical files before major changes
+
+## Database Operations
+- Always use transactions for multi-table updates
+- Test migrations on copy first
+- Never expose connection strings in logs
+- Use read-only connections when possible
+
+## API & External Services
+- Store keys in environment variables only
+- Never commit secrets to repository
+- Rate limit external API calls
+- Log errors without sensitive data
+- Validate webhook signatures
+
+## Git Operations
+- Descriptive commit messages required
+- Never force push to main/master
+- Review changes before committing
+- Keep commits focused and atomic

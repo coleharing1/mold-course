@@ -1,0 +1,138 @@
+---
+description: "Content validation and safety rules for educational materials"
+globs: ["content/**/*.{md,mdx}", "modules/**/*.mdx", "emails/**/*.mdx"]
+tags: ["content", "safety", "mdx"]
+priority: "critical"
+version: 1.1.0
+context_limit: 300
+---
+# Content & Safety Standards
+
+## MDX Content Structure
+```mdx
+---
+title: "Module Title"
+description: "Brief description"
+evidenceLevel: "Solid" | "Emerging" | "Controversial"
+safetyFlags: ["pregnancy", "medications"]
+prerequisites: ["module-1", "module-2"]
+readingTime: 15
+---
+
+<MedicalDisclaimer />
+
+## TL;DR (50 words max)
+Quick summary of key points.
+
+<AudioNarration src="/audio/module-1.mp3" duration="5:32" />
+
+## Main Content
+[Educational content with evidence badges]
+
+<SafetyWarning condition="pregnancy">
+  Special considerations for pregnant individuals
+</SafetyWarning>
+
+<DoThisNow>
+  Actionable step the user can take immediately
+</DoThisNow>
+
+<ToolLink tool="symptom-tracker" preview />
+```
+
+## Evidence Badge Requirements
+- EVERY claim must have an evidence level
+- Solid: Multiple peer-reviewed studies
+- Emerging: Limited studies or expert consensus
+- Controversial: Conflicting evidence
+
+## Safety Content Rules
+- Include contraindications for every protocol
+- List medication interactions
+- Specify who should NOT use this approach
+- Emergency symptoms requiring immediate care
+- Pregnancy/nursing modifications
+
+## Module Gating Content
+```mdx
+<GatedContent requires="drainage-ready">
+  This content is only shown when drainage readiness is achieved.
+</GatedContent>
+
+<LockedMessage>
+  Complete the drainage preparation module first to ensure safety.
+  [Learn why this matters →]
+</LockedMessage>
+```
+
+## Language Guidelines
+- 8th-grade reading level for main content
+- Define medical terms on first use
+- Use analogies for complex concepts
+- Active voice preferred
+- Short paragraphs (3-4 sentences)
+
+## Prohibited Content
+- ❌ Specific medical diagnoses
+- ❌ Dosing without "consult provider"
+- ❌ Claims of curing disease
+- ❌ Dismissing conventional medicine
+- ❌ Guarantees of results
+
+## Required Sections per Module
+1. Medical disclaimer (top)
+2. TL;DR summary
+3. Learning objectives
+4. Main content with evidence
+5. Safety considerations
+6. Action items
+7. Tool integration
+8. Next steps
+9. References/sources
+
+## Interactive Elements
+```mdx
+<Quiz id="drainage-readiness">
+  <Question>How many bowel movements per day?</Question>
+  <Options>
+    <Option value="0-1">0-1 times</Option>
+    <Option value="2-3" correct>2-3 times</Option>
+  </Options>
+</Quiz>
+
+<ProgressCheck 
+  module="drainage" 
+  milestone="week-1"
+/>
+```
+
+## Email Content Standards
+```mdx
+<!-- emails/welcome.mdx -->
+Subject: Welcome to Your Mold Recovery Journey
+
+Hi {firstName},
+
+[Warm, encouraging opening]
+
+**Important**: This is educational content only.
+Always consult your healthcare provider.
+
+[Main content]
+
+<CTAButton href="/modules/start">
+  Begin Module 1
+</CTAButton>
+```
+
+## Content Review Checklist
+- [ ] Medical disclaimer present
+- [ ] Evidence levels marked
+- [ ] Safety warnings included
+- [ ] Gating rules specified
+- [ ] Mobile-friendly formatting
+- [ ] Alt text for images
+- [ ] Reading time accurate
+- [ ] Sources cited
+- [ ] Accessibility checked
+- [ ] Legal review if needed

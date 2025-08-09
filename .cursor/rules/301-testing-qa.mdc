@@ -1,0 +1,158 @@
+---
+description: "Testing requirements and quality assurance standards"
+globs: ["**/*.test.{ts,tsx}", "**/*.spec.{ts,tsx}", "tests/**/*", "e2e/**/*"]
+tags: ["testing", "qa", "quality"]
+priority: "medium"
+version: 1.1.0
+context_limit: 250
+---
+# Testing & QA Standards
+
+## Testing Requirements
+- Write tests for all new features
+- Minimum 80% coverage for new code
+- Test happy path + edge cases + error states
+- Run tests before committing (via Husky)
+- All tests must pass before merge
+
+## Test File Organization
+```
+component-name.tsx         # Component file
+component-name.test.tsx    # Unit tests
+__tests__/
+  ├── integration/        # Integration tests
+  ├── e2e/               # End-to-end tests
+  └── fixtures/          # Test data
+```
+
+## Unit Testing Pattern
+```typescript
+import { describe, it, expect, beforeEach } from 'vitest'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { SymptomTracker } from './symptom-tracker'
+
+describe('SymptomTracker', () => {
+  beforeEach(() => {
+    // Setup
+  })
+  
+  it('should validate symptom severity range', () => {
+    render(<SymptomTracker />)
+    const input = screen.getByLabelText('Fatigue Level')
+    
+    fireEvent.change(input, { target: { value: '11' } })
+    
+    expect(screen.getByText('Must be between 0-10')).toBeInTheDocument()
+  })
+  
+  it('should save symptoms when valid', async () => {
+    // Test implementation
+  })
+})
+```
+
+## Integration Testing
+```typescript
+// Test API routes with database
+import { createMocks } from 'node-mocks-http'
+import { POST } from '@/app/api/symptoms/route'
+
+describe('/api/symptoms', () => {
+  it('should create symptom log for authenticated user', async () => {
+    const { req, res } = createMocks({
+      method: 'POST',
+      body: {
+        fatigue: 7,
+        brainFog: 5,
+        date: '2024-01-01'
+      }
+    })
+    
+    await POST(req as any)
+    
+    expect(res._getStatusCode()).toBe(201)
+    expect(JSON.parse(res._getData())).toHaveProperty('data.id')
+  })
+})
+```
+
+## E2E Testing (Critical Paths)
+```typescript
+import { test, expect } from '@playwright/test'
+
+test.describe('Module Gating', () => {
+  test('should block binder module without drainage readiness', async ({ page }) => {
+    await page.goto('/modules/binders')
+    
+    await expect(page.locator('.module-locked')).toBeVisible()
+    await expect(page.locator('.gating-message')).toContainText('Complete drainage')
+  })
+})
+```
+
+## Testing Health-Specific Features
+- Test medical disclaimer visibility
+- Verify gating rules enforcement
+- Check evidence badge display
+- Validate safety warnings
+- Test vulnerable population alerts
+
+## Accessibility Testing
+```typescript
+import { axe } from 'vitest-axe'
+
+it('should not have accessibility violations', async () => {
+  const { container } = render(<ModuleCard />)
+  const results = await axe(container)
+  expect(results).toHaveNoViolations()
+})
+```
+
+## Performance Testing
+```typescript
+it('should render symptom list efficiently', () => {
+  const symptoms = Array.from({ length: 100 }, (_, i) => ({
+    id: i,
+    date: new Date(),
+    fatigue: 5
+  }))
+  
+  const startTime = performance.now()
+  render(<SymptomList symptoms={symptoms} />)
+  const endTime = performance.now()
+  
+  expect(endTime - startTime).toBeLessThan(100) // ms
+})
+```
+
+## Mock Data Standards
+```typescript
+// Use factories for consistent test data
+export const mockUser = {
+  id: 'test-user-id',
+  email: 'test@example.com',
+  drainageReady: false
+}
+
+export const mockModule = {
+  id: 'module-1',
+  title: 'Understanding Mold Exposure',
+  gatingRule: null,
+  evidenceLevel: 'Solid'
+}
+```
+
+## Test Database
+- Use SQLite in-memory for unit tests
+- Seed test data before each suite
+- Clean up after tests
+- Never use production data
+
+## CI/CD Testing
+```yaml
+# Run in GitHub Actions
+- Unit tests on every push
+- Integration tests on PR
+- E2E tests before merge to main
+- Performance tests weekly
+```

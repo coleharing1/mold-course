@@ -1,0 +1,58 @@
+---
+description: "Health and medical compliance rules for content generation"
+globs: ["**/content/**/*.{ts,tsx,md,mdx}", "**/modules/**/*.{ts,tsx}", "**/tools/**/*.{ts,tsx}"]
+tags: ["compliance", "medical", "safety"]
+priority: "critical"
+version: 1.1.0
+context_limit: 400
+---
+# Health & Medical Compliance Rules
+
+## Content Guidelines
+- ALWAYS include medical disclaimers on health-related content
+- NEVER make specific medical claims or diagnoses
+- Use "may help" instead of "will cure"
+- Reference peer-reviewed sources when possible
+- Mark all content with evidence levels (Solid/Emerging/Controversial)
+
+## Safety Protocols
+- Flag content needing medical review with safety-flag class
+- Include contraindications for all supplements
+- Warn about potential medication interactions
+- Emphasize "consult your healthcare provider" prominently
+- Gate sensitive content behind readiness checks
+
+## Module Gating Rules
+- ENFORCE drainage readiness before binder modules
+- Require symptom tracking for 7 days before unlocking advanced protocols
+- Lock antifungal content until binders phase complete
+- Display clear prerequisites on locked modules
+- Show readiness scores and explain why content is gated
+
+## Vulnerable Populations
+- Pregnant/nursing warnings on all protocols
+- Age-specific considerations (children, elderly)
+- Immune-compromised precautions highlighted
+- Severity-based modifications offered
+- Emergency symptoms list with "seek immediate care" warnings
+
+## Data Privacy
+- No storage of medical diagnoses
+- Anonymize all user health data
+- Comply with HIPAA-adjacent practices
+- Secure symptom tracking with encryption
+- Allow data export and deletion
+
+## Required Disclaimers
+```tsx
+// Example medical disclaimer component
+<div className="medical-disclaimer">
+  <h4 className="medical-disclaimer-title">
+    ⚠️ Medical Disclaimer
+  </h4>
+  <p className="medical-disclaimer-text">
+    This content is for educational purposes only and not medical advice.
+    Always consult with a qualified healthcare provider before starting any protocol.
+  </p>
+</div>
+```

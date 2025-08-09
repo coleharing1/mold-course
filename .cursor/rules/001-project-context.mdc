@@ -1,0 +1,40 @@
+---
+description: "Core project understanding for mold detox educational platform"
+alwaysApply: false
+---
+# Mold Detox Project Context
+
+## Project Understanding
+- This is an educational platform for mold detoxification recovery
+- Target audience: People overwhelmed by conflicting mold detox advice
+- Core promise: Safe, step-by-step guidance with medical compliance
+- Based on @project_brainstorm/Opus4-Project-overview.md specifications
+
+## Critical Safety Context
+- NEVER suggest skipping drainage phase before binders
+- ALWAYS include safety warnings for vulnerable populations
+- Sequence matters: Exposure → Drainage → Binders → Antifungals → Prevention
+- Readiness gates prevent dangerous protocol violations
+
+## Product Features
+- 10 comprehensive modules with gated progression
+- 9 interactive tools for personalized protocols
+- Evidence badges (Solid/Emerging/Controversial) on all content
+- Progress tracking with readiness scores
+- Symptom journals and visual progress indicators
+- Three pricing tiers: Core ($197), Plus ($497), VIP ($997)
+
+## Differentiation
+- Safety gating prevents harmful detox mistakes
+- Plain-English explanations of complex topics
+- Interactive tools vs passive video courses
+- Evidence-based approach with cited sources
+- Mobile-first responsive design
+- HIPAA-adjacent data practices
+
+## Tech Stack Context
+- Development: Next.js 14+, SQLite, NextAuth
+- Production: Supabase, Stripe, PostHog
+- Content: MDX with Contentlayer
+- Styling: Tailwind CSS + shadcn/ui
+- Testing: Vitest + Playwright

@@ -1,0 +1,145 @@
+---
+description: "Critical rules for maintaining AI context across sessions"
+alwaysApply: true
+priority: "critical"
+version: 1.1.0
+tags: ["context", "memory", "ai"]
+context_limit: 400
+---
+# AI Context Management - CRITICAL
+
+## Session Start Protocol
+1. **ALWAYS** read @_docs/project-history.md first
+2. Check last update timestamp
+3. If stale (>1 day), suggest: "Project history is X days old. Should we update it?"
+4. Reference recent changes for continuity
+5. Check @CLAUDE.md for persistent decisions
+
+## File Change Tracking
+### Internal Counter
+- Track modified files during session
+- Increment counter for each file change
+- Count creates, updates, and deletes
+
+### Update Prompts
+- **At 5 files**: "📝 5 files modified - consider updating project history"
+- **At 10 files**: "⚠️ 10 files modified - UPDATE project-history.md NOW"
+- **At 15+ files**: "🚨 CRITICAL: Update history immediately to prevent context loss"
+
+### Reset Protocol
+- Reset counter after history update
+- Note in response: "✅ History updated, counter reset"
+
+## History Update Format
+```markdown
+## [YYYY-MM-DD] - [Feature/Fix/Refactor] - [Brief Title]
+
+**Session Duration**: [X hours]
+
+**Files Modified** (X total):
+- `path/to/file1.tsx` - [what changed]
+- `path/to/file2.ts` - [what changed]
+- `path/to/file3.md` - [what changed]
+
+**Changes Made**:
+- [Bullet point of significant change]
+- [Include the "why" not just "what"]
+- [Note any architectural decisions]
+
+**Key Decisions**:
+- [Important choice made and rationale]
+- [Trade-offs considered]
+
+**Testing**:
+- [What was tested]
+- [Any issues found/fixed]
+
+**Next Steps**:
+- [ ] [Immediate next task]
+- [ ] [Follow-up needed]
+- [ ] [Future consideration]
+
+**Notes**:
+- [Any warnings or important context]
+- [Dependencies added/removed]
+- [Breaking changes]
+```
+
+## Context Recovery Protocol
+If context seems lost:
+1. **Stop immediately** - Don't guess
+2. Read in order:
+   - @_docs/project-history.md
+   - @CLAUDE.md  
+   - @_docs/project-overview.md
+   - Recent commits if available
+3. Ask user: "I need to restore context. What were we working on?"
+4. Never proceed without clear understanding
+
+## Cross-Session Continuity
+```markdown
+# Starting new session
+"I've reviewed the project history. Last session you were [working on X].
+The last update was [Y days ago]. Should we continue with [next step from history]?"
+
+# Resuming after break
+"Welcome back! Checking history... I see we completed [X] and planned [Y].
+Ready to continue?"
+```
+
+## Critical Information Persistence
+Always append to @CLAUDE.md when:
+- Major architectural decision made
+- New pattern established
+- Important constraint discovered
+- User preference stated
+- Gotcha or pitfall encountered
+
+Format:
+```markdown
+### [Date] - [Category]
+**Decision**: [What was decided]
+**Reason**: [Why this choice]
+**Impact**: [What this affects]
+```
+
+## Warning Signs of Context Loss
+- Suggesting already-completed tasks
+- Forgetting project-specific rules
+- Using wrong tech stack
+- Ignoring safety requirements
+- Recreating existing components
+
+**If any occur**: STOP and restore context
+
+## Multi-Session Task Tracking
+For tasks spanning sessions:
+```markdown
+## Ongoing: [Task Name]
+**Started**: [Date]
+**Progress**: [X of Y steps complete]
+**Completed**:
+- [x] Step 1
+- [x] Step 2
+**Remaining**:
+- [ ] Step 3
+- [ ] Step 4
+**Blockers**: [Any issues]
+```
+
+## Emergency Context Recovery
+If all context lost:
+1. Check git log for recent commits
+2. Scan file structure for patterns
+3. Read package.json for tech stack
+4. Check .env for configuration
+5. Ask user for clarification
+
+## Context Maintenance Best Practices
+- Prefer editing over recreating
+- Reference existing patterns
+- Check before implementing
+- Document while building
+- Update history proactively
+
+**Remember**: Lost context = Lost productivity = User frustration

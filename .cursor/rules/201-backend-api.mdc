@@ -1,0 +1,149 @@
+---
+description: "Backend API and database rules"
+globs: ["app/api/**/*.{ts,js}", "lib/server/**/*.ts", "lib/db/**/*.ts", "prisma/**/*.prisma"]
+tags: ["backend", "api", "database"]
+priority: "high"
+version: 1.1.0
+context_limit: 350
+---
+# Backend & API Standards
+
+## API Route Patterns (App Router)
+```typescript
+// app/api/[resource]/route.ts
+import { NextRequest, NextResponse } from 'next/server'
+import { z } from 'zod'
+import { validateRequest } from '@/lib/auth'
+
+const schema = z.object({
+  // Define request schema
+})
+
+export async function POST(req: NextRequest) {
+  try {
+    // 1. Authenticate
+    const { user } = await validateRequest()
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+    }
+    
+    // 2. Validate input
+    const body = await req.json()
+    const data = schema.parse(body)
+    
+    // 3. Business logic
+    const result = await processRequest(data, user)
+    
+    // 4. Return response
+    return NextResponse.json({ data: result })
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json({ error: 'Invalid input', details: error.errors }, { status: 400 })
+    }
+    console.error('API error:', error)
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+  }
+}
+```
+
+## Database Rules (Prisma)
+- Use transactions for multi-table operations
+- Always validate foreign key relationships
+- Soft delete for user data (deletedAt field)
+- Include audit fields (createdAt, updatedAt, createdBy)
+- Index frequently queried fields
+
+## Data Validation
+```typescript
+// Always validate at the boundary
+const ModuleProgressSchema = z.object({
+  moduleId: z.string().cuid(),
+  progress: z.number().min(0).max(100),
+  timeSpent: z.number().positive(),
+})
+
+// Type-safe database queries
+const progress = await prisma.moduleProgress.create({
+  data: ModuleProgressSchema.parse(input),
+  include: { module: true }
+})
+```
+
+## Security Requirements
+- Rate limiting on all endpoints (10 req/min for mutations)
+- Input sanitization for XSS prevention
+- SQL injection protection via Prisma
+- CORS configuration for production domain only
+- API keys for external service calls in env vars
+
+## Error Handling
+```typescript
+// Consistent error response format
+interface ApiError {
+  error: string
+  code?: string
+  details?: unknown
+  timestamp: string
+}
+
+// Error codes
+const ErrorCodes = {
+  UNAUTHORIZED: 'AUTH_001',
+  INVALID_INPUT: 'VAL_001',
+  RATE_LIMITED: 'RATE_001',
+  GATING_VIOLATION: 'GATE_001',
+  PAYMENT_REQUIRED: 'PAY_001',
+} as const
+```
+
+## Module Gating Logic
+```typescript
+// Check prerequisites before allowing access
+async function checkModuleAccess(userId: string, moduleId: string) {
+  const module = await prisma.module.findUnique({
+    where: { id: moduleId },
+    include: { 
+      progress: { where: { userId } }
+    }
+  })
+  
+  if (module?.gatingRule === 'drainage-ready') {
+    const readiness = await prisma.readiness.findUnique({
+      where: { userId }
+    })
+    if (!readiness?.drainageScore || readiness.drainageScore < 70) {
+      throw new Error('Drainage readiness not met')
+    }
+  }
+  
+  return module
+}
+```
+
+## Caching Strategy
+- Cache module content (1 hour)
+- Cache user progress (5 minutes)
+- Invalidate on mutations
+- Use Redis in production
+- Memory cache for development
+
+## Background Jobs
+```typescript
+// Process heavy operations asynchronously
+async function queueEmailJob(data: EmailData) {
+  // In production: Use queue service
+  // In development: Process immediately
+  if (process.env.NODE_ENV === 'production') {
+    await queue.add('send-email', data)
+  } else {
+    await sendEmail(data)
+  }
+}
+```
+
+## Database Migration Rules
+- Never modify existing migrations
+- Test migrations on copy of production data
+- Include rollback scripts
+- Document breaking changes
+- Version migrations clearly

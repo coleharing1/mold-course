@@ -1,0 +1,129 @@
+---
+description: "Development workflow and AI interaction patterns"
+alwaysApply: true
+tags: ["workflow", "process", "ai"]
+priority: "medium"
+version: 1.1.0
+context_limit: 200
+---
+# Development Workflows
+
+## Before Starting Any Task
+1. Read @_docs/project-overview.md for context
+2. Check @_docs/user-flow.md for feature placement
+3. Review @_docs/project-history.md for recent changes
+4. Look for similar existing components/patterns
+5. Ask clarifying questions if requirements unclear
+
+## Task Planning
+- Break large tasks into 3-5 subtasks
+- Use TodoWrite tool to track progress
+- Mark tasks in_progress when starting
+- Complete one task before starting next
+- Update status immediately when done
+
+## During Development
+- Commit every 2-3 file changes
+- Write descriptive commit messages
+- Update project-history.md every 5-10 files
+- Run linter before committing
+- Test changes locally
+
+## Code Review Readiness
+```bash
+# Before requesting review
+npm run lint          # Fix linting issues
+npm run typecheck     # Ensure types pass
+npm run test          # All tests green
+npm run build         # Build succeeds
+```
+
+## Git Workflow
+```bash
+# Feature branch naming
+git checkout -b feature/module-gating
+git checkout -b fix/drainage-calculation
+git checkout -b docs/update-readme
+
+# Commit message format
+feat: add symptom tracking to dashboard
+fix: correct drainage score calculation
+docs: update module gating explanation
+test: add tests for readiness calculator
+```
+
+## AI Interaction Patterns
+```markdown
+# Good prompt structure
+1. Context: "Working on the symptom tracker component"
+2. Current state: "It currently saves to local state"
+3. Goal: "Need to persist to database via API"
+4. Constraints: "Must validate 0-10 range, required daily"
+5. Reference: "Similar to @components/tools/supplement-tracker.tsx"
+```
+
+## File Modification Tracking
+- Count files mentally as you work
+- At 5 files: Note it for history update
+- At 10 files: MUST update history
+- Include what, why, and next steps
+
+## Documentation Updates
+- Update component JSDoc when changing behavior
+- Keep README.md current with new features
+- Document API changes in comments
+- Update type definitions
+- Add examples for complex features
+
+## Testing Workflow
+1. Write test describing expected behavior
+2. Run test (should fail)
+3. Implement feature
+4. Run test (should pass)
+5. Add edge case tests
+6. Check coverage
+
+## Debugging Process
+```typescript
+// 1. Add console logs with context
+console.log('[SymptomTracker] Saving:', { data, userId })
+
+// 2. Check network tab for API calls
+// 3. Verify database state
+// 4. Check error boundaries
+// 5. Review recent changes in git
+```
+
+## Performance Checks
+- Lighthouse score > 90
+- First Contentful Paint < 1.5s
+- Time to Interactive < 3.5s
+- Bundle size impact < 50KB
+- No memory leaks in tools
+
+## Deployment Checklist
+- [ ] All tests passing
+- [ ] No console errors
+- [ ] Environment variables set
+- [ ] Database migrations run
+- [ ] Feature flags configured
+- [ ] Monitoring enabled
+- [ ] Rollback plan ready
+
+## Common Patterns to Follow
+```typescript
+// API calls
+const { data, error } = await fetchWithAuth('/api/resource')
+if (error) handleError(error)
+
+// Form handling
+const form = useForm<FormData>({
+  resolver: zodResolver(schema),
+  defaultValues
+})
+
+// Loading states
+if (isLoading) return <Skeleton />
+if (error) return <ErrorMessage />
+if (!data) return <EmptyState />
+```

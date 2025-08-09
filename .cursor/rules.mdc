@@ -1,0 +1,80 @@
+---
+description: "Main index - modular rules in .cursor/rules/ auto-load based on context"
+alwaysApply: false
+priority: "low"
+version: 2.1.0
+tags: ["index", "documentation"]
+---
+# Mold Detox Mastery - Modular Rules System v2.1
+
+## 🚀 August 2025 Optimizations Applied
+- Changed `fileGlobs` → `globs` (new syntax)
+- Added `context_limit` to prevent token overflow
+- Implemented priority as strings ("critical", "high", "medium", "low")
+- Added tags for better categorization
+- Reduced always-apply rules to minimum
+
+## 📁 Active Rule Modules
+
+### Always Applied (Minimal for Performance)
+- **000-core.mdc** - Universal principles (<100 lines)
+- **010-commands-safety.mdc** - Terminal/tool safety
+- **501-workflows.mdc** - Dev workflows 
+- **901-context-management.mdc** - AI memory
+
+### Auto-Applied by File Pattern
+- **002-health-compliance.mdc** - Medical content (critical priority)
+- **101-frontend-standards.mdc** - React/Next.js files
+- **102-ui-components.mdc** - Component patterns
+- **201-backend-api.mdc** - API routes & database
+- **301-testing-qa.mdc** - Test files
+- **401-content-safety.mdc** - MDX content
+- **500-performance.mdc** - Performance patterns
+
+## 📊 Context Window Management
+Each rule file has `context_limit` to prevent overflow:
+- Critical rules: 300-400 lines max
+- Standard rules: 200-300 lines max
+- Always-apply: <100 lines (performance)
+
+## 🎯 Quick Reference
+
+### Top Priority Rules
+1. **Health Safety**: Never skip drainage before binders
+2. **Context**: Update history every 5-10 files
+3. **Code Quality**: Files <500 lines, functional patterns
+4. **Testing**: 80% coverage on new code
+
+### File Pattern Matching
+Rules auto-apply based on `globs` patterns:
+- `app/**/*.tsx` → Frontend rules
+- `app/api/**` → Backend rules
+- `**/*.test.ts` → Testing rules
+- `content/**/*.mdx` → Content safety
+
+## 💡 Performance Tips
+- Context window usage shown at conversation end
+- Use specific globs to reduce irrelevant loading
+- Monitor token usage with context indicators
+- Keep core rules minimal
+
+## 🔍 Debugging Rules
+```bash
+# Check which rules are active
+cat .cursor/rules/*.mdc | grep "globs:"
+
+# Verify rule syntax
+grep -E "^(description|globs|priority|tags):" .cursor/rules/*.mdc
+
+# Count lines per rule
+wc -l .cursor/rules/*.mdc
+```
+
+## 📈 Version History
+- v2.1.0 - August 2025 optimizations
+- v2.0.0 - Modular system implementation
+- v1.0.0 - Initial monolithic rules
+
+---
+*Last Updated: 2025-08-09*
+*Based on Cursor AI Best Practices August 2025*

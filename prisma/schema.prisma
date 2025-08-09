@@ -1,0 +1,335 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ==================== USER & AUTH ====================
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  name          String?
+  password      String?  // Optional for OAuth users
+  emailVerified DateTime?
+  image         String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  lastActive    DateTime @default(now())
+  
+  // Relations
+  profile         OnboardingProfile?
+  moduleProgress  ModuleProgress[]
+  symptomLogs     SymptomLog[]
+  toolStates      ToolState[]
+  readiness       Readiness?
+  purchases       Purchase[]
+  subscriptions   Subscription[]
+  badges          Badge[]
+  streak          Streak?
+  threads         Thread[]
+  replies         Reply[]
+  abTests         ABTest[]
+  analytics       Analytics[]
+  
+  @@map("users")
+}
+
+model OnboardingProfile {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Onboarding data from Opus4 spec
+  livingSituation String?
+  exposureHistory String?  // JSON
+  symptoms        String?  // JSON array
+  priorTests      String?  // JSON
+  budget          String?
+  equipment       String?  // JSON (sauna access, etc)
+  dietConstraints String?  // JSON
+  timezone        String?
+  preferredPace   String?  // slow, moderate, aggressive
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@map("onboarding_profiles")
+}
+
+// ==================== MODULES & CONTENT ====================
+
+model Module {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String
+  order       Int
+  duration    Int      // in minutes
+  
+  // Gating rules
+  prerequisite String?  // JSON array of module slugs
+  gatingRule   String?  // e.g., "drainage-ready", "binder-complete"
+  
+  // Content metadata
+  evidenceLevel String? // Solid, Emerging, Controversial
+  hasSafetyFlag Boolean @default(false)
+  
+  // Relations
+  progress    ModuleProgress[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@map("modules")
+}
+
+model ModuleProgress {
+  id          String   @id @default(cuid())
+  userId      String
+  moduleId    String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  module      Module   @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  
+  status      String   @default("locked") // locked, available, in_progress, completed
+  progress    Float    @default(0) // 0-100
+  timeSpent   Int      @default(0) // in seconds
+  attemptCount Int     @default(0)
+  
+  startedAt   DateTime?
+  lastActionAt DateTime?
+  completedAt DateTime?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@unique([userId, moduleId])
+  @@index([userId])
+  @@map("module_progress")
+}
+
+// ==================== HEALTH TRACKING ====================
+
+model SymptomLog {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  date      DateTime
+  fatigue   Int      // 0-10 scale
+  brainFog  Int
+  sleep     Int
+  pain      Int
+  sinus     Int
+  mood      Int
+  energy    Int
+  notes     String?
+  triggers  String?  // JSON array
+  
+  createdAt DateTime @default(now())
+  
+  @@index([userId, date])
+  @@map("symptom_logs")
+}
+
+model Readiness {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  drainageScore   Float    // Rolling 7-day average
+  binderUnlocked  Boolean  @default(false)
+  lastCalculated  DateTime @default(now())
+  scoreHistory    String?  // JSON array of daily scores
+  
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  
+  @@map("readiness")
+}
+
+// ==================== TOOLS & STATES ====================
+
+model ToolState {
+  id        String   @id @default(cuid())
+  userId    String
+  toolId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  data      String   // JSON (planner times, shopping lists, quiz scores)
+  version   Int      @default(1)
+  lastSync  DateTime @default(now())
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@unique([userId, toolId])
+  @@index([userId])
+  @@map("tool_states")
+}
+
+// ==================== PAYMENTS & SUBSCRIPTIONS ====================
+
+model Purchase {
+  id                String   @id @default(cuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  sku               String
+  amount            Int      // in cents
+  currency          String   @default("usd")
+  status            String   // pending, completed, failed, refunded
+  
+  stripePaymentId   String?  @unique
+  stripeCustomerId  String?
+  
+  startedAt         DateTime @default(now())
+  completedAt       DateTime?
+  refundedAt        DateTime?
+  cancelReason      String?
+  
+  @@index([userId])
+  @@map("purchases")
+}
+
+model Subscription {
+  id                String   @id @default(cuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  tier              String   // core, plus, vip
+  status            String   // active, cancelled, expired
+  
+  stripeSubscriptionId String? @unique
+  stripeCustomerId     String?
+  
+  startedAt         DateTime @default(now())
+  renewedAt         DateTime?
+  cancelledAt       DateTime?
+  expiresAt         DateTime?
+  
+  @@index([userId])
+  @@map("subscriptions")
+}
+
+// ==================== GAMIFICATION ====================
+
+model Badge {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  type        String   // drainage-unlocked, first-retest, herx-managed, etc
+  earnedAt    DateTime @default(now())
+  
+  @@unique([userId, type])
+  @@index([userId])
+  @@map("badges")
+}
+
+model Streak {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  currentDays Int      @default(0)
+  longestDays Int      @default(0)
+  lastCheckIn DateTime @default(now())
+  
+  @@map("streaks")
+}
+
+// ==================== COMMUNITY (Optional) ====================
+
+model Thread {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title       String
+  content     String
+  category    String
+  isPinned    Boolean  @default(false)
+  isLocked    Boolean  @default(false)
+  
+  replies     Reply[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([userId])
+  @@map("threads")
+}
+
+model Reply {
+  id        String   @id @default(cuid())
+  threadId  String
+  thread    Thread   @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  content   String
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([threadId])
+  @@index([userId])
+  @@map("replies")
+}
+
+// ==================== ANALYTICS & TESTING ====================
+
+model Analytics {
+  id        String   @id @default(cuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  event     String   // page_view, tool_used, module_completed, etc
+  properties String?  // JSON
+  sessionId String?
+  deviceType String?
+  
+  timestamp DateTime @default(now())
+  
+  @@index([userId])
+  @@index([event])
+  @@map("analytics")
+}
+
+model ABTest {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  testName  String
+  variant   String
+  
+  createdAt DateTime @default(now())
+  
+  @@unique([userId, testName])
+  @@index([userId])
+  @@map("ab_tests")
+}
+
+// ==================== EMAIL LOGS ====================
+
+model EmailLog {
+  id        String   @id @default(cuid())
+  userId    String?
+  email     String
+  type      String   // welcome, reset, module-complete, etc
+  status    String   // sent, failed, bounced
+  
+  sentAt    DateTime @default(now())
+  
+  @@index([userId])
+  @@index([email])
+  @@map("email_logs")
+}

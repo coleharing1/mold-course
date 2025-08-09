@@ -1,0 +1,113 @@
+---
+description: "UI component patterns and design system rules"
+globs: ["components/ui/**/*.{tsx,jsx}", "components/modules/**/*.{tsx,jsx}", "components/tools/**/*.{tsx,jsx}"]
+tags: ["ui", "components", "design-system"]
+priority: "medium"
+version: 1.1.0
+context_limit: 300
+---
+# UI Component Standards
+
+## Component Categories
+- **ui/**: Base components (Button, Card, Input)
+- **modules/**: Module-specific components
+- **tools/**: Interactive tool components
+- **layouts/**: Page layouts and containers
+
+## Design System Compliance
+- Use Tailwind classes exclusively (no inline styles)
+- Follow theme colors from tailwind.config.ts
+- Consistent spacing scale (4px base unit)
+- Border radius: rounded-lg for cards, rounded-md for inputs
+- Shadows: shadow-sm default, shadow-md for elevated
+
+## Component Patterns
+
+### Module Cards
+```tsx
+<Card className="module-{status}">
+  <CardHeader>
+    <Badge variant={evidenceLevel}>Evidence Level</Badge>
+    <CardTitle>{module.title}</CardTitle>
+    <Progress value={progress} />
+  </CardHeader>
+  <CardContent>
+    {/* Module content */}
+  </CardContent>
+  {isLocked && <LockedOverlay reason={gatingReason} />}
+</Card>
+```
+
+### Interactive Tools
+```tsx
+<div className="tool-container">
+  <ToolHeader 
+    title={title}
+    description={description}
+    helpLink={helpUrl}
+  />
+  <ToolBody>
+    {/* Tool inputs/controls */}
+  </ToolBody>
+  <ToolFooter>
+    <Button onClick={handleSave}>Save Progress</Button>
+    <Button onClick={handleExport}>Export PDF</Button>
+  </ToolFooter>
+</div>
+```
+
+### Evidence Badges
+- Solid: green-100 bg, green-800 text
+- Emerging: yellow-100 bg, yellow-800 text  
+- Controversial: red-100 bg, red-800 text
+
+### Safety Indicators
+```tsx
+// Safety flag for critical information
+<div className="safety-flag">
+  <SafetyIcon className="w-5 h-5" />
+  <span>Important Safety Information</span>
+</div>
+
+// Medical disclaimer
+<div className="medical-disclaimer">
+  <AlertIcon className="w-5 h-5" />
+  <span>Consult your healthcare provider</span>
+</div>
+```
+
+## Mobile Responsiveness
+- Touch targets minimum 44x44px
+- Stack layouts on mobile (flex-col on sm:)
+- Hide non-essential info on mobile
+- Bottom sheets instead of modals on mobile
+- Thumb-reachable CTAs
+
+## Animation Guidelines
+- Subtle transitions (duration-200)
+- Respect prefers-reduced-motion
+- Loading skeletons over spinners
+- Stagger list item animations
+- No auto-playing videos
+
+## Form Components
+```tsx
+<FormField>
+  <FormLabel required>Symptom Severity</FormLabel>
+  <FormInput 
+    type="range"
+    min={0}
+    max={10}
+    aria-label="Rate severity from 0 to 10"
+  />
+  <FormError>{errors.severity?.message}</FormError>
+  <FormHint>0 = None, 10 = Severe</FormHint>
+</FormField>
+```
+
+## Progress Indicators
+- Module progress: Progress bar with percentage
+- Readiness score: Circular progress
+- Streak counter: Badge with flame icon
+- Loading states: Skeleton screens
+- Save status: Inline success checkmarks

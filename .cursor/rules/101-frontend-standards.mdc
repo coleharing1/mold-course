@@ -1,0 +1,88 @@
+---
+description: "Frontend development standards for React/Next.js components"
+globs: ["app/**/*.{tsx,jsx}", "components/**/*.{tsx,jsx}", "src/app/**/*.{tsx,jsx}"]
+tags: ["frontend", "react", "nextjs"]
+priority: "high"
+version: 1.1.0
+context_limit: 350
+---
+# Frontend Development Standards
+
+## Component Rules
+- Functional components only (no classes)
+- Max 300 lines per component file
+- Use custom hooks for logic extraction
+- Implement proper loading/error/empty states
+- Server components by default, "use client" only when needed
+
+## File Structure
+```typescript
+/**
+ * @fileoverview Brief description of component purpose
+ */
+import statements (external → internal → relative)
+
+interface ComponentProps {
+  // Props with JSDoc comments
+}
+
+export function ComponentName({ props }: ComponentProps) {
+  // Hooks first
+  // State declarations
+  // Effects
+  // Handlers
+  // Render helpers
+  return JSX
+}
+```
+
+## Naming Conventions
+- Components: PascalCase (e.g., SymptomTracker)
+- Files: kebab-case (e.g., symptom-tracker.tsx)
+- Props interfaces: [Component]Props
+- Hooks: use[Feature] (e.g., useReadinessScore)
+- Event handlers: handle[Event] (e.g., handleSymptomSubmit)
+- Boolean props: is/has/should (e.g., isLoading, hasError)
+
+## State Management
+- Local state for component-specific data
+- URL state for shareable UI state
+- Server state via React Query/SWR for API data
+- Global state sparingly (Zustand if needed)
+- Form state via React Hook Form + Zod
+
+## Accessibility Requirements
+- ARIA labels on ALL interactive elements
+- Keyboard navigation support (Tab, Enter, Escape)
+- Screen reader friendly content
+- Color contrast WCAG AA minimum (4.5:1)
+- Focus indicators visible
+- Alt text for images
+- Semantic HTML elements
+
+## Performance Optimization
+- Lazy load heavy components with dynamic imports
+- Use Next.js Image for all images
+- Implement virtual scrolling for lists > 50 items
+- Memoize expensive computations with useMemo
+- Debounce user inputs (search, filters)
+- Code split by route automatically
+
+## TypeScript Usage
+- Strict mode enabled
+- No any types (use unknown if needed)
+- Explicit return types for functions
+- Zod schemas for runtime validation
+- Proper generics for reusable components
+
+## Error Handling
+```tsx
+// Always handle errors gracefully
+try {
+  await riskyOperation()
+} catch (error) {
+  console.error('Operation failed:', error)
+  toast.error('Something went wrong. Please try again.')
+  // Log to error tracking service
+}
+```

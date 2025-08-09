@@ -1,0 +1,32 @@
+---
+description: "Minimal universal rules - keep under 100 lines for performance"
+alwaysApply: true
+priority: "critical"
+version: 1.0.0
+tags: ["core", "universal"]
+context_limit: 100
+---
+# Core Universal Rules
+
+## Code Quality (All Files)
+- Files MUST be under 500 lines (split if larger)
+- Only modify code directly relevant to the request
+- Never use placeholders like "// ... rest of code"
+- Always complete functions - no partial implementations
+
+## Programming Patterns
+- Functional programming preferred, avoid classes
+- Descriptive names with auxiliaries (isLoading, hasError)
+- Throw errors explicitly, no silent failures
+- Add @fileoverview JSDoc to every file
+
+## AI Interaction
+- Ask 3-5 clarifying questions ONLY when truly ambiguous
+- Otherwise proceed with implementation
+- Reference existing patterns before creating new ones
+- Check similar components/functions first
+
+## Critical Reminders
+- 📝 Update project-history.md every 5-10 files
+- 🚨 Health/safety content requires disclaimers
+- ⚠️ Never skip module gating validations

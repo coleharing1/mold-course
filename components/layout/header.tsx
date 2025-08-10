@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button'
 import { Menu } from 'lucide-react'
 import { useState } from 'react'
 import { MobileMenu } from './mobile-menu'
+import { useSession } from '@/lib/hooks/use-session'
+import { signOut } from 'next-auth/react'
 
 interface HeaderProps {
   variant?: 'marketing' | 'app'
@@ -12,6 +14,7 @@ interface HeaderProps {
 
 export function Header({ variant = 'marketing' }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { user } = useSession()
 
   if (variant === 'marketing') {
     return (
@@ -93,11 +96,15 @@ export function Header({ variant = 'marketing' }: HeaderProps) {
               </Link>
             </div>
             <div className="flex items-center space-x-4">
-              <span className="hidden text-sm text-gray-600 sm:inline">Welcome back!</span>
-              <Button variant="ghost" size="sm">
-                Account
-              </Button>
-              <Button variant="ghost" size="sm">
+              <span className="hidden text-sm text-gray-600 sm:inline">
+                Welcome back{user?.name ? `, ${user.name}` : '!'}
+              </span>
+              <Link href="/account">
+                <Button variant="ghost" size="sm">
+                  Account
+                </Button>
+              </Link>
+              <Button variant="ghost" size="sm" onClick={() => signOut({ callbackUrl: '/signin' })}>
                 Sign Out
               </Button>
             </div>

@@ -16,7 +16,8 @@
       "Bash(git branch:*)",
       "Bash(git commit:*)",
       "Bash(npm run lint:*)",
-      "Bash(npm run format:*)"
+      "Bash(npm run format:*)",
+      "Bash(git stash apply:*)"
     ],
     "deny": []
   }

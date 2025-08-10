@@ -7,6 +7,162 @@ This document maintains a reverse-chronological log of all significant changes, 
 
 ---
 
+## 2025-08-10 - Major Content Restructure: Aligning with Kajsa's Protocol
+
+### Summary
+Completed major platform restructure to align precisely with Kajsa's proven mold detox protocol from her PDF guide. Rewrote and created 7 modules (0-6) with specific dosing, timelines, and practical implementation details. This restructure transforms the platform from educational content to prescriptive, actionable protocols based on real recovery experience.
+
+### Files Created/Modified (Content Restructure)
+- `content/modules/00-quick-start.mdx` - Enhanced with Kajsa's 5-step protocol
+- `content/modules/01-identify-exposure.mdx` - Renamed from understanding-mold, focus on identification
+- `content/modules/02-testing-diagnosis.mdx` - NEW: Complete testing guide with costs and lab ordering
+- `content/modules/03-drainage-pathways.mdx` - NEW: Critical 2-4 week preparation protocol
+- `content/modules/04-mycotoxin-binders.mdx` - NEW: Mycotoxin-binder matching chart
+- `content/modules/05-binder-protocols-csm.mdx` - NEW: CSM prescription protocols and dosing
+- `content/modules/06-antifungal-protocols.mdx` - NEW: Itraconazole and natural antifungals
+- Deleted obsolete `02-exposure-assessment.mdx`
+
+### Key Protocol Changes Implemented
+- **Timeline**: Weeks 1-4 drainage, Weeks 5-8 binders, Weeks 7-11 antifungals
+- **Prescription Focus**: CSM (4g 4x daily) and Itraconazole (100mg 2x daily) as primary treatments
+- **Safety Gates**: Enforced 80% drainage readiness for 7 days before binders
+- **Practical Info**: Added costs, telehealth options, prescription scripts
+- **Mycotoxin Matching**: Comprehensive chart matching toxins to specific binders
+
+### Content Highlights
+- Each module now includes actionable checklists with checkboxes
+- Specific dosing protocols for all supplements and medications
+- Scripts for obtaining prescriptions via telehealth
+- Cost breakdowns for all tests and treatments
+- Real-world timelines based on actual recovery experiences
+- Safety warnings and medical disclaimers throughout
+
+### Next Steps (Content Restructure)
+- Module 07: Managing Herx Reactions
+- Module 08: Supporting Modalities
+- Module 09: Diet & Nutrition
+- Module 10: Retesting & Prevention
+- Create "Kajsa's Exact Protocol" special section
+- Medical Advocacy Center resources
+
+---
+
+## 2025-08-10 - Phase 1 Weeks 1-3 Complete: Auth, Payments, Modules
+
+### Summary
+Completed the majority of Phase 1 implementation including full authentication system, Stripe payment integration with subscriptions, onboarding wizard, and complete module infrastructure with MDX/Contentlayer. Fixed critical Tailwind CSS compilation issue.
+
+### Files Created/Modified (50+ total)
+
+#### Week 1 - Day 5: Landing Page Components
+- `components/marketing/hero.tsx` - Hero section with gradient background
+- `components/marketing/transformation.tsx` - Before/after journey visualization
+- `components/marketing/evidence.tsx` - Evidence-based content badges
+- `components/marketing/disclaimer-modal.tsx` - Medical disclaimer gate
+- `components/marketing/curriculum.tsx` - Module preview grid
+- `components/marketing/tools-preview.tsx` - Interactive tools showcase
+- `components/marketing/faq.tsx` - Accordion FAQ section
+- `components/marketing/pricing-table.tsx` - Three-tier pricing display
+- `components/marketing/trust-signals.tsx` - Security and trust badges
+- `components/marketing/social-proof.tsx` - Testimonials and stats
+
+#### Week 2 - Stripe Integration & Onboarding
+- `lib/stripe/config.ts` - Stripe configuration and pricing
+- `lib/stripe/client.ts` - Server-side Stripe client
+- `lib/stripe/client-browser.ts` - Browser-safe Stripe
+- `app/api/checkout/route.ts` - Checkout session creation
+- `app/api/webhooks/stripe/route.ts` - Payment webhook handler
+- `app/(app)/checkout/page.tsx` - Checkout page with plan selection
+- `app/(app)/checkout/success/page.tsx` - Success page with confetti
+- `app/(app)/checkout/cancelled/page.tsx` - Cancellation handling
+- `app/(app)/onboarding/page.tsx` - Multi-step wizard container
+- `components/onboarding/profile-step.tsx` - User profile collection
+- `components/onboarding/symptoms-step.tsx` - Symptom severity assessment
+- `components/onboarding/exposure-step.tsx` - Mold exposure history
+- `components/onboarding/constraints-step.tsx` - Budget and preferences
+- `components/onboarding/review-step.tsx` - Summary with recommendations
+- `app/api/onboarding/route.ts` - Save onboarding data with Prisma
+
+#### Week 3 - Module Infrastructure
+- `contentlayer.config.ts` - MDX configuration for modules/lessons
+- `next.config.mjs` - Contentlayer integration
+- `content/modules/00-quick-start.mdx` - Quick Start Guide content
+- `content/modules/01-understanding-mold.mdx` - Mold illness education
+- `content/modules/02-exposure-assessment.mdx` - Remediation guide
+- `app/(app)/modules/page.tsx` - Module list with filtering
+- `app/(app)/modules/[slug]/page.tsx` - Module detail page
+- `app/(app)/modules/[slug]/lessons/[lessonId]/page.tsx` - Lesson viewer
+- `app/api/progress/route.ts` - Progress tracking API
+- `hooks/use-progress.ts` - Progress management hook
+
+#### Critical Fixes
+- `postcss.config.js` - Added PostCSS configuration (was missing)
+- `styles/globals.css` - Fixed invalid `border-border` class
+- `app/test/page.tsx` - Test page for Tailwind verification
+- Removed duplicate `app/page.tsx` to fix routing conflict
+
+### Key Accomplishments
+- ✅ Complete authentication with NextAuth (signin, signup, password reset)
+- ✅ Stripe integration with checkout, webhooks, subscriptions
+- ✅ 5-step onboarding wizard with personalized recommendations
+- ✅ MDX/Contentlayer setup for module content management
+- ✅ Module list, detail pages, and lesson viewer
+- ✅ Progress tracking system with API and hooks
+- ✅ 3 complete modules with comprehensive content
+- ✅ Fixed Tailwind CSS compilation issues
+
+### Dependencies Added
+- `stripe` & `@stripe/stripe-js` - Payment processing
+- `contentlayer2` & `next-contentlayer2` - MDX content management
+- `date-fns` - Date formatting
+- `reading-time` - Calculate reading time
+- `canvas-confetti` - Success animations
+- UI components via shadcn: `progress`, `input`, `tabs`, `badge`
+
+### Technical Decisions
+- **Stripe API Version**: Using '2025-07-30.basil' (latest)
+- **Content Strategy**: MDX files with Contentlayer for type-safe content
+- **Progress Tracking**: Database-backed with optimistic UI updates
+- **Onboarding Flow**: Multi-step wizard with local state management
+- **Module Gating**: Prerequisites enforced through progress tracking
+
+### Problems Solved
+1. **Tailwind Not Working**: Missing PostCSS config and invalid CSS class
+2. **TypeScript Errors**: Environment variable typing with bracket notation
+3. **Stripe Types**: API version mismatch resolved
+4. **Routing Conflicts**: Duplicate page.tsx files causing issues
+5. **Button Variants**: Fixed type mismatches in component props
+
+### Current Status
+- **Phase 1 Progress**: ~65% complete
+- **Completed**: Auth, Payments, Module Infrastructure, Landing Page
+- **In Progress**: Week 4 - Interactive Tools
+- **Pending**: Dashboard widgets, Resources vault, Email system, Analytics
+
+### Next Steps - Week 4
+1. Implement Exposure Checklist tool
+2. Build Drainage Readiness assessment
+3. Create Binder Planner
+4. Add Symptom Tracker
+5. Complete dashboard widgets
+6. Set up email system with Resend
+7. Configure PostHog analytics
+
+### Server Information
+- Development server: `http://localhost:3005`
+- Contentlayer: Successfully generating 3 documents
+- Database: SQLite with Prisma (16 models)
+- All routes working: /, /modules, /dashboard, /checkout
+
+### Notes
+- Tailwind styles now properly applied across all pages
+- Module content uses MDX for rich formatting
+- Progress tracking persists across sessions
+- Onboarding data generates personalized recommendations
+- Stripe webhook handling payment events successfully
+
+---
+
 ## 2025-08-10 - Phase 1 Day 3-4: NextAuth Authentication Complete
 
 ### Summary

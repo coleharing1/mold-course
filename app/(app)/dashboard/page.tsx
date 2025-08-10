@@ -1,6 +1,14 @@
+'use client'
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { ProgressWidget } from '@/components/dashboard/progress-widget'
+import { NextActionCard } from '@/components/dashboard/next-action'
+import { ReadinessStatus } from '@/components/dashboard/readiness-status'
+import { StreakCounter } from '@/components/dashboard/streak-counter'
+import { BadgesDisplay } from '@/components/dashboard/badges'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, BookOpen, Trophy, TrendingUp, Clock } from 'lucide-react'
+import { ArrowRight, BookOpen } from 'lucide-react'
 import Link from 'next/link'
 
 export default function Dashboard() {
@@ -14,71 +22,38 @@ export default function Dashboard() {
         </p>
       </div>
 
-      {/* Progress Overview */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Overall Progress</CardTitle>
-            <TrendingUp className="text-muted-foreground h-4 w-4" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">23%</div>
-            <p className="text-muted-foreground text-xs">2 of 10 modules completed</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Current Streak</CardTitle>
-            <Trophy className="text-muted-foreground h-4 w-4" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">7 days</div>
-            <p className="text-muted-foreground text-xs">Your best: 7 days</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Drainage Score</CardTitle>
-            <Clock className="text-muted-foreground h-4 w-4" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">68%</div>
-            <p className="text-muted-foreground text-xs">3 more days until ready</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Next Retest</CardTitle>
-            <Clock className="text-muted-foreground h-4 w-4" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">83 days</div>
-            <p className="text-muted-foreground text-xs">VCS test recommended</p>
-          </CardContent>
-        </Card>
-      </div>
+      {/* Main Dashboard Content with Tabs */}
+      <Tabs defaultValue="overview" className="space-y-6">
+        <TabsList className="grid w-full grid-cols-5">
+          <TabsTrigger value="overview">Overview</TabsTrigger>
+          <TabsTrigger value="next-action">Next Action</TabsTrigger>
+          <TabsTrigger value="readiness">Readiness</TabsTrigger>
+          <TabsTrigger value="streak">Streak</TabsTrigger>
+          <TabsTrigger value="badges">Badges</TabsTrigger>
+        </TabsList>
 
-      {/* Next Action */}
-      <Card className="border-primary-200 bg-primary-50">
-        <CardHeader>
-          <CardTitle>Your Next Step</CardTitle>
-          <CardDescription>Continue with Module 3: Testing & Diagnosis</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <p className="mb-4 text-sm text-gray-600">
-            Learn about environmental vs medical testing options, understand the pros and cons of
-            each approach, and make an informed decision about your testing strategy.
-          </p>
-          <Link href="/modules/testing-diagnosis">
-            <Button>
-              Continue Learning
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
-        </CardContent>
-      </Card>
+        <TabsContent value="overview" className="space-y-6">
+          <ProgressWidget />
+        </TabsContent>
 
-      {/* Recent Activity */}
+        <TabsContent value="next-action" className="space-y-6">
+          <NextActionCard />
+        </TabsContent>
+
+        <TabsContent value="readiness" className="space-y-6">
+          <ReadinessStatus />
+        </TabsContent>
+
+        <TabsContent value="streak" className="space-y-6">
+          <StreakCounter />
+        </TabsContent>
+
+        <TabsContent value="badges" className="space-y-6">
+          <BadgesDisplay />
+        </TabsContent>
+      </Tabs>
+
+      {/* Additional Info Section */}
       <div className="grid gap-6 md:grid-cols-2">
         <Card>
           <CardHeader>

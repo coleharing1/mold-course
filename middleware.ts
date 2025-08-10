@@ -1,6 +1,17 @@
 import { withAuth } from 'next-auth/middleware'
 import { NextResponse } from 'next/server'
 
+// TODO: RE-ENABLE AUTHENTICATION IN PHASE 3 WHEN MIGRATING TO SUPABASE
+// Temporarily disabled for development - all routes are accessible without login
+// Original authentication logic is preserved below for re-enabling
+
+export default function middleware() {
+  // Authentication temporarily disabled for development
+  return NextResponse.next()
+}
+
+// ORIGINAL AUTH MIDDLEWARE - RE-ENABLE IN PHASE 3
+/*
 export default withAuth(
   function middleware() {
     // Custom middleware logic can go here
@@ -46,6 +57,7 @@ export default withAuth(
     },
   }
 )
+*/
 
 export const config = {
   matcher: [

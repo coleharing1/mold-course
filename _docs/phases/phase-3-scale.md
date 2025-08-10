@@ -370,6 +370,8 @@ export const getPublicUrl = (bucket: string, path: string) => {
 ## Launch Checklist
 
 ### Pre-Launch
+- [ ] **RE-ENABLE AUTHENTICATION** - Remove mock-session.ts, restore middleware.ts
+- [ ] **Remove all dev bypasses** - Search for "TODO: RE-ENABLE" comments
 - [ ] All features tested
 - [ ] Performance optimized
 - [ ] Security audit passed

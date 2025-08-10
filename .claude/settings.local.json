@@ -17,7 +17,14 @@
       "Bash(git commit:*)",
       "Bash(npm run lint:*)",
       "Bash(npm run format:*)",
-      "Bash(git stash apply:*)"
+      "Bash(git add:*)",
+      "Bash(mv:*)",
+      "Bash(curl:*)",
+      "Bash(git reset:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run type-check:*)",
+      "Bash(npx shadcn@latest add:*)",
+      "Bash(git rm:*)"
     ],
     "deny": []
   }

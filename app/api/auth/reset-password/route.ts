@@ -37,7 +37,7 @@ export async function POST(req: Request) {
 
     // In production, send email with reset link
     // For development, we'll log the reset URL
-    const resetUrl = `${process.env.NEXT_PUBLIC_APP_URL}/reset-password?token=${resetToken}`
+    const resetUrl = `${process.env['NEXT_PUBLIC_APP_URL'] || 'http://localhost:3000'}/reset-password?token=${resetToken}`
 
     if (process.env.NODE_ENV === 'development') {
       // In development, log the reset URL

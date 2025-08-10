@@ -77,13 +77,11 @@ export function calculateReadingTime(text: string, wordsPerMinute = 200): number
 
 /**
  * Check if a module is locked based on prerequisites
- * @param moduleId - Module to check
  * @param completedModules - Array of completed module IDs
  * @param prerequisites - Array of prerequisite module IDs
  * @returns Whether the module is locked
  */
 export function isModuleLocked(
-  moduleId: string,
   completedModules: string[],
   prerequisites: string[]
 ): boolean {

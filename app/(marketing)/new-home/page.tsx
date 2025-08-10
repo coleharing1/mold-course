@@ -257,7 +257,7 @@ const MagneticButton = ({
   href: string
   variant?: 'primary' | 'secondary'
 }) => {
-  const ref = useRef<HTMLAnchorElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -279,7 +279,7 @@ const MagneticButton = ({
 
   return (
     <Link href={href}>
-      <motion.a
+      <motion.div
         ref={ref}
         className={cn(baseClass, variantClass)}
         onMouseMove={handleMouseMove}
@@ -299,7 +299,7 @@ const MagneticButton = ({
             transition={{ duration: 0.5 }}
           />
         )}
-      </motion.a>
+      </motion.div>
     </Link>
   )
 }
@@ -403,15 +403,15 @@ const InteractiveRecoveryJourney = () => {
               <div className="w-2/12 flex justify-center">
                 <motion.div
                   className="w-20 h-20 rounded-full flex items-center justify-center text-3xl shadow-lg border-4 border-white relative z-10"
-                  style={{ backgroundColor: phase.color }}
+                  style={{ 
+                    backgroundColor: phase.color,
+                    animationDelay: `${index * 0.3}s`,
+                  }}
                   whileHover={{ scale: 1.2, rotate: 360 }}
                   transition={{ duration: 0.5 }}
                   animate={isInView ? {
                     scale: [0.8, 1.1, 1],
                   } : {}}
-                  style={{
-                    animationDelay: `${index * 0.3}s`,
-                  }}
                 >
                   {phase.icon}
                 </motion.div>

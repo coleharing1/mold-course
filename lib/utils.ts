@@ -87,7 +87,7 @@ export function isModuleLocked(
   completedModules: string[],
   prerequisites: string[]
 ): boolean {
-  return prerequisites.some(prereq => !completedModules.includes(prereq))
+  return prerequisites.some((prereq) => !completedModules.includes(prereq))
 }
 
 /**
@@ -131,12 +131,12 @@ export function isValidEmail(email: string): boolean {
  * @param wait - Wait time in milliseconds
  * @returns Debounced function
  */
-export function debounce<T extends (...args: any[]) => any>(
+export function debounce<T extends (...args: unknown[]) => unknown>(
   func: T,
   wait: number
 ): (...args: Parameters<T>) => void {
   let timeout: NodeJS.Timeout | null = null
-  
+
   return (...args: Parameters<T>) => {
     if (timeout) clearTimeout(timeout)
     timeout = setTimeout(() => func(...args), wait)

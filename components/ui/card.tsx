@@ -20,19 +20,9 @@ const paddingClasses = {
   lg: 'p-8',
 }
 
-export function Card({ 
-  children, 
-  className,
-  variant = 'bordered',
-  padding = 'md'
-}: CardProps) {
+export function Card({ children, className, variant = 'bordered', padding = 'md' }: CardProps) {
   return (
-    <div className={cn(
-      'rounded-lg',
-      variantClasses[variant],
-      paddingClasses[padding],
-      className
-    )}>
+    <div className={cn('rounded-lg', variantClasses[variant], paddingClasses[padding], className)}>
       {children}
     </div>
   )
@@ -44,11 +34,7 @@ interface CardHeaderProps {
 }
 
 export function CardHeader({ children, className }: CardHeaderProps) {
-  return (
-    <div className={cn('pb-4 border-b border-gray-200', className)}>
-      {children}
-    </div>
-  )
+  return <div className={cn('border-b border-gray-200 pb-4', className)}>{children}</div>
 }
 
 interface CardTitleProps {
@@ -57,11 +43,7 @@ interface CardTitleProps {
 }
 
 export function CardTitle({ children, className }: CardTitleProps) {
-  return (
-    <h3 className={cn('text-lg font-semibold text-gray-900', className)}>
-      {children}
-    </h3>
-  )
+  return <h3 className={cn('text-lg font-semibold text-gray-900', className)}>{children}</h3>
 }
 
 interface CardDescriptionProps {
@@ -70,11 +52,7 @@ interface CardDescriptionProps {
 }
 
 export function CardDescription({ children, className }: CardDescriptionProps) {
-  return (
-    <p className={cn('mt-1 text-sm text-gray-600', className)}>
-      {children}
-    </p>
-  )
+  return <p className={cn('mt-1 text-sm text-gray-600', className)}>{children}</p>
 }
 
 interface CardContentProps {
@@ -83,11 +61,7 @@ interface CardContentProps {
 }
 
 export function CardContent({ children, className }: CardContentProps) {
-  return (
-    <div className={cn('pt-4', className)}>
-      {children}
-    </div>
-  )
+  return <div className={cn('pt-4', className)}>{children}</div>
 }
 
 interface CardFooterProps {
@@ -96,9 +70,5 @@ interface CardFooterProps {
 }
 
 export function CardFooter({ children, className }: CardFooterProps) {
-  return (
-    <div className={cn('pt-4 mt-4 border-t border-gray-200', className)}>
-      {children}
-    </div>
-  )
+  return <div className={cn('mt-4 border-t border-gray-200 pt-4', className)}>{children}</div>
 }

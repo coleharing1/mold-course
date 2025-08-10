@@ -1,0 +1,11 @@
+node_modules
+.next
+out
+public
+.env*
+*.md
+*.mdx
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+prisma/migrations

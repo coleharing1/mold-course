@@ -1,1 +1,26 @@
-{}
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/(auth)/signin/page": "app/(auth)/signin/page.js",
+  "/(auth)/reset-password/page": "app/(auth)/reset-password/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/(auth)/signup/page": "app/(auth)/signup/page.js",
+  "/api/auth/register/route": "app/api/auth/register/route.js",
+  "/api/auth/reset-password/confirm/route": "app/api/auth/reset-password/confirm/route.js",
+  "/api/checkout/route": "app/api/checkout/route.js",
+  "/api/onboarding/route": "app/api/onboarding/route.js",
+  "/api/auth/reset-password/route": "app/api/auth/reset-password/route.js",
+  "/api/webhooks/stripe/route": "app/api/webhooks/stripe/route.js",
+  "/api/progress/route": "app/api/progress/route.js",
+  "/page": "app/page.js",
+  "/test/page": "app/test/page.js",
+  "/sitemap-dev/page": "app/sitemap-dev/page.js",
+  "/(app)/checkout/page": "app/(app)/checkout/page.js",
+  "/(app)/checkout/success/page": "app/(app)/checkout/success/page.js",
+  "/(app)/checkout/cancelled/page": "app/(app)/checkout/cancelled/page.js",
+  "/(app)/modules/[slug]/lessons/[lessonId]/page": "app/(app)/modules/[slug]/lessons/[lessonId]/page.js",
+  "/(app)/modules/[slug]/page": "app/(app)/modules/[slug]/page.js",
+  "/(app)/onboarding/page": "app/(app)/onboarding/page.js",
+  "/(app)/modules/page": "app/(app)/modules/page.js",
+  "/(app)/dashboard/page": "app/(app)/dashboard/page.js",
+  "/(marketing)/page": "app/(marketing)/page.js"
+}

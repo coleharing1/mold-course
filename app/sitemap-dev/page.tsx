@@ -23,6 +23,7 @@ export default function SitemapDevPage() {
       icon: Home,
       routes: [
         { path: '/', label: 'Landing Page (Marketing Home)', description: 'Main marketing page with hero, pricing, etc.' },
+        { path: '/new-home', label: '🆕 Enhanced Home Page (2025 Design)', description: 'Modern redesign with animations, glassmorphism, and interactive elements' },
         { path: '/test', label: 'Tailwind Test Page', description: 'Test page to verify Tailwind CSS is working' },
       ]
     },
@@ -135,6 +136,10 @@ export default function SitemapDevPage() {
             <a href="/" target="_blank" rel="noopener noreferrer" 
                className="px-3 py-1.5 bg-primary-100 text-primary-700 rounded-md hover:bg-primary-200 transition-colors text-sm font-medium">
               Home
+            </a>
+            <a href="/new-home" target="_blank" rel="noopener noreferrer" 
+               className="px-3 py-1.5 bg-pink-100 text-pink-700 rounded-md hover:bg-pink-200 transition-colors text-sm font-medium">
+              🆕 Enhanced Home
             </a>
             <a href="/dashboard" target="_blank" rel="noopener noreferrer"
                className="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200 transition-colors text-sm font-medium">

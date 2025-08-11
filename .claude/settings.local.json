@@ -26,7 +26,8 @@
       "Bash(npx shadcn@latest add:*)",
       "Bash(git rm:*)",
       "Bash(npx tsc:*)",
-      "Bash(lsof:*)"
+      "Bash(lsof:*)",
+      "Bash(npx eslint:*)"
     ],
     "deny": []
   }

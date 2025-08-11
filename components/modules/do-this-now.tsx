@@ -80,4 +80,5 @@ function DoThisNow({
   )
 }
 
+export { DoThisNow };
 export default DoThisNow;

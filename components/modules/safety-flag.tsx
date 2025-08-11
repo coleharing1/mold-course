@@ -63,4 +63,5 @@ function SafetyFlag({ type, message, title }: SafetyFlagProps) {
   )
 }
 
+export { SafetyFlag };
 export default SafetyFlag;

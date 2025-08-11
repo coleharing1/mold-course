@@ -95,4 +95,5 @@ function ToolPreview({
   return <CardContent />
 }
 
+export { ToolPreview };
 export default ToolPreview;

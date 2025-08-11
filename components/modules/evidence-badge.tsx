@@ -55,4 +55,5 @@ function EvidenceBadge({ level, tooltip }: EvidenceBadgeProps) {
   )
 }
 
+export { EvidenceBadge };
 export default EvidenceBadge;

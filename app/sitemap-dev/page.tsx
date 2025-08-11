@@ -436,19 +436,19 @@ export default function SitemapDevPage() {
       ],
     },
     {
-      title: 'Quiz & Assessment System (1/2 Complete)',
+      title: 'Quiz & Assessment System (2/2 Complete) ✅',
       icon: FileText,
       routes: [
         {
           path: '/quiz',
-          label: 'Main Quiz Page',
-          description: 'Quiz library and assessment center',
-          disabled: true,
+          label: 'Main Assessment Quiz',
+          description: 'Interactive 2-minute mold health assessment for lead generation',
+          completed: true,
         },
         {
           path: '/quiz/first-steps-guide',
-          label: 'First Steps Guide Quiz',
-          description: 'Interactive guide for immediate action steps',
+          label: 'Personalized Action Guide',
+          description: 'Dynamic quiz results with personalized next steps based on score',
           completed: true,
         },
       ],

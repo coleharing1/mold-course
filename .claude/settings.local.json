@@ -27,7 +27,9 @@
       "Bash(git rm:*)",
       "Bash(npx tsc:*)",
       "Bash(lsof:*)",
-      "Bash(npx eslint:*)"
+      "Bash(npx eslint:*)",
+      "Bash(git push:*)",
+      "Bash(git diff:*)"
     ],
     "deny": []
   }

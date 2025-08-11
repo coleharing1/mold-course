@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation';
 import { allLessons, allModules } from 'contentlayer/generated';
 import { MDXContent } from '@/components/mdx-content';
 import { LessonNavigation } from '@/components/modules/lesson-navigation';
-// import { VisualInspectionContent } from '@/components/lessons/visual-inspection-content';
+import { VisualInspectionContent } from '@/components/lessons/visual-inspection-content';
 
 interface LessonPageProps {
   params: {
@@ -108,13 +108,7 @@ export default function LessonPage({ params }: LessonPageProps) {
       {/* Lesson Content */}
       <div className="prose prose-lg max-w-none mb-8">
         {params.lessonId === '01-visual-inspection-mastery' ? (
-          <div className="p-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg">
-            <h2 className="text-2xl font-bold mb-4">🎨 Beautiful Visual Inspection Lesson</h2>
-            <p className="mb-4">This is our enhanced visual inspection lesson with interactive content!</p>
-            <div className="bg-white/10 rounded-lg p-4">
-              <p>The beautiful interactive component is working! 🎉</p>
-            </div>
-          </div>
+          <VisualInspectionContent />
         ) : (
           <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
             <h2 className="font-bold text-yellow-800 mb-2">Content Preview</h2>

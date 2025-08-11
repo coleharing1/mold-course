@@ -1,0 +1,198 @@
+/**
+ * @fileoverview Design Lab Theme Variants - CSS for different design approaches
+ * Isolated theme styles for testing different visual directions
+ */
+
+/* Current Theme - Existing project styling (default) */
+.design-theme-current {
+  /* Uses existing CSS variables and styling */
+}
+
+/* Emerald Health Theme - True to theme-rules.md */
+.design-theme-emerald {
+  --primary: 134 239 172;
+  --primary-foreground: 2 44 34;
+  --secondary: 240 253 244;
+  --secondary-foreground: 22 101 52;
+  --accent: 167 243 208;
+  --accent-foreground: 2 44 34;
+  --muted: 240 253 244;
+  --muted-foreground: 74 222 128;
+  --background: 255 255 255;
+  --foreground: 2 44 34;
+  --card: 255 255 255;
+  --card-foreground: 2 44 34;
+  --border: 187 247 208;
+  --input: 187 247 208;
+  --ring: 134 239 172;
+}
+
+.design-theme-emerald .bg-gradient-to-r {
+  background: linear-gradient(to right, #f0fdf4, #dcfce7);
+}
+
+.design-theme-emerald .border-emerald-200 {
+  border-color: rgb(187 247 208);
+}
+
+/* Purple Wellness Theme */
+.design-theme-purple {
+  --primary: 196 181 253;
+  --primary-foreground: 88 28 135;
+  --secondary: 250 245 255;
+  --secondary-foreground: 107 33 168;
+  --accent: 221 214 254;
+  --accent-foreground: 88 28 135;
+  --muted: 250 245 255;
+  --muted-foreground: 147 51 234;
+  --background: 255 255 255;
+  --foreground: 88 28 135;
+  --card: 255 255 255;
+  --card-foreground: 88 28 135;
+  --border: 221 214 254;
+  --input: 221 214 254;
+  --ring: 196 181 253;
+}
+
+.design-theme-purple .bg-gradient-to-r {
+  background: linear-gradient(to right, #faf5ff, #f3e8ff);
+}
+
+/* Medical Blue Theme */
+.design-theme-blue {
+  --primary: 147 197 253;
+  --primary-foreground: 30 58 138;
+  --secondary: 239 246 255;
+  --secondary-foreground: 29 78 216;
+  --accent: 191 219 254;
+  --accent-foreground: 30 58 138;
+  --muted: 239 246 255;
+  --muted-foreground: 59 130 246;
+  --background: 255 255 255;
+  --foreground: 30 58 138;
+  --card: 255 255 255;
+  --card-foreground: 30 58 138;
+  --border: 191 219 254;
+  --input: 191 219 254;
+  --ring: 147 197 253;
+}
+
+.design-theme-blue .bg-gradient-to-r {
+  background: linear-gradient(to right, #eff6ff, #dbeafe);
+}
+
+/* Minimal Clean Theme */
+.design-theme-minimal {
+  --primary: 15 15 15;
+  --primary-foreground: 250 250 250;
+  --secondary: 245 245 245;
+  --secondary-foreground: 15 15 15;
+  --accent: 229 229 229;
+  --accent-foreground: 15 15 15;
+  --muted: 245 245 245;
+  --muted-foreground: 115 115 115;
+  --background: 255 255 255;
+  --foreground: 15 15 15;
+  --card: 255 255 255;
+  --card-foreground: 15 15 15;
+  --border: 229 229 229;
+  --input: 229 229 229;
+  --ring: 15 15 15;
+}
+
+.design-theme-minimal .bg-gradient-to-r {
+  background: linear-gradient(to right, #fafafa, #f5f5f5);
+}
+
+/* Bold Gradients Theme */
+.design-theme-bold {
+  --primary: 251 113 133;
+  --primary-foreground: 255 255 255;
+  --secondary: 254 240 138;
+  --secondary-foreground: 133 77 14;
+  --accent: 168 85 247;
+  --accent-foreground: 255 255 255;
+  --muted: 254 226 226;
+  --muted-foreground: 190 18 60;
+  --background: 255 255 255;
+  --foreground: 15 15 15;
+  --card: 255 255 255;
+  --card-foreground: 15 15 15;
+  --border: 251 113 133;
+  --input: 251 113 133;
+  --ring: 251 113 133;
+}
+
+.design-theme-bold .bg-gradient-to-r {
+  background: linear-gradient(to right, #fef2f2, #fef3c7, #f3e8ff);
+}
+
+.design-theme-bold .text-gradient {
+  background: linear-gradient(45deg, #fb7185, #fbbf24, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Health Semantic Colors for all themes */
+.design-lab-container {
+  --severity-minimal: 34 197 94;    /* green-500 */
+  --severity-mild: 132 204 22;      /* lime-500 */
+  --severity-moderate: 234 179 8;   /* yellow-500 */
+  --severity-severe: 249 115 22;    /* orange-500 */
+  --severity-critical: 239 68 68;   /* red-500 */
+  
+  --status-improving: 34 197 94;    /* green-500 */
+  --status-stable: 59 130 246;     /* blue-500 */
+  --status-declining: 249 115 22;  /* orange-500 */
+  --status-critical: 239 68 68;    /* red-500 */
+}
+
+/* Enhanced styling for bold theme */
+.design-theme-bold .card {
+  background: linear-gradient(135deg, rgba(251, 113, 133, 0.1), rgba(168, 85, 247, 0.1));
+  border: 1px solid rgba(251, 113, 133, 0.3);
+}
+
+.design-theme-bold .button {
+  background: linear-gradient(45deg, #fb7185, #a855f7);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.design-theme-bold .button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(251, 113, 133, 0.4);
+}
+
+/* Animations for bold theme */
+.design-theme-bold .animate-pulse-slow {
+  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .8;
+  }
+}
+
+/* Glass morphism effects for certain themes */
+.design-theme-purple .glass-effect,
+.design-theme-blue .glass-effect {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Dark mode overrides (when implemented) */
+@media (prefers-color-scheme: dark) {
+  .design-theme-minimal {
+    --background: 15 15 15;
+    --foreground: 250 250 250;
+    --card: 24 24 27;
+    --card-foreground: 250 250 250;
+  }
+}

@@ -1,0 +1,840 @@
+/**
+ * @fileoverview Trend 2025 Theme - Modern health platform based on 2025 UI/UX research
+ * Incorporates: AI-personalization, voice UI, mental health focus, trust-building colors,
+ * age-inclusive design, dashboard-centric layouts, and predictive design patterns
+ */
+
+/* ============================================
+   TREND 2025 - MODERN HEALTH PLATFORM THEME
+   ============================================ */
+
+.design-theme-trend2025 {
+  /* ==================== CORE COLOR PALETTE ==================== */
+  /* Medical Trust Colors - Blues & Greens for credibility */
+  --medical-blue: 71 126 195;          /* #477EC3 - Primary medical blue */
+  --medical-blue-light: 106 156 218;   /* #6A9CDA - Lighter variant */
+  --medical-blue-dark: 51 96 155;      /* #33609B - Darker variant */
+  
+  --health-green: 76 175 134;          /* #4CAF86 - Health green */
+  --health-green-light: 116 195 164;   /* #74C3A4 - Lighter variant */
+  --health-green-dark: 56 145 104;     /* #389168 - Darker variant */
+  
+  /* Calming Mental Health Palette */
+  --calm-lavender: 181 172 213;        /* #B5ACD5 - Stress relief */
+  --calm-mint: 184 224 210;            /* #B8E0D2 - Refreshing */
+  --calm-peach: 255 218 193;           /* #FFDAC1 - Warmth */
+  
+  /* Clean Medical Backgrounds */
+  --bg-primary: 248 250 252;           /* #F8FAFC - Ultra clean background */
+  --bg-secondary: 255 255 255;         /* #FFFFFF - Pure white */
+  --surface: 255 255 255;              /* White cards */
+  --surface-elevated: 253 254 255;     /* Slightly elevated */
+  
+  /* Adaptive Text (Age-Inclusive) */
+  --text-primary: 17 24 39;            /* #111827 - High contrast black */
+  --text-secondary: 75 85 99;          /* #4B5563 - Clear gray */
+  --text-muted: 156 163 175;           /* #9CA3AF - Subtle text */
+  --text-inverse: 255 255 255;         /* White on dark */
+  
+  /* AI & Predictive Accent Colors */
+  --ai-purple: 139 92 246;             /* #8B5CF6 - AI/Smart features */
+  --ai-purple-light: 167 139 250;      /* #A78BFA - Lighter */
+  --predictive-orange: 251 146 60;     /* #FB923C - Predictive nudges */
+  
+  /* Voice UI Indicators */
+  --voice-active: 59 130 246;          /* #3B82F6 - Voice active blue */
+  --voice-listening: 239 68 68;        /* #EF4444 - Recording red */
+  
+  /* Wearable Data Visualization */
+  --data-heart: 239 68 68;             /* #EF4444 - Heart rate */
+  --data-oxygen: 59 130 246;           /* #3B82F6 - O2 levels */
+  --data-sleep: 99 102 241;            /* #6366F1 - Sleep tracking */
+  --data-activity: 34 197 94;          /* #22C55E - Activity */
+  
+  /* Status & Alerts (Healthcare specific) */
+  --status-normal: 76 175 134;         /* Green - healthy range */
+  --status-caution: 251 191 36;        /* #FBBF24 - Needs attention */
+  --status-alert: 239 68 68;           /* #EF4444 - Immediate action */
+  --status-info: 59 130 246;           /* #3B82F6 - Information */
+  
+  /* Component Variables */
+  --background: 248 250 252;
+  --foreground: 17 24 39;
+  --card: 255 255 255;
+  --card-foreground: 17 24 39;
+  --border: 226 232 240;               /* #E2E8F0 - Soft borders */
+  --input: 255 255 255;
+  --ring: 71 126 195;                  /* Medical blue focus */
+  
+  /* ==================== MODERN SHADOWS (Depth hierarchy) ==================== */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Colored shadows for emphasis */
+  --shadow-medical: 0 4px 14px 0 rgba(71, 126, 195, 0.15);
+  --shadow-health: 0 4px 14px 0 rgba(76, 175, 134, 0.15);
+  --shadow-ai: 0 4px 14px 0 rgba(139, 92, 246, 0.15);
+  
+  /* ==================== AGE-INCLUSIVE SPACING ==================== */
+  --space-xs: 0.5rem;     /* 8px */
+  --space-sm: 0.75rem;    /* 12px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px - Minimum touch target */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 2.5rem;    /* 40px - Large touch targets */
+  --space-3xl: 3rem;      /* 48px - Extra large for elderly */
+  
+  /* ==================== MODERN RADIUS (Soft, approachable) ==================== */
+  --radius-sm: 0.375rem;  /* 6px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-xl: 1rem;      /* 16px - Default for cards */
+  --radius-2xl: 1.5rem;   /* 24px - Large cards */
+  --radius-full: 9999px;  /* Pills */
+  
+  /* ==================== SMOOTH TRANSITIONS ==================== */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slower: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+.design-theme-trend2025 {
+  background: rgb(var(--bg-primary));
+  color: rgb(var(--text-primary));
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   TYPOGRAPHY (Age-Inclusive, Clear)
+   ============================================ */
+
+.design-theme-trend2025 h1,
+.design-theme-trend2025 h2,
+.design-theme-trend2025 h3,
+.design-theme-trend2025 h4 {
+  color: rgb(var(--text-primary));
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.design-theme-trend2025 h1 {
+  font-size: 2.5rem;    /* 40px - Large, clear headings */
+  font-weight: 700;
+}
+
+.design-theme-trend2025 h2 {
+  font-size: 2rem;      /* 32px */
+  font-weight: 600;
+}
+
+.design-theme-trend2025 h3 {
+  font-size: 1.5rem;    /* 24px */
+  font-weight: 600;
+}
+
+.design-theme-trend2025 h4 {
+  font-size: 1.125rem;  /* 18px - Minimum readable size */
+  font-weight: 500;
+}
+
+.design-theme-trend2025 p {
+  color: rgb(var(--text-secondary));
+  line-height: 1.7;
+  font-size: 1rem;      /* 16px minimum for readability */
+}
+
+/* Large, clear labels for age-inclusive design */
+.design-theme-trend2025 .label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(var(--text-secondary));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   CARDS (Dashboard-Centric Design)
+   ============================================ */
+
+.design-theme-trend2025 .card {
+  background: rgb(var(--surface));
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgb(var(--border));
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.design-theme-trend2025 .card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: rgb(var(--medical-blue) / 0.2);
+}
+
+/* Predictive/Smart Card with AI indicator */
+.design-theme-trend2025 .card-smart {
+  background: linear-gradient(135deg, rgb(var(--surface)), rgb(var(--ai-purple) / 0.02));
+  border: 1px solid rgb(var(--ai-purple) / 0.15);
+}
+
+.design-theme-trend2025 .card-smart::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgb(var(--ai-purple) / 0.05) 0%, transparent 70%);
+  animation: trend2025-pulse 4s ease-in-out infinite;
+}
+
+/* Health Metric Card */
+.design-theme-trend2025 .card-metric {
+  background: rgb(var(--surface));
+  border-left: 4px solid rgb(var(--health-green));
+  box-shadow: var(--shadow-health);
+}
+
+/* Alert Card */
+.design-theme-trend2025 .card-alert {
+  background: linear-gradient(135deg, rgb(var(--surface)), rgb(var(--status-alert) / 0.05));
+  border: 1px solid rgb(var(--status-alert) / 0.2);
+  box-shadow: 0 0 0 4px rgb(var(--status-alert) / 0.05);
+}
+
+/* ============================================
+   BUTTONS (Large Touch Targets, Native Feel)
+   ============================================ */
+
+.design-theme-trend2025 button,
+.design-theme-trend2025 .btn {
+  min-height: 44px;     /* Apple HIG minimum touch target */
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-lg);
+  font-weight: 500;
+  font-size: 1rem;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Primary Medical Button */
+.design-theme-trend2025 .btn-primary {
+  background: linear-gradient(135deg, rgb(var(--medical-blue)), rgb(var(--medical-blue-dark)));
+  color: white;
+  box-shadow: var(--shadow-medical);
+}
+
+.design-theme-trend2025 .btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg), var(--shadow-medical);
+}
+
+.design-theme-trend2025 .btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Voice UI Button */
+.design-theme-trend2025 .btn-voice {
+  background: rgb(var(--voice-active));
+  color: white;
+  border-radius: var(--radius-full);
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  box-shadow: var(--shadow-lg);
+}
+
+.design-theme-trend2025 .btn-voice.listening {
+  background: rgb(var(--voice-listening));
+  animation: trend2025-pulse 1.5s ease-in-out infinite;
+}
+
+/* AI Suggestion Button */
+.design-theme-trend2025 .btn-ai {
+  background: linear-gradient(135deg, rgb(var(--ai-purple)), rgb(var(--ai-purple-light)));
+  color: white;
+  box-shadow: var(--shadow-ai);
+}
+
+/* AI button sparkle effect removed - use icon component instead */
+.design-theme-trend2025 .btn-ai {
+  position: relative;
+  overflow: hidden;
+}
+
+.design-theme-trend2025 .btn-ai::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  animation: trend2025-sparkle 2s ease-in-out infinite;
+}
+
+/* ============================================
+   HEALTH METRICS & DATA VISUALIZATION
+   ============================================ */
+
+/* Wearable Data Display */
+.design-theme-trend2025 .metric-display {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: rgb(var(--surface));
+  border-radius: var(--radius-lg);
+  border: 1px solid rgb(var(--border));
+}
+
+.design-theme-trend2025 .metric-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgb(var(--text-primary));
+  font-variant-numeric: tabular-nums;
+}
+
+.design-theme-trend2025 .metric-label {
+  font-size: 0.875rem;
+  color: rgb(var(--text-secondary));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.design-theme-trend2025 .metric-trend {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.design-theme-trend2025 .metric-trend.up {
+  color: rgb(var(--status-normal));
+}
+
+.design-theme-trend2025 .metric-trend.down {
+  color: rgb(var(--status-alert));
+}
+
+/* Health Score Ring */
+.design-theme-trend2025 .health-ring {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+.design-theme-trend2025 .health-ring svg {
+  transform: rotate(-90deg);
+}
+
+.design-theme-trend2025 .health-ring-bg {
+  stroke: rgb(var(--border));
+  stroke-width: 8;
+  fill: none;
+}
+
+.design-theme-trend2025 .health-ring-progress {
+  stroke: url(#health-gradient);
+  stroke-width: 8;
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dashoffset var(--transition-slower);
+}
+
+/* ============================================
+   PREDICTIVE & AI ELEMENTS
+   ============================================ */
+
+/* Smart Suggestion Card */
+.design-theme-trend2025 .suggestion-card {
+  background: linear-gradient(135deg, rgb(var(--surface)), rgb(var(--ai-purple) / 0.03));
+  border: 1px solid rgb(var(--ai-purple) / 0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Suggestion card indicator - use icon component instead */
+.design-theme-trend2025 .suggestion-card::before {
+  content: '';
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 1.5rem;
+  height: 1.5rem;
+  background: linear-gradient(135deg, rgb(var(--ai-purple) / 0.2), rgb(var(--ai-purple) / 0.1));
+  border-radius: 50%;
+  opacity: 0.5;
+}
+
+/* Predictive Nudge */
+.design-theme-trend2025 .nudge {
+  background: rgb(var(--predictive-orange) / 0.1);
+  border-left: 3px solid rgb(var(--predictive-orange));
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  color: rgb(var(--text-primary));
+  font-size: 0.875rem;
+  animation: trend2025-slide-in 0.3s ease-out;
+}
+
+/* ============================================
+   VOICE UI INDICATORS
+   ============================================ */
+
+.design-theme-trend2025 .voice-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  background: rgb(var(--voice-active) / 0.1);
+  border-radius: var(--radius-full);
+  color: rgb(var(--voice-active));
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.design-theme-trend2025 .voice-wave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 16px;
+}
+
+.design-theme-trend2025 .voice-wave span {
+  width: 3px;
+  background: rgb(var(--voice-active));
+  border-radius: 2px;
+  animation: trend2025-wave 1s ease-in-out infinite;
+}
+
+.design-theme-trend2025 .voice-wave span:nth-child(1) { height: 8px; animation-delay: 0s; }
+.design-theme-trend2025 .voice-wave span:nth-child(2) { height: 16px; animation-delay: 0.1s; }
+.design-theme-trend2025 .voice-wave span:nth-child(3) { height: 12px; animation-delay: 0.2s; }
+.design-theme-trend2025 .voice-wave span:nth-child(4) { height: 16px; animation-delay: 0.3s; }
+.design-theme-trend2025 .voice-wave span:nth-child(5) { height: 8px; animation-delay: 0.4s; }
+
+/* ============================================
+   MENTAL HEALTH & WELLNESS COMPONENTS
+   ============================================ */
+
+/* Mood Tracker */
+.design-theme-trend2025 .mood-tracker {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background: linear-gradient(135deg, rgb(var(--calm-lavender) / 0.1), rgb(var(--calm-mint) / 0.1));
+  border-radius: var(--radius-xl);
+}
+
+.design-theme-trend2025 .mood-option {
+  flex: 1;
+  padding: var(--space-md);
+  text-align: center;
+  background: rgb(var(--surface));
+  border-radius: var(--radius-lg);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.design-theme-trend2025 .mood-option:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.design-theme-trend2025 .mood-option.selected {
+  border-color: rgb(var(--health-green));
+  background: rgb(var(--health-green) / 0.05);
+}
+
+/* Breathing Exercise Component */
+.design-theme-trend2025 .breathing-circle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(var(--calm-mint) / 0.2), rgb(var(--calm-lavender) / 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: trend2025-breathe 4s ease-in-out infinite;
+}
+
+/* ============================================
+   INPUTS & FORMS (Age-Inclusive)
+   ============================================ */
+
+.design-theme-trend2025 input,
+.design-theme-trend2025 textarea,
+.design-theme-trend2025 select {
+  min-height: 44px;
+  padding: var(--space-sm) var(--space-md);
+  background: rgb(var(--surface));
+  border: 2px solid rgb(var(--border));
+  border-radius: var(--radius-lg);
+  color: rgb(var(--text-primary));
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.design-theme-trend2025 input:focus,
+.design-theme-trend2025 textarea:focus,
+.design-theme-trend2025 select:focus {
+  outline: none;
+  border-color: rgb(var(--medical-blue));
+  box-shadow: 0 0 0 4px rgb(var(--medical-blue) / 0.1);
+}
+
+/* Voice Input Field */
+.design-theme-trend2025 .input-voice {
+  position: relative;
+  padding-right: 3rem;
+}
+
+/* Voice input indicator - use icon component instead */
+.design-theme-trend2025 .input-voice-icon {
+  position: absolute;
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.25rem;
+  height: 1.25rem;
+  background: rgb(var(--voice-active) / 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.design-theme-trend2025 .input-voice-icon:hover {
+  background: rgb(var(--voice-active) / 0.3);
+}
+
+/* ============================================
+   PROGRESS & STATUS INDICATORS
+   ============================================ */
+
+.design-theme-trend2025 .progress {
+  height: 8px;
+  background: rgb(var(--border));
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.design-theme-trend2025 .progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, rgb(var(--medical-blue)), rgb(var(--health-green)));
+  border-radius: var(--radius-full);
+  transition: width var(--transition-slow);
+}
+
+/* Status Pills */
+.design-theme-trend2025 .status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.design-theme-trend2025 .status-pill.normal {
+  background: rgb(var(--status-normal) / 0.1);
+  color: rgb(var(--status-normal));
+}
+
+.design-theme-trend2025 .status-pill.caution {
+  background: rgb(var(--status-caution) / 0.1);
+  color: rgb(var(--status-caution));
+}
+
+.design-theme-trend2025 .status-pill.alert {
+  background: rgb(var(--status-alert) / 0.1);
+  color: rgb(var(--status-alert));
+  animation: trend2025-pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   DASHBOARD COMPONENTS
+   ============================================ */
+
+/* Dashboard Grid */
+.design-theme-trend2025 .dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* Widget Header */
+.design-theme-trend2025 .widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid rgb(var(--border));
+  margin-bottom: var(--space-md);
+}
+
+/* Quick Action Grid */
+.design-theme-trend2025 .quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: var(--space-sm);
+}
+
+.design-theme-trend2025 .quick-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-md);
+  background: rgb(var(--surface));
+  border-radius: var(--radius-lg);
+  border: 1px solid rgb(var(--border));
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.design-theme-trend2025 .quick-action:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgb(var(--medical-blue) / 0.3);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes trend2025-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes trend2025-sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes trend2025-wave {
+  0%, 100% {
+    transform: scaleY(0.5);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes trend2025-slide-in {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes trend2025-breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY (WCAG 2.2 AA Compliance)
+   ============================================ */
+
+/* Focus Visible */
+.design-theme-trend2025 *:focus-visible {
+  outline: 3px solid rgb(var(--medical-blue));
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .design-theme-trend2025 {
+    --text-primary: 0 0 0;
+    --text-secondary: 33 33 33;
+    --border: 0 0 0;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .design-theme-trend2025 * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .design-theme-trend2025 {
+    --bg-primary: 17 24 39;
+    --bg-secondary: 31 41 55;
+    --surface: 31 41 55;
+    --text-primary: 243 244 246;
+    --text-secondary: 209 213 219;
+    --border: 55 65 81;
+  }
+}
+
+/* ============================================
+   RESPONSIVE DESIGN (Mobile-First)
+   ============================================ */
+
+/* Mobile (up to 640px) */
+@media (max-width: 640px) {
+  .design-theme-trend2025 {
+    --space-lg: 1.25rem;
+    --space-xl: 1.75rem;
+  }
+  
+  .design-theme-trend2025 h1 {
+    font-size: 2rem;
+  }
+  
+  .design-theme-trend2025 .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .design-theme-trend2025 .quick-actions {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Tablet (641px to 1024px) */
+@media (min-width: 641px) and (max-width: 1024px) {
+  .design-theme-trend2025 .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop (1025px and up) */
+@media (min-width: 1025px) {
+  .design-theme-trend2025 .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .design-theme-trend2025 .dashboard-grid.four-column {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+  .design-theme-trend2025 {
+    font-size: 18px;
+  }
+  
+  .design-theme-trend2025 h1 {
+    font-size: 3rem;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Gradient Backgrounds */
+.design-theme-trend2025 .bg-gradient-medical {
+  background: linear-gradient(135deg, rgb(var(--medical-blue) / 0.05), rgb(var(--health-green) / 0.05));
+}
+
+.design-theme-trend2025 .bg-gradient-ai {
+  background: linear-gradient(135deg, rgb(var(--ai-purple) / 0.05), rgb(var(--predictive-orange) / 0.05));
+}
+
+.design-theme-trend2025 .bg-gradient-calm {
+  background: linear-gradient(135deg, rgb(var(--calm-lavender) / 0.1), rgb(var(--calm-mint) / 0.1));
+}
+
+/* Text Colors */
+.design-theme-trend2025 .text-medical {
+  color: rgb(var(--medical-blue));
+}
+
+.design-theme-trend2025 .text-health {
+  color: rgb(var(--health-green));
+}
+
+.design-theme-trend2025 .text-ai {
+  color: rgb(var(--ai-purple));
+}
+
+/* Borders */
+.design-theme-trend2025 .border-medical {
+  border-color: rgb(var(--medical-blue) / 0.2);
+}
+
+.design-theme-trend2025 .border-health {
+  border-color: rgb(var(--health-green) / 0.2);
+}
+
+.design-theme-trend2025 .border-ai {
+  border-color: rgb(var(--ai-purple) / 0.2);
+}
+
+/* Loading States */
+.design-theme-trend2025 .skeleton {
+  background: linear-gradient(90deg, 
+    rgb(var(--border)) 0%, 
+    rgb(var(--border) / 0.5) 50%, 
+    rgb(var(--border)) 100%);
+  background-size: 200% 100%;
+  animation: trend2025-skeleton 1.5s ease-in-out infinite;
+}
+
+@keyframes trend2025-skeleton {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}

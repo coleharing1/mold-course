@@ -11,7 +11,7 @@ interface ToolPreviewProps {
   prerequisite?: string
 }
 
-export function ToolPreview({ 
+function ToolPreview({ 
   name, 
   description, 
   href, 
@@ -94,3 +94,5 @@ export function ToolPreview({
 
   return <CardContent />
 }
+
+export default ToolPreview;

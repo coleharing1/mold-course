@@ -1,0 +1,653 @@
+---
+title: "Detox II: Antifungal Protocols"
+moduleNumber: 5
+description: "Learn when and how to use prescription and natural antifungals to address fungal colonization from mold exposure."
+duration: "Week 8-16+"
+status: "gated"
+evidenceLevel: "emerging"
+safetyLevel: "high"
+gatingRequirement: "Must be on stable binder protocol for 2-4 weeks and tolerating well"
+readingTime: 18
+audioUrl: "/audio/05-antifungals.mp3"
+difficulty: "advanced"
+category: "detox"
+objectives:
+  - "Understand when antifungals are necessary vs optional"
+  - "Learn Sporanox (itraconazole) titration protocol"
+  - "Master natural antifungal alternatives"
+  - "Recognize and manage die-off reactions"
+  - "Implement liver protection strategies"
+tldr: "Antifungals like Sporanox may be needed if you have fungal colonization (not just mycotoxin exposure). Start with 100mg daily, increase slowly, monitor liver enzymes every 2-4 weeks. Natural alternatives include neem, oregano oil, and Biopure O3. Always use with binders to catch released toxins."
+keyTakeaways:
+  - "Not everyone needs antifungals - only with proven colonization"
+  - "Sporanox: Start 100mg daily, increase to 100mg 2x daily after 1-2 weeks"
+  - "Monitor liver enzymes every 2-4 weeks during treatment"
+  - "Natural options work but take longer (3-6 months vs 1-3 months)"
+  - "Always maintain binders during antifungal treatment"
+nextModule: "06-herx-management"
+previousModule: "04-binders"
+---
+
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { CheckCircle2, AlertCircle, XCircle, Shield, FlaskConical, Leaf, AlertTriangle } from 'lucide-react'
+import DoThisNow from '@/components/modules/do-this-now'
+import EvidenceBadge from '@/components/modules/evidence-badge'
+import SafetyFlag from '@/components/modules/safety-flag'
+import ToolPreview from '@/components/modules/tool-preview'
+import VisualDiagram from '@/components/modules/visual-diagrams'
+
+# Module 05: Detox II - Antifungal Protocols
+
+<SafetyFlag level="high">
+  **MEDICAL SUPERVISION REQUIRED**: Antifungals, especially prescription ones like Sporanox, require medical oversight and regular liver function monitoring. Never self-prescribe or adjust doses without provider guidance.
+</SafetyFlag>
+
+## Do You Need Antifungals?
+
+Not everyone with mold illness needs antifungals. This is a critical distinction many practitioners miss.
+
+### When Antifungals ARE Indicated
+
+<Card className="border-green-500 bg-green-50 my-6">
+  <CardHeader>
+    <CardTitle className="text-green-900">✅ Consider Antifungals If:</CardTitle>
+  </CardHeader>
+  <CardContent className="space-y-2">
+    - **Positive fungal cultures** (nasal, sputum, or stool showing Aspergillus, Penicillium, etc.)
+    - **Elevated fungal antibodies** (IgG/IgE to molds)
+    - **Chronic sinusitis** with fungal elements on CT or endoscopy
+    - **Fungal balls** visible on imaging
+    - **Persistent symptoms** despite 2-3 months of binders
+    - **Recurrent thrush** or other fungal infections
+    - **MARCoNS positive** (often co-occurs with fungal colonization)
+  </CardContent>
+</Card>
+
+### When Antifungals Are NOT Needed
+
+<Card className="border-red-500 bg-red-50 my-6">
+  <CardHeader>
+    <CardTitle className="text-red-900">❌ Skip Antifungals If:</CardTitle>
+  </CardHeader>
+  <CardContent className="space-y-2">
+    - **Only mycotoxin exposure** without colonization
+    - **Improving well** on binders alone
+    - **Liver enzymes elevated** (AST/ALT above normal)
+    - **History of liver disease**
+    - **Taking multiple medications** with liver metabolism
+    - **Pregnancy or breastfeeding**
+  </CardContent>
+</Card>
+
+## Decision Tree: Prescription vs Natural
+
+```
+Start Here: Do you have confirmed fungal colonization?
+    │
+    ├─ YES → How severe are symptoms?
+    │   │
+    │   ├─ SEVERE → Prescription (Sporanox)
+    │   │   └─ Faster results (1-3 months)
+    │   │
+    │   └─ MILD/MODERATE → Natural antifungals
+    │       └─ Slower but gentler (3-6 months)
+    │
+    └─ NO → Continue binders only
+        └─ Reassess in 2-3 months
+```
+
+<EvidenceBadge level="emerging" />
+
+## Prescription Antifungals: Sporanox Protocol
+
+### What is Sporanox?
+
+**Sporanox (itraconazole)** is a triazole antifungal that inhibits fungal cell membrane synthesis. It's particularly effective against Aspergillus and Candida species commonly found in water-damaged buildings.
+
+### Titration Schedule
+
+<Tabs defaultValue="week1" className="mt-6">
+  <TabsList className="grid w-full grid-cols-4">
+    <TabsTrigger value="week1">Week 1-2</TabsTrigger>
+    <TabsTrigger value="week3">Week 3-4</TabsTrigger>
+    <TabsTrigger value="week5">Week 5-8</TabsTrigger>
+    <TabsTrigger value="week9">Week 9+</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="week1">
+    <Card>
+      <CardHeader>
+        <CardTitle>Week 1-2: Low Dose Start</CardTitle>
+        <Badge>100mg Daily</Badge>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        **Dosing:**
+        - 100mg once daily
+        - Take WITH fatty meal (increases absorption 2x)
+        - Best with breakfast or lunch
+        - Avoid grapefruit juice
+        
+        **Why Start Low:**
+        - Assess tolerance
+        - Minimize die-off
+        - Check for side effects
+        - Allow liver adjustment
+        
+        **Monitor For:**
+        - Nausea or stomach upset
+        - Headaches
+        - Fatigue increase
+        - Skin reactions
+        
+        **Labs Before Starting:**
+        - Comprehensive metabolic panel (CMP)
+        - Liver enzymes (AST, ALT, GGT)
+        - Complete blood count (CBC)
+        - Consider baseline EKG if cardiac history
+      </CardContent>
+    </Card>
+  </TabsContent>
+
+  <TabsContent value="week3">
+    <Card>
+      <CardHeader>
+        <CardTitle>Week 3-4: Increase if Tolerated</CardTitle>
+        <Badge>100mg Twice Daily</Badge>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        **Dosing:**
+        - 100mg with breakfast
+        - 100mg with dinner
+        - Total: 200mg/day
+        - Continue with fatty meals
+        
+        **Decision to Increase:**
+        - No significant side effects
+        - Liver enzymes normal at 2-week check
+        - Some symptom improvement noted
+        - Tolerating binders well
+        
+        **Common Adjustments:**
+        - Increased die-off symptoms → Stay at 100mg
+        - Nausea → Take with more food
+        - Headaches → Ensure hydration
+        - Fatigue → Support drainage more
+        
+        **Week 4 Labs:**
+        - Repeat liver enzymes
+        - If elevated >2x normal → reduce or stop
+        - If mildly elevated → maintain dose, recheck in 2 weeks
+      </CardContent>
+    </Card>
+  </TabsContent>
+
+  <TabsContent value="week5">
+    <Card>
+      <CardHeader>
+        <CardTitle>Week 5-8: Therapeutic Dose</CardTitle>
+        <Badge variant="secondary">200mg Daily Maintenance</Badge>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        **Standard Protocol:**
+        - Continue 100mg twice daily
+        - Total duration: 6-12 weeks typically
+        - Some need 3-4 months
+        
+        **For Resistant Cases:**
+        - May increase to 200mg twice daily
+        - Only with medical supervision
+        - Requires more frequent monitoring
+        
+        **Monthly Monitoring:**
+        - Liver enzymes every 4 weeks
+        - CBC if fatigue worsens
+        - Clinical assessment of improvement
+        
+        **Success Indicators:**
+        - Decreased sinus congestion
+        - Improved energy
+        - Less brain fog
+        - Better breathing
+        - Reduced fungal symptoms
+      </CardContent>
+    </Card>
+  </TabsContent>
+
+  <TabsContent value="week9">
+    <Card>
+      <CardHeader>
+        <CardTitle>Week 9+: Completion & Taper</CardTitle>
+        <Badge variant="outline">Tapering Phase</Badge>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        **Duration Guidelines:**
+        - Mild colonization: 6-8 weeks total
+        - Moderate: 8-12 weeks
+        - Severe/invasive: 3-6 months
+        
+        **Tapering Protocol:**
+        - Week 1-2 of taper: 100mg daily
+        - Week 3-4: 100mg every other day
+        - Week 5: Stop
+        
+        **Post-Treatment:**
+        - Continue binders for 2-3 months
+        - Consider natural antifungals for maintenance
+        - Nasal rinses to prevent recolonization
+        - Environmental controls critical
+        
+        **Final Labs:**
+        - Liver enzymes 2 weeks after stopping
+        - Consider repeat fungal cultures in 3 months
+        - Monitor for symptom recurrence
+      </CardContent>
+    </Card>
+  </TabsContent>
+</Tabs>
+
+### Critical Drug Interactions
+
+<Alert className="border-red-500 bg-red-50">
+  <AlertTriangle className="h-4 w-4" />
+  <AlertTitle>Dangerous Interactions - Do NOT Combine With:</AlertTitle>
+  <AlertDescription>
+    <ul className="mt-2 space-y-1">
+      <li>• **Statins** (simvastatin, lovastatin) - risk of rhabdomyolysis</li>
+      <li>• **Benzodiazepines** (increase sedation)</li>
+      <li>• **Calcium channel blockers** (cardiac effects)</li>
+      <li>• **Warfarin** (bleeding risk)</li>
+      <li>• **Some SSRIs** (increased levels)</li>
+    </ul>
+    Always review ALL medications with prescriber and pharmacist.
+  </AlertDescription>
+</Alert>
+
+### Liver Protection Protocol
+
+While on Sporanox, protect your liver:
+
+**Daily Support:**
+- **NAC**: 600-1200mg twice daily
+- **Milk Thistle**: 250-500mg twice daily
+- **Glutathione**: 500mg daily (or precursors)
+- **Vitamin C**: 1000-2000mg
+- **No alcohol** during treatment
+
+**Monitoring Schedule:**
+- Baseline labs before starting
+- 2 weeks after starting
+- Monthly thereafter
+- 2 weeks after completion
+
+## Natural Antifungal Protocols
+
+For those who can't or won't use prescription antifungals, natural options can be effective but require patience.
+
+### Top Natural Antifungals
+
+<Tabs defaultValue="neem" className="mt-6">
+  <TabsList className="grid w-full grid-cols-4">
+    <TabsTrigger value="neem">Neem</TabsTrigger>
+    <TabsTrigger value="oregano">Oregano Oil</TabsTrigger>
+    <TabsTrigger value="o3">Biopure O3</TabsTrigger>
+    <TabsTrigger value="combo">Combination</TabsTrigger>
+  </TabsList>
+
+  <TabsContent value="neem">
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <Leaf className="h-5 w-5" />
+          Neem (Azadirachta indica)
+        </CardTitle>
+        <Badge variant="secondary">Gentle & Effective</Badge>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        **Protocol:**
+        - Start: 1 capsule (500mg) daily with food
+        - Week 2: 1 capsule twice daily
+        - Week 3+: 2 capsules twice daily
+        - Duration: 3-6 months
+        
+        **Benefits:**
+        - Broad spectrum antifungal
+        - Anti-parasitic properties
+        - Supports liver detox
+        - Anti-inflammatory
+        
+        **Best For:**
+        - Mild to moderate colonization
+        - Those with sensitive systems
+        - Long-term maintenance
+        
+        **Side Effects:**
+        - Rarely causes die-off
+        - May cause mild nausea initially
+        - Can lower blood sugar
+        
+        <EvidenceBadge level="emerging" />
+      </CardContent>
+    </Card>
+  </TabsContent>
+
+  <TabsContent value="oregano">
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <Leaf className="h-5 w-5" />
+          Oregano Oil (Origanum vulgare)
+        </CardTitle>
+        <Badge>Potent Antimicrobial</Badge>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        **Protocol:**
+        - Use standardized 70-85% carvacrol
+        - Start: 1 softgel (150mg) daily
+        - Week 2: 1 softgel twice daily
+        - Max: 2 softgels twice daily
+        - Duration: 2-3 months maximum
+        
+        **Benefits:**
+        - Powerful antifungal
+        - Antibacterial (helps with MARCoNS)
+        - Antiviral properties
+        - Biofilm disruption
+        
+        **Cautions:**
+        - Can cause significant die-off
+        - Hard on stomach (take with food)
+        - May affect gut flora
+        - Not for long-term use
+        
+        **Cycling Protocol:**
+        - 2 months on, 1 month off
+        - Or 5 days on, 2 days off
+        
+        <EvidenceBadge level="emerging" />
+      </CardContent>
+    </Card>
+  </TabsContent>
+
+  <TabsContent value="o3">
+    <Card>
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <Shield className="h-5 w-5" />
+          Biopure O3 Oil (Ozonated Oils)
+        </CardTitle>
+        <Badge variant="outline">Advanced Option</Badge>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        **Protocol:**
+        - Start: 5 drops in water daily
+        - Week 2: 10 drops daily
+        - Week 3+: 10 drops twice daily
+        - Take on empty stomach
+        - Duration: 2-4 months
+        
+        **Mechanism:**
+        - Releases ozone/oxygen
+        - Creates hostile environment for anaerobes
+        - Supports mitochondria
+        - Breaks down biofilms
+        
+        **Benefits:**
+        - No liver stress
+        - Energizing effect
+        - Helps with parasites too
+        - Good for gut dysbiosis
+        
+        **Best Combined With:**
+        - Rizols (Biopure)
+        - Rectal ozone insufflation
+        - HBOT therapy
+        
+        <EvidenceBadge level="controversial" />
+      </CardContent>
+    </Card>
+  </TabsContent>
+
+  <TabsContent value="combo">
+    <Card>
+      <CardHeader>
+        <CardTitle>Combination Natural Protocol</CardTitle>
+        <Badge className="bg-gradient-to-r from-green-500 to-blue-500">Synergistic Approach</Badge>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        **Rotating Schedule (3-Month Program):**
+        
+        **Month 1:**
+        - Neem: 2 capsules twice daily
+        - Oregano oil: 1 capsule daily
+        - Continue binders
+        
+        **Month 2:**
+        - Oregano oil: 2 capsules twice daily
+        - Biopure O3: 10 drops daily
+        - Continue binders
+        
+        **Month 3:**
+        - Neem: 2 capsules twice daily
+        - Biopure O3: 10 drops twice daily
+        - Continue binders
+        
+        **Support Throughout:**
+        - Probiotics (2 hours from antifungals)
+        - Saccharomyces boulardii
+        - Liver support (NAC, milk thistle)
+        - Biofilm disruptors (NAC, enzymes)
+        
+        **Why Rotate:**
+        - Prevents resistance
+        - Reduces side effects
+        - Addresses different organisms
+        - Maintains effectiveness
+      </CardContent>
+    </Card>
+  </TabsContent>
+</Tabs>
+
+## Managing Die-Off (Herxheimer) Reactions
+
+<VisualDiagram type="herx-scale" />
+
+Antifungals often cause die-off reactions as fungi release toxins when dying. This is expected but must be managed.
+
+### Die-Off Management Protocol
+
+**Mild Die-Off (Continue Treatment):**
+- Slight fatigue increase
+- Mild headache
+- Minor digestive upset
+
+**Action:** 
+- Increase water intake
+- Add extra binder dose
+- Infrared sauna if available
+- Rest more
+
+**Moderate Die-Off (Slow Down):**
+- Significant fatigue
+- Strong headaches
+- Nausea, body aches
+- Mood changes
+
+**Action:**
+- Reduce antifungal dose by 50%
+- Double binder frequency
+- Add activated charcoal between doses
+- Consider coffee enema
+- Pause for 2-3 days if needed
+
+**Severe Die-Off (Stop & Reassess):**
+- Unable to function
+- Severe depression/anxiety
+- Vomiting
+- Extreme pain
+
+**Action:**
+- Stop antifungals immediately
+- Continue binders
+- Contact healthcare provider
+- Support drainage aggressively
+- May need IV fluids
+
+## Biofilm Disruption
+
+Fungi create biofilms for protection. Breaking these down improves antifungal effectiveness.
+
+### Biofilm Disruptor Protocol
+
+**Take on Empty Stomach (30 min before antifungals):**
+
+**Enzymes:**
+- Serrapeptase: 40,000-80,000 SPU
+- Nattokinase: 2,000-4,000 FU
+- Lumbrokinase: 20-40mg
+
+**Additional Disruptors:**
+- NAC: 600-1200mg twice daily
+- Modified citrus pectin: 5-15g daily
+- Interface Plus (Klaire Labs): 2 capsules
+
+**Timing:**
+1. Biofilm disruptors (empty stomach)
+2. Wait 30-60 minutes
+3. Antifungals
+4. Wait 2 hours
+5. Binders
+
+## Nasal Antifungal Protocols
+
+Since many fungi colonize the sinuses, topical treatment is often necessary.
+
+### Nasal Rinse Recipes
+
+**Basic Antifungal Rinse:**
+- 8 oz distilled/boiled water
+- ¼ tsp sea salt
+- ¼ tsp baking soda
+- 2-4 drops Lugol's iodine
+
+**Advanced Protocol:**
+- Basic rinse solution plus:
+- 1-2 drops grapefruit seed extract
+- OR ½ tsp Xlear (xylitol)
+- OR contents of 1 probiotic capsule
+
+**Technique:**
+1. Use neti pot or NeilMed bottle
+2. Rinse 2-3x daily during treatment
+3. Follow with Xlear nasal spray
+4. Consider Briotech spray for MARCoNS
+
+### Dave Asprey Sinus Protocol
+
+For chronic fungal sinusitis:
+1. **Ketoconazole cream** in nostrils (prescription)
+2. **Baby shampoo rinse** (1 tsp in 8 oz water)
+3. **Colloidal silver spray** between rinses
+4. **Bulletproof Sinus Rinse** (his formula)
+
+<DoThisNow>
+  **Action Steps for This Module:**
+  1. Determine if you need antifungals (review criteria)
+  2. If yes, decide prescription vs natural
+  3. Get baseline liver enzymes if using Sporanox
+  4. Start biofilm disruptors first (1 week before antifungals)
+  5. Begin chosen antifungal at lowest dose
+  6. Maintain binder protocol throughout
+  7. Implement nasal rinses if sinus involvement
+</DoThisNow>
+
+## Special Populations & Considerations
+
+### Pediatric Considerations
+
+<Alert className="border-blue-500 bg-blue-50">
+  <AlertCircle className="h-4 w-4" />
+  <AlertDescription>
+    Children require special dosing and monitoring. Natural antifungals are generally preferred. Sporanox dosing is weight-based and requires pediatric specialist oversight.
+  </AlertDescription>
+</Alert>
+
+### Pregnancy & Breastfeeding
+
+<Alert className="border-red-500 bg-red-50">
+  <XCircle className="h-4 w-4" />
+  <AlertDescription>
+    Sporanox is Category C (risk cannot be ruled out). Most natural antifungals are also not recommended during pregnancy. Focus on environmental remediation and gentle binders only.
+  </AlertDescription>
+</Alert>
+
+### Elderly Patients
+
+- Start with 50% of standard doses
+- More frequent monitoring
+- Watch for drug interactions
+- Natural options often better tolerated
+
+## Troubleshooting Common Issues
+
+### "I've Been on Antifungals for 3 Months with No Improvement"
+
+**Consider:**
+1. Wrong diagnosis (not fungal colonization)
+2. Ongoing exposure (check environment)
+3. Biofilms not addressed
+4. Need different antifungal
+5. Immune system needs support
+6. Co-infections (bacteria, parasites)
+
+### "Severe Die-Off Every Time I Try"
+
+**Solutions:**
+1. Start with biofilm disruptors only (2 weeks)
+2. Increase binders first
+3. Try gentler natural option (neem)
+4. Pulse dosing (every other day)
+5. Support drainage more aggressively
+6. Check for MCAS (mast cell activation)
+
+### "Liver Enzymes Elevated"
+
+**Protocol:**
+1. Stop antifungals immediately
+2. Increase liver support
+3. Recheck in 2 weeks
+4. If normalized, restart at 50% dose
+5. If still elevated, switch to natural options
+6. Consider milk thistle, NAC, glutathione IV
+
+## When to Stop Antifungals
+
+### Success Indicators
+- Symptom improvement >75%
+- Negative fungal cultures
+- Normal inflammatory markers
+- Completed planned duration
+- No symptoms with environmental exposure
+
+### Maintenance After Treatment
+- Continue binders 2-3 months
+- Monthly natural antifungal pulses
+- Ongoing nasal rinses
+- Probiotic restoration
+- Environmental vigilance
+
+<SafetyFlag level="high">
+  Antifungal treatment requires careful monitoring and medical oversight. Never attempt prescription antifungals without proper supervision. Watch for liver stress, drug interactions, and severe die-off reactions. When in doubt, go slower and gentler.
+</SafetyFlag>
+
+## Next Steps
+
+After completing your antifungal protocol (or if experiencing significant die-off), proceed to Module 06: Managing Herx Reactions for detailed strategies on handling detox reactions safely and effectively.
+
+Remember: The goal is not to kill every fungus as quickly as possible, but to reduce fungal burden while maintaining quality of life and protecting your organs.
+
+---
+
+*Based on protocols from Dr. Neil Nathan, Dr. Ritchie Shoemaker, Dr. Joseph Brewer, and clinical experience. Individual responses vary significantly. This is educational content, not medical advice.*

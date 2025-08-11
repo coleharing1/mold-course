@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
 import { 
   Home, 
@@ -13,23 +14,74 @@ import {
   TestTube,
   ExternalLink,
   Lock,
-  Unlock
+  Unlock,
+  CheckCircle2,
+  CheckCircle,
+  MapPin,
+  AlertCircle,
+  TrendingUp,
+  Calendar,
+  Rocket,
+  XCircle,
+  Clock,
+  Target,
+  Zap,
+  Activity,
+  BarChart3,
+  Layers,
+  AlertTriangle,
+  Info,
+  Circle
 } from 'lucide-react'
 
 export default function SitemapDevPage() {
+  // Add custom scrollbar styles
+  React.useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      .scrollable-timeline::-webkit-scrollbar {
+        width: 14px;
+        height: 14px;
+        background: #E5E5E5;
+      }
+      .scrollable-timeline::-webkit-scrollbar-track {
+        background: #E5E5E5;
+        border: 1px solid #D4D4D4;
+      }
+      .scrollable-timeline::-webkit-scrollbar-thumb {
+        background: #6B6B6B;
+        border: 1px solid #5A5A5A;
+      }
+      .scrollable-timeline::-webkit-scrollbar-thumb:hover {
+        background: #5A5A5A;
+      }
+      .scrollable-timeline::-webkit-scrollbar-thumb:active {
+        background: #4A4A4A;
+      }
+      .scrollable-timeline {
+        scrollbar-width: auto;
+        scrollbar-color: #6B6B6B #E5E5E5;
+      }
+    `;
+    document.head.appendChild(style);
+    return () => {
+      document.head.removeChild(style);
+    };
+  }, []);
   const sections = [
     {
-      title: '🏠 Marketing Pages',
+      title: 'Marketing Pages',
       icon: Home,
       routes: [
         { path: '/', label: 'Landing Page (Marketing Home)', description: 'Main marketing page with hero, pricing, etc.' },
-        { path: '/new-home', label: '🆕 Enhanced Home Page (2025 Design)', description: 'Modern redesign with animations, glassmorphism, and interactive elements' },
+        { path: '/new-home', label: 'Enhanced Home Page (2025 Design)', description: 'Modern redesign with animations, glassmorphism, and interactive elements' },
+        { path: '/design-lab', label: 'Design Lab (Testing Environment)', description: 'Isolated UI/UX testing area with 10 theme options and professional iconography' },
         { path: '/test', label: 'Tailwind Test Page', description: 'Test page to verify Tailwind CSS is working' },
         { path: '/sitemap-dev', label: 'This Page - Dev Sitemap', description: 'Development sitemap and route directory' },
       ]
     },
     {
-      title: '🔐 Authentication Pages',
+      title: 'Authentication Pages',
       icon: Lock,
       note: '(Currently bypassed for development)',
       routes: [
@@ -39,7 +91,7 @@ export default function SitemapDevPage() {
       ]
     },
     {
-      title: '📊 Dashboard & User Area',
+      title: 'Dashboard & User Area',
       icon: Layout,
       routes: [
         { path: '/dashboard', label: 'Dashboard', description: 'User dashboard with progress widgets' },
@@ -47,29 +99,29 @@ export default function SitemapDevPage() {
       ]
     },
     {
-      title: '📚 Learning Modules (11 Total)',
+      title: 'Learning Modules (11 Total)',
       icon: BookOpen,
       routes: [
         { path: '/modules', label: 'All Modules', description: 'Module list with filtering and search' },
         { path: '/modules/00-quick-start', label: 'Module 00: Quick Start', description: '5-step emergency protocol' },
         { path: '/modules/01-identify-exposure', label: 'Module 01: Identify Exposure', description: 'Finding and addressing mold sources' },
         { path: '/modules/02-testing-diagnosis', label: 'Module 02: Testing & Diagnosis', description: 'Environmental and medical testing' },
-        { path: '/modules/03-drainage-pathways', label: 'Module 03: Drainage Pathways', description: 'Preparing body for detox (Critical!)' },
-        { path: '/modules/04-mycotoxin-binders', label: 'Module 04: Mycotoxin Binders', description: 'Toxin-specific binding protocols' },
-        { path: '/modules/05-binder-protocols-csm', label: 'Module 05: CSM Protocols', description: 'Cholestyramine prescription guide' },
-        { path: '/modules/06-antifungal-protocols', label: 'Module 06: Antifungals', description: 'Itraconazole and natural options' },
-        { path: '/modules/07-herx-management', label: 'Module 07: Herx Management', description: 'Managing detox reactions' },
-        { path: '/modules/08-supporting-modalities', label: 'Module 08: Supporting Modalities', description: 'Sauna, supplements, therapies' },
-        { path: '/modules/09-diet-nutrition', label: 'Module 09: Diet & Nutrition', description: 'Anti-mold diet and meal plans' },
-        { path: '/modules/10-retesting-prevention', label: 'Module 10: Retesting & Prevention', description: 'Long-term maintenance' },
+        { path: '/modules/03-drainage-pathways', label: 'Module 03: Drainage Pathways', description: 'All 5 pathways - bowel, liver, kidneys, lymph, sweat', completed: true },
+        { path: '/modules/04-binders', label: 'Module 04: Mycotoxin Binders', description: 'CSM titration (1/4 → 1/2 → full scoop)', completed: true },
+        { path: '/modules/05-antifungals', label: 'Module 05: Antifungals', description: 'Sporanox 100mg → 200mg daily protocol', completed: true },
+        { path: '/modules/06-herx-management', label: 'Module 06: Herx Management', description: 'Managing detox reactions safely', completed: true },
+        { path: '/modules/07-supportive-modalities', label: 'Module 07: Supporting Modalities', description: 'Sauna, HBOT, peptides, nasal care', completed: true },
+        { path: '/modules/08-diet-pantry', label: 'Module 08: Diet & Pantry', description: 'Low-mold foods, Japanese sweet potatoes', inProgress: true },
+        { path: '/modules/09-retesting-prevention', label: 'Module 09: Retesting & Prevention', description: 'VCS every 3mo, ERMI <2, HERTSMI-2 <10', pending: true },
+        { path: '/modules/10-advanced-protocols', label: 'Module 10: Advanced Protocols', description: 'HBOT, peptides, ozone therapy', pending: true },
       ]
     },
     {
-      title: '🛠️ Interactive Tools (2/9 Complete)',
+      title: 'Interactive Tools (3/9 Complete)',
       icon: Wrench,
       routes: [
-        { path: '/tools/exposure-checklist', label: '✅ Exposure Checklist', description: 'Room-by-room mold assessment with cost estimation' },
-        { path: '/tools/drainage-readiness', label: '✅ Drainage Readiness Score', description: 'Critical safety tool - gates binder access' },
+        { path: '/tools/exposure-checklist', label: 'Exposure Checklist', description: 'Room-by-room mold assessment with cost estimation', completed: true },
+        { path: '/tools/drainage-readiness', label: 'Drainage Readiness Score', description: 'Critical safety tool - gates binder access (80% for 7 days)', completed: true },
         { path: '/tools/binder-planner', label: 'Binder Timing Planner', description: 'Schedule binders with meals/meds', disabled: true },
         { path: '/tools/testing-helper', label: 'Testing Decision Helper', description: 'Environmental vs medical testing guide', disabled: true },
         { path: '/tools/herx-toolkit', label: 'Herx Toolkit', description: 'Managing detox reactions', disabled: true },
@@ -80,7 +132,7 @@ export default function SitemapDevPage() {
       ]
     },
     {
-      title: '💳 Payment & Checkout',
+      title: 'Payment & Checkout',
       icon: CreditCard,
       routes: [
         { path: '/checkout', label: 'Checkout', description: 'Stripe payment page' },
@@ -89,7 +141,7 @@ export default function SitemapDevPage() {
       ]
     },
     {
-      title: '🏥 Safety Components',
+      title: 'Safety Components',
       icon: FileText,
       note: '(Reusable UI Components)',
       routes: [
@@ -100,7 +152,7 @@ export default function SitemapDevPage() {
       ]
     },
     {
-      title: '📄 Resources & Library',
+      title: 'Resources & Library',
       icon: FileText,
       note: '(Planned)',
       routes: [
@@ -110,7 +162,7 @@ export default function SitemapDevPage() {
       ]
     },
     {
-      title: '⚙️ User Settings',
+      title: 'User Settings',
       icon: Settings,
       note: '(Planned)',
       routes: [
@@ -120,7 +172,7 @@ export default function SitemapDevPage() {
       ]
     },
     {
-      title: '🧪 API Endpoints',
+      title: 'API Endpoints',
       icon: TestTube,
       routes: [
         { path: '/api/auth/[...nextauth]', label: 'NextAuth API', description: 'Authentication endpoints', api: true },
@@ -135,14 +187,14 @@ export default function SitemapDevPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8">
-      <div className="max-w-7xl mx-auto px-4">
+    <div className="min-h-screen py-8" style={{background: 'linear-gradient(135deg, #f5f0e9 0%, #ede5d8 50%, #e8dcc8 100%)' }}>
+      <div className="container mx-auto px-4" style={{maxWidth: '1200px'}}>
         {/* Header */}
         <div className="mb-8 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            🗺️ Development Sitemap & Cheatsheet
+          <h1 className="text-4xl font-bold mb-4" style={{color: 'rgb(44, 44, 44)'}}>
+            Development Sitemap & Cheatsheet
           </h1>
-          <p className="text-lg text-gray-600 mb-2">
+          <p className="text-lg mb-2" style={{color: 'rgb(107, 107, 107)'}}>
             All available routes in the Mold Detox Mastery platform
           </p>
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-100 text-yellow-800 rounded-lg">
@@ -152,31 +204,35 @@ export default function SitemapDevPage() {
         </div>
 
         {/* Quick Links Bar */}
-        <div className="mb-8 p-4 bg-white rounded-lg shadow-md">
-          <h2 className="text-sm font-semibold text-gray-500 mb-3">QUICK ACCESS</h2>
+        <div className="mb-8 p-5 rounded-xl border-0" style={{background: 'rgb(254, 249, 239)', boxShadow: '0 8px 32px -8px rgba(193, 122, 86, 0.15), 0 12px 24px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(193, 122, 86, 0.05)'}}>
+          <h2 className="text-sm font-semibold mb-3" style={{color: 'rgb(107, 107, 107)'}}>QUICK ACCESS</h2>
           <div className="flex flex-wrap gap-2">
             <a href="/" target="_blank" rel="noopener noreferrer" 
-               className="px-3 py-1.5 bg-primary-100 text-primary-700 rounded-md hover:bg-primary-200 transition-colors text-sm font-medium">
+               className="px-3 py-1.5 rounded-md transition-colors text-sm font-medium" style={{backgroundColor: 'rgba(193, 122, 86, 0.1)', color: 'rgb(139, 69, 19)'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(193, 122, 86, 0.2)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(193, 122, 86, 0.1)'}>
               Home
             </a>
-            <a href="/new-home" target="_blank" rel="noopener noreferrer" 
-               className="px-3 py-1.5 bg-pink-100 text-pink-700 rounded-md hover:bg-pink-200 transition-colors text-sm font-medium">
-              🆕 Enhanced Home
-            </a>
+                      <a href="/new-home" target="_blank" rel="noopener noreferrer"
+             className="px-3 py-1.5 rounded-md transition-colors text-sm font-medium" style={{backgroundColor: 'rgba(236, 72, 153, 0.1)', color: 'rgb(190, 24, 93)'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(236, 72, 153, 0.2)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(236, 72, 153, 0.1)'}>
+             Enhanced Home
+          </a>
+          <a href="/design-lab" target="_blank" rel="noopener noreferrer"
+             className="px-3 py-1.5 rounded-md transition-colors text-sm font-medium" style={{backgroundColor: 'rgba(147, 51, 234, 0.1)', color: 'rgb(107, 33, 168)'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(147, 51, 234, 0.2)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(147, 51, 234, 0.1)'}>
+             Design Lab
+          </a>
             <a href="/dashboard" target="_blank" rel="noopener noreferrer"
-               className="px-3 py-1.5 bg-blue-100 text-blue-700 rounded-md hover:bg-blue-200 transition-colors text-sm font-medium">
+               className="px-3 py-1.5 rounded-md transition-colors text-sm font-medium" style={{backgroundColor: 'rgba(59, 130, 246, 0.1)', color: 'rgb(29, 78, 216)'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(59, 130, 246, 0.2)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(59, 130, 246, 0.1)'}>
               Dashboard
             </a>
             <a href="/modules" target="_blank" rel="noopener noreferrer"
-               className="px-3 py-1.5 bg-purple-100 text-purple-700 rounded-md hover:bg-purple-200 transition-colors text-sm font-medium">
+               className="px-3 py-1.5 rounded-md transition-colors text-sm font-medium" style={{backgroundColor: 'rgba(147, 51, 234, 0.1)', color: 'rgb(107, 33, 168)'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(147, 51, 234, 0.2)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(147, 51, 234, 0.1)'}>
               Modules
             </a>
             <a href="/onboarding" target="_blank" rel="noopener noreferrer"
-               className="px-3 py-1.5 bg-green-100 text-green-700 rounded-md hover:bg-green-200 transition-colors text-sm font-medium">
+               className="px-3 py-1.5 rounded-md transition-colors text-sm font-medium" style={{backgroundColor: 'rgba(76, 175, 134, 0.1)', color: 'rgb(34, 84, 61)'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(76, 175, 134, 0.2)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(76, 175, 134, 0.1)'}>
               Onboarding
             </a>
             <a href="/checkout" target="_blank" rel="noopener noreferrer"
-               className="px-3 py-1.5 bg-yellow-100 text-yellow-700 rounded-md hover:bg-yellow-200 transition-colors text-sm font-medium">
+               className="px-3 py-1.5 rounded-md transition-colors text-sm font-medium" style={{backgroundColor: 'rgba(245, 158, 11, 0.1)', color: 'rgb(180, 83, 9)'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(245, 158, 11, 0.2)'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(245, 158, 11, 0.1)'}>
               Checkout
             </a>
           </div>
@@ -187,12 +243,12 @@ export default function SitemapDevPage() {
           {sections.map((section) => {
             const Icon = section.icon
             return (
-              <div key={section.title} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className="bg-gradient-to-r from-gray-50 to-gray-100 px-6 py-4 border-b">
+              <div key={section.title} className="bg-white rounded-xl overflow-hidden border-0 hover:transform hover:-translate-y-1 transition-all duration-300" style={{boxShadow: '0 8px 32px -8px rgba(193, 122, 86, 0.15), 0 12px 24px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(193, 122, 86, 0.05)'}}>
+                <div className="px-6 py-4 border-b" style={{background: 'linear-gradient(to right, rgb(251, 243, 234), rgb(243, 230, 213)', borderColor: 'rgba(193, 122, 86, 0.2)'}}>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <Icon className="h-5 w-5 text-gray-600" />
-                      <h2 className="text-lg font-semibold text-gray-900">{section.title}</h2>
+                      <Icon className="h-5 w-5" style={{color: 'rgb(193, 122, 86)'}} />
+                      <h2 className="text-lg font-semibold" style={{color: 'rgb(44, 44, 44)'}}>{section.title}</h2>
                     </div>
                     {section.note && (
                       <span className="text-xs text-gray-500">{section.note}</span>
@@ -220,7 +276,7 @@ export default function SitemapDevPage() {
                               <span className="font-medium text-gray-700">{route.label}</span>
                               <span className="text-xs px-2 py-0.5 bg-blue-100 text-blue-700 rounded">API</span>
                             </div>
-                            <p className="text-sm text-gray-600 mt-1">{route.description}</p>
+                            <p className="text-sm mt-1" style={{color: 'rgb(107, 107, 107)'}}>{route.description}</p>
                             <code className="text-xs text-gray-500 mt-1 block">{route.path}</code>
                           </div>
                         </div>
@@ -233,11 +289,14 @@ export default function SitemapDevPage() {
                         >
                           <div className="flex-1">
                             <div className="flex items-center gap-2">
+                              {route.completed && (
+                                <CheckCircle className="h-4 w-4 text-green-600" />
+                              )}
                               <span className="font-medium text-gray-900 group-hover:text-blue-600">
                                 {route.label}
                               </span>
                             </div>
-                            <p className="text-sm text-gray-600 mt-1">{route.description}</p>
+                            <p className="text-sm mt-1" style={{color: 'rgb(107, 107, 107)'}}>{route.description}</p>
                             <code className="text-xs text-gray-500 mt-1 block">{route.path}</code>
                           </div>
                           <ExternalLink className="h-4 w-4 text-gray-400 group-hover:text-blue-600 mt-1" />
@@ -252,43 +311,43 @@ export default function SitemapDevPage() {
         </div>
 
         {/* Recent Updates */}
-        <div className="mt-8 p-6 bg-green-50 border border-green-200 rounded-lg">
-          <h2 className="text-lg font-semibold text-green-900 mb-4">✅ Recent Updates (2025-08-11)</h2>
+        <div className="mt-8 p-6 rounded-xl border-0" style={{background: 'rgba(76, 175, 134, 0.08)', boxShadow: '0 8px 32px -8px rgba(76, 175, 134, 0.2), 0 12px 24px -12px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(76, 175, 134, 0.15)'}}>
+          <h2 className="text-lg font-semibold mb-4" style={{color: 'rgb(44, 44, 44)'}}>Recent Updates (2025-01-15)</h2>
           <div className="space-y-2 text-sm">
             <div className="flex items-start gap-2">
-              <span className="text-green-600">✓</span>
-              <span className="text-gray-700 font-medium">Phase 2 updated with missing elements from Kajsa's guide</span>
+              <CheckCircle2 className="h-4 w-4" style={{color: 'rgb(76, 175, 134)'}} />
+              <span className="font-medium" style={{color: 'rgb(107, 107, 107)'}}>Design Lab with 10 themes - Professional Lucide icons throughout</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600">✓</span>
-              <span className="text-gray-700 font-medium">Critical Phase 1 infrastructure complete (Days 10-12, 18-19)</span>
+              <CheckCircle2 className="h-4 w-4" style={{color: 'rgb(76, 175, 134)'}} />
+              <span className="font-medium" style={{color: 'rgb(107, 107, 107)'}}>Sitemap updated with tan earthy theme and SVG icons</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600">✓</span>
-              <span className="text-gray-700">Drainage Readiness Score tool - Critical safety gate for binders</span>
+              <CheckCircle2 className="h-4 w-4" style={{color: 'rgb(76, 175, 134)'}} />
+              <span className="text-gray-700">7 modules complete (03-07) with MDX content and safety features</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600">✓</span>
-              <span className="text-gray-700">Module gating logic with prerequisite checking</span>
+              <CheckCircle2 className="h-4 w-4" style={{color: 'rgb(76, 175, 134)'}} />
+              <span className="text-gray-700">Drainage Readiness tool enforcing 80% for 7 days before binders</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600">✓</span>
-              <span className="text-gray-700">Dashboard widgets: Retest countdown, daily tips, community highlights</span>
+              <CheckCircle2 className="h-4 w-4" style={{color: 'rgb(76, 175, 134)'}} />
+              <span className="text-gray-700">Module gating logic with prerequisite checking system</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600">✓</span>
-              <span className="text-gray-700">Exposure Checklist tool with room-by-room assessment</span>
+              <CheckCircle2 className="h-4 w-4" style={{color: 'rgb(76, 175, 134)'}} />
+              <span className="text-gray-700">Dashboard enhanced with 25+ professional SVG icons</span>
             </div>
             <div className="flex items-start gap-2">
-              <span className="text-green-600">✓</span>
-              <span className="text-gray-700">MDX components for modules (visual diagrams, safety flags, evidence badges)</span>
+              <CheckCircle2 className="h-4 w-4" style={{color: 'rgb(76, 175, 134)'}} />
+              <span className="text-gray-700">MDX components: DoThisNow, EvidenceBadge, SafetyFlag, ToolPreview</span>
             </div>
           </div>
         </div>
 
         {/* Server Info */}
-        <div className="mt-8 p-6 bg-white rounded-lg shadow-md">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">📡 Development Server Info</h2>
+        <div className="mt-8 p-6 bg-white rounded-xl border-0" style={{boxShadow: '0 8px 32px -8px rgba(193, 122, 86, 0.15), 0 12px 24px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(193, 122, 86, 0.05)'}}>
+          <h2 className="text-lg font-semibold mb-4" style={{color: 'rgb(44, 44, 44)'}}>Development Server Info</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <p className="text-sm text-gray-600">Local URL</p>
@@ -306,8 +365,8 @@ export default function SitemapDevPage() {
         </div>
 
         {/* Legend */}
-        <div className="mt-8 p-6 bg-white rounded-lg shadow-md">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">📖 Legend</h2>
+        <div className="mt-8 p-6 bg-white rounded-xl border-0" style={{boxShadow: '0 8px 32px -8px rgba(193, 122, 86, 0.15), 0 12px 24px -12px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(193, 122, 86, 0.05)'}}>
+          <h2 className="text-lg font-semibold mb-4" style={{color: 'rgb(44, 44, 44)'}}>Legend</h2>
           <div className="flex flex-wrap gap-4 text-sm">
             <div className="flex items-center gap-2">
               <ExternalLink className="h-4 w-4 text-gray-400" />
@@ -329,27 +388,56 @@ export default function SitemapDevPage() {
         </div>
 
         {/* Project Build Timeline */}
-        <div className="mt-8 p-6 bg-gradient-to-br from-indigo-50 to-purple-50 rounded-lg shadow-md border border-indigo-200">
-          <h2 className="text-xl font-bold text-gray-900 mb-6">📅 Detailed Project Build Timeline</h2>
+        <div className="mt-8 p-6 rounded-xl border-0" style={{background: 'linear-gradient(135deg, #ffffff 0%, rgba(193, 122, 86, 0.03) 100%)', boxShadow: '0 12px 48px -12px rgba(193, 122, 86, 0.2), 0 16px 32px -16px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(193, 122, 86, 0.08)'}}>
+          <h2 className="text-xl font-bold mb-6 flex items-center gap-2" style={{color: 'rgb(44, 44, 44)'}}>
+            <Calendar className="h-5 w-5" style={{color: 'rgb(193, 122, 86)'}} />
+            Detailed Project Build Timeline
+          </h2>
           <p className="text-sm text-gray-600 mb-4">Reverse chronological order - newest changes first (All times in Central Time)</p>
           
           {/* Scrollable Timeline Container */}
-          <div className="max-h-96 overflow-y-auto pr-2 space-y-4 scrollbar-thin scrollbar-thumb-indigo-300 scrollbar-track-indigo-100">
+          <div className="relative">
+            <div className="absolute top-0 right-0 z-10 px-3 py-1 bg-amber-100 text-amber-800 text-xs font-medium rounded-bl-lg flex items-center gap-1 shadow-md">
+              <svg className="h-3 w-3 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+              </svg>
+              Scroll for more history
+            </div>
+            <div className="max-h-96 overflow-y-scroll pr-4 space-y-4 bg-gradient-to-b from-white to-amber-50/20 rounded-lg p-4 border-2 border-black scrollable-timeline">
             
             {/* Today - Latest Changes */}
             <div className="relative pl-8 border-l-4 border-emerald-400">
               <div className="absolute -left-2 top-0 w-4 h-4 bg-emerald-600 rounded-full animate-pulse"></div>
               <div className="mb-1">
-                <span className="text-sm font-semibold text-emerald-600">2025-08-11 @ 12:30 PM CT</span>
-                <span className="ml-2 px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs rounded">PHASE 2 UPDATE</span>
+                <span className="text-sm font-semibold text-emerald-600">2025-01-15 @ Current</span>
+                <span className="ml-2 px-2 py-0.5 bg-emerald-100 text-emerald-700 text-xs rounded inline-flex items-center gap-1">
+                  DESIGN UPDATE
+                  <CheckCircle className="h-3 w-3" />
+                </span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Phase 2 Enhanced with Kajsa's Missing Elements</h3>
+              <h3 className="font-semibold text-gray-900 mb-2">Design Lab Professional Enhancement</h3>
               <ul className="text-sm text-gray-700 space-y-1">
-                <li>• Added Module 10 - Advanced Protocols (HBOT, peptides, ozone)</li>
-                <li>• Created Supplement Scheduler Tool for timing/interactions</li>
-                <li>• Added Resources Center with product recommendations</li>
-                <li>• Enhanced modules with specific dosing schedules</li>
-                <li>• Added test interpretation thresholds and cleaning alternatives</li>
+                <li className="flex items-start gap-1"><Circle className="h-1.5 w-1.5 mt-1.5 flex-shrink-0" />10 custom themes including Trend 2025 and Tan Earthy</li>
+                <li className="flex items-start gap-1"><Circle className="h-1.5 w-1.5 mt-1.5 flex-shrink-0" />Replaced all emojis with 25+ Lucide React SVG icons</li>
+                <li className="flex items-start gap-1"><Circle className="h-1.5 w-1.5 mt-1.5 flex-shrink-0" />Enhanced dashboard with gradient cards and hover effects</li>
+                <li className="flex items-start gap-1"><Circle className="h-1.5 w-1.5 mt-1.5 flex-shrink-0" />Professional sitemap with tan theme and lifted cards</li>
+                <li className="flex items-start gap-1"><Circle className="h-1.5 w-1.5 mt-1.5 flex-shrink-0" />Fixed MDX component exports for build compatibility</li>
+              </ul>
+            </div>
+
+            <div className="relative pl-8 border-l-4 border-blue-400">
+              <div className="absolute -left-2 top-0 w-4 h-4 bg-blue-600 rounded-full"></div>
+              <div className="mb-1">
+                <span className="text-sm font-semibold text-blue-600">2025-08-11 @ 8:00 PM CT</span>
+                <span className="ml-2 px-2 py-0.5 bg-blue-100 text-blue-700 text-xs rounded">MODULES</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Phase 2 Modules 03-07 Complete</h3>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li className="flex items-start gap-1"><Circle className="h-1.5 w-1.5 mt-1.5 flex-shrink-0" />Module 03: Drainage Pathways (5 systems)</li>
+                <li className="flex items-start gap-1"><Circle className="h-1.5 w-1.5 mt-1.5 flex-shrink-0" />Module 04: Binders with CSM titration</li>
+                <li className="flex items-start gap-1"><Circle className="h-1.5 w-1.5 mt-1.5 flex-shrink-0" />Module 05: Antifungals with Sporanox</li>
+                <li className="flex items-start gap-1"><Circle className="h-1.5 w-1.5 mt-1.5 flex-shrink-0" />Module 06: Herx Management protocols</li>
+                <li className="flex items-start gap-1"><Circle className="h-1.5 w-1.5 mt-1.5 flex-shrink-0" />Module 07: Supporting Modalities (HBOT, peptides)</li>
               </ul>
             </div>
 
@@ -451,7 +539,10 @@ export default function SitemapDevPage() {
               <div className="absolute -left-2 top-0 w-4 h-4 bg-indigo-600 rounded-full"></div>
               <div className="mb-1">
                 <span className="text-sm font-semibold text-indigo-600">2025-08-10 @ 2:45 PM CT</span>
-                <span className="ml-2 px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded">DEPLOYED ✅</span>
+                <span className="ml-2 px-2 py-0.5 bg-green-100 text-green-700 text-xs rounded inline-flex items-center gap-1">
+                  DEPLOYED
+                  <CheckCircle className="h-3 w-3" />
+                </span>
               </div>
               <h3 className="font-semibold text-gray-900 mb-2">Successful Vercel Deployment</h3>
               <ul className="text-sm text-gray-700 space-y-1">
@@ -575,6 +666,7 @@ export default function SitemapDevPage() {
                 <li>• Set up workspace and development environment</li>
               </ul>
             </div>
+            </div>
           </div>
 
           {/* Summary Stats */}
@@ -605,19 +697,31 @@ export default function SitemapDevPage() {
 
           {/* Next Milestones */}
           <div className="mt-6 p-4 bg-white/50 rounded-lg">
-            <h3 className="text-sm font-semibold text-gray-700 mb-2">🎯 Current Status & Next Milestones</h3>
+            <h3 className="text-sm font-semibold text-gray-700 mb-2 flex items-center gap-2">
+              <Target className="h-4 w-4" />
+              Current Status & Next Milestones
+            </h3>
             <div className="space-y-2 text-sm text-gray-600">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-emerald-400 rounded-full"></span>
-                <span className="font-medium text-emerald-700">✅ Phase 2 Updated with Kajsa's missing elements</span>
+                <span className="font-medium text-emerald-700 flex items-center gap-1">
+                  <CheckCircle className="h-3 w-3" />
+                  Phase 2 Updated with Kajsa's missing elements
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-green-400 rounded-full"></span>
-                <span className="font-medium text-green-700">✅ Critical Phase 1 Infrastructure Complete (Drainage tool, gating)</span>
+                <span className="font-medium text-green-700 flex items-center gap-1">
+                  <CheckCircle className="h-3 w-3" />
+                  Critical Phase 1 Infrastructure Complete (Drainage tool, gating)
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-green-400 rounded-full"></span>
-                <span className="font-medium text-green-700">✅ 2 of 9 Interactive Tools Complete</span>
+                <span className="font-medium text-green-700 flex items-center gap-1">
+                  <CheckCircle className="h-3 w-3" />
+                  2 of 9 Interactive Tools Complete
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-yellow-400 rounded-full"></span>
@@ -639,11 +743,431 @@ export default function SitemapDevPage() {
           </div>
         </div>
 
+        {/* Project Phase Status & Todo List */}
+        <div className="mt-8 p-6 rounded-xl border-0" style={{background: 'linear-gradient(135deg, #ffffff 0%, rgba(76, 175, 134, 0.03) 100%)', boxShadow: '0 12px 48px -12px rgba(76, 175, 134, 0.2), 0 16px 32px -16px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(76, 175, 134, 0.08)'}}>
+          <h2 className="text-xl font-bold mb-6 flex items-center gap-2" style={{color: 'rgb(44, 44, 44)'}}>
+            <Rocket className="h-5 w-5" style={{color: 'rgb(193, 122, 86)'}} />
+            Project Phase Status & Todo List
+          </h2>
+          
+          {/* Phase Overview */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <div className="text-center p-4 bg-green-100 rounded-lg border border-green-300">
+              <div className="text-2xl font-bold text-green-700 flex items-center justify-center gap-2">
+                <CheckCircle className="h-6 w-6" />
+                100%
+              </div>
+              <p className="text-sm font-medium text-green-800">Phase 0: Setup</p>
+              <p className="text-xs text-green-600">Complete</p>
+            </div>
+            <div className="text-center p-4 bg-yellow-100 rounded-lg border border-yellow-300">
+              <div className="text-2xl font-bold text-yellow-700 flex items-center justify-center gap-2">
+                <Activity className="h-6 w-6" />
+                85%
+              </div>
+              <p className="text-sm font-medium text-yellow-800">Phase 1: MVP</p>
+              <p className="text-xs text-yellow-600">Tools Pending</p>
+            </div>
+            <div className="text-center p-4 bg-orange-100 rounded-lg border border-orange-300">
+              <div className="text-2xl font-bold text-orange-700 flex items-center justify-center gap-2">
+                <Clock className="h-6 w-6" />
+                10%
+              </div>
+              <p className="text-sm font-medium text-orange-800">Phase 2: Features</p>
+              <p className="text-xs text-orange-600">Planning</p>
+            </div>
+            <div className="text-center p-4 bg-gray-100 rounded-lg border border-gray-300">
+              <div className="text-2xl font-bold text-gray-700 flex items-center justify-center gap-2">
+                <Layers className="h-6 w-6" />
+                0%
+              </div>
+              <p className="text-sm font-medium text-gray-800">Phase 3: Scale</p>
+              <p className="text-xs text-gray-600">Future</p>
+            </div>
+          </div>
+
+          {/* Detailed Phase Breakdown */}
+          <div className="space-y-6">
+            
+            {/* Phase 0: Complete */}
+            <div className="p-4 bg-white rounded-lg border border-green-200">
+              <h3 className="text-lg font-semibold text-green-800 mb-3 flex items-center gap-2">
+                <CheckCircle className="h-5 w-5" />
+                Phase 0: Project Setup (COMPLETE)
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-2 flex items-center gap-2">
+                    Completed (All
+                    <CheckCircle className="h-4 w-4 text-green-600" />)
+                  </h4>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Next.js 14 + TypeScript setup</span></li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Prisma + SQLite database (16 models)</span></li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Tailwind CSS + custom theme</span></li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>ESLint + Prettier + Husky</span></li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Git repository initialized</span></li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Base UI components</span></li>
+                    <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Cursor Rules v2.1 + Claude Code</span></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-2">Key Achievements</h4>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li>• Enhanced 16-model database schema</li>
+                    <li>• TypeScript strict mode enabled</li>
+                    <li>• Modular AI assistant configuration</li>
+                    <li>• Pre-commit hooks for code quality</li>
+                    <li>• Comprehensive documentation</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Phase 1: Mostly Complete */}
+            <div className="p-4 bg-white rounded-lg border border-yellow-200">
+              <h3 className="text-lg font-semibold text-yellow-800 mb-3">🔄 Phase 1: Frontend Foundation & MVP (85% Complete)</h3>
+              
+              {/* Week 1: Complete */}
+              <div className="mb-4">
+                <h4 className="font-medium text-gray-900 mb-2 flex items-center gap-2">
+                  Week 1: Layout & Auth
+                  <CheckCircle className="h-4 w-4 text-green-600" />
+                  <span className="text-green-600">Complete</span>
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <ul className="text-sm text-gray-700 space-y-1">
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Marketing & app layouts</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Header, footer, navigation</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>NextAuth authentication system</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Sign in/up/reset password pages</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Auth middleware protection</span></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <ul className="text-sm text-gray-700 space-y-1">
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Landing page components (10 sections)</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Hero, pricing, FAQ, social proof</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Medical disclaimer modal</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Responsive mobile design</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Week 2: Complete */}
+              <div className="mb-4">
+                <h4 className="font-medium text-gray-900 mb-2 flex items-center gap-2">
+                  Week 2: Payments & Dashboard
+                  <CheckCircle className="h-4 w-4 text-green-600" />
+                  <span className="text-green-600">Complete</span>
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <ul className="text-sm text-gray-700 space-y-1">
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Stripe integration (checkout, webhooks)</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Payment success/cancel pages</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>5-step onboarding wizard</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Personalized recommendations</span></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <ul className="text-sm text-gray-700 space-y-1">
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Dashboard with progress widgets</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Streak counter, badges display</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Next action cards</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Readiness status tracking</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Week 3: Complete */}
+              <div className="mb-4">
+                <h4 className="font-medium text-gray-900 mb-2 flex items-center gap-2">
+                  Week 3: Modules & Content
+                  <CheckCircle className="h-4 w-4 text-green-600" />
+                  <span className="text-green-600">Complete</span>
+                </h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <ul className="text-sm text-gray-700 space-y-1">
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>MDX + Contentlayer setup</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Module infrastructure complete</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Progress tracking system</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Module gating logic implemented</span></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <ul className="text-sm text-gray-700 space-y-1">
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>All 11 modules created with MDX content</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Aligned with Kajsa's exact protocol</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Evidence badges & safety flags</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Module navigation components</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Week 4: Partially Complete */}
+              <div className="mb-4">
+                <h4 className="font-medium text-gray-900 mb-2">Week 4: Interactive Tools (🔄 Partial - 1 of 3 Complete)</h4>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <h5 className="font-medium text-green-700 mb-1 flex items-center gap-2">
+                      <CheckCircle className="h-4 w-4" />
+                      Completed
+                    </h5>
+                    <ul className="text-sm text-gray-700 space-y-1">
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Exposure Checklist tool (fully functional)</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Room-by-room assessment</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Photo upload feature</span></li>
+                      <li className="flex items-start gap-2"><CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" /><span>Scoring algorithm & results</span></li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 className="font-medium text-red-700 mb-1 flex items-center gap-2">
+                      <XCircle className="h-4 w-4" />
+                      Missing (Critical)
+                    </h5>
+                    <ul className="text-sm text-gray-700 space-y-1">
+                      <li className="flex items-start gap-2"><XCircle className="h-3 w-3 text-red-600 mt-0.5 flex-shrink-0" /><span>Drainage Readiness Score tool</span></li>
+                      <li className="flex items-start gap-2"><XCircle className="h-3 w-3 text-red-600 mt-0.5 flex-shrink-0" /><span>Binder Timing Planner tool</span></li>
+                      <li className="flex items-start gap-2"><XCircle className="h-3 w-3 text-red-600 mt-0.5 flex-shrink-0" /><span>Resources vault setup</span></li>
+                      <li className="flex items-start gap-2"><XCircle className="h-3 w-3 text-red-600 mt-0.5 flex-shrink-0" /><span>Email system (Resend/Postal)</span></li>
+                      <li className="flex items-start gap-2"><XCircle className="h-3 w-3 text-red-600 mt-0.5 flex-shrink-0" /><span>PostHog analytics tracking</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Phase 2: Planned */}
+            <div className="p-4 bg-white rounded-lg border border-orange-200">
+              <h3 className="text-lg font-semibold text-orange-800 mb-3">⏳ Phase 2: Enhancement & Advanced Tools (10% Complete)</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-2">Planned Features</h4>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Complete remaining 7 modules with audio</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>9 advanced interactive tools</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Community forum (optional tier)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Advanced analytics & A/B testing</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Email automation sequences</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Gamification features expansion</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-2">Advanced Tools Planned</h4>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Testing Decision Helper</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Herx Toolkit</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Sauna Ramp-Up Tool</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Diet Builder</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Retesting Scheduler</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Re-exposure Triage</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Supplement Scheduler</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Phase 3: Future */}
+            <div className="p-4 bg-white rounded-lg border border-gray-200">
+              <h3 className="text-lg font-semibold text-gray-800 mb-3">📋 Phase 3: Scale & Production (Future)</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-2">Advanced Features</h4>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Protocol Builder (drag & drop)</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Mycotoxin Binder Matcher</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Lab/VCS logging system</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Calendar integrations</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Health device integration</span>
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-medium text-gray-900 mb-2">Production & Scale</h4>
+                  <ul className="text-sm text-gray-700 space-y-1">
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Supabase migration</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Performance optimization</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>Affiliate program</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>White-label options</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Circle className="h-2 w-2 text-gray-400 mt-1.5 flex-shrink-0" />
+                      <span>CI/CD pipeline</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Critical Next Steps */}
+          <div className="mt-6 p-4 bg-red-50 rounded-lg border border-red-200">
+            <h3 className="text-lg font-semibold text-red-800 mb-3">🚨 Critical Next Steps (Phase 1 Completion)</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <h4 className="font-medium text-red-700 mb-2">Immediate Priority (This Week)</h4>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  <li className="flex items-start gap-2">
+                    <Zap className="h-4 w-4 text-red-600 mt-0.5 flex-shrink-0" />
+                    <span><strong>Drainage Readiness Score tool</strong> - Critical safety gate</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Zap className="h-4 w-4 text-red-600 mt-0.5 flex-shrink-0" />
+                    <span><strong>Binder Timing Planner tool</strong> - Core protocol tool</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <AlertCircle className="h-4 w-4 text-orange-600 mt-0.5 flex-shrink-0" />
+                    <span>Resources vault with initial content</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <AlertCircle className="h-4 w-4 text-orange-600 mt-0.5 flex-shrink-0" />
+                    <span>Email system setup (welcome, reset emails)</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-medium text-orange-700 mb-2">Secondary Priority (Next Week)</h4>
+                <ul className="text-sm text-gray-700 space-y-1">
+                  <li className="flex items-start gap-2">
+                    <BarChart3 className="h-4 w-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                    <span>PostHog analytics integration</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Settings className="h-4 w-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                    <span>Mobile responsiveness testing</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <AlertCircle className="h-4 w-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                    <span>Bug fixes and error handling</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <TestTube className="h-4 w-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                    <span>User acceptance testing</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <Rocket className="h-4 w-4 text-gray-600 mt-0.5 flex-shrink-0" />
+                    <span>Phase 1 MVP deployment</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-4 p-3 bg-red-100 rounded border border-red-300">
+              <p className="text-sm text-red-800">
+                <strong>Note:</strong> Drainage Readiness Score tool is blocking for safety - users cannot access binder protocols 
+                without 80% drainage readiness for 7 consecutive days (per Kajsa's protocol).
+              </p>
+            </div>
+          </div>
+
+          {/* Progress Summary */}
+          <div className="mt-6 p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+            <h3 className="text-lg font-semibold text-indigo-800 mb-3 flex items-center gap-2">
+              <BarChart3 className="h-5 w-5" />
+              Overall Progress Summary
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+              <div>
+                <div className="text-2xl font-bold text-indigo-600">98%</div>
+                <p className="text-xs text-indigo-700">Auth & Layout</p>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-indigo-600">95%</div>
+                <p className="text-xs text-indigo-700">Content & Modules</p>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-yellow-600">33%</div>
+                <p className="text-xs text-yellow-700">Interactive Tools</p>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-red-600">0%</div>
+                <p className="text-xs text-red-700">Email & Analytics</p>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-green-600">85%</div>
+                <p className="text-xs text-green-700">Phase 1 Total</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Back to Home */}
         <div className="mt-8 text-center">
           <Link 
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 text-white rounded-lg transition-colors"
+            style={{backgroundColor: 'rgb(193, 122, 86)'}}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgb(160, 101, 71)'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgb(193, 122, 86)'}
           >
             <Home className="h-5 w-5" />
             Back to Home

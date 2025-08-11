@@ -28,77 +28,77 @@ Based on Opus4-Project-overview.md Phase 2 specifications. This phase completes 
 
 | Task | File/Component | Time | Status |
 |------|---------------|------|--------|
-| Write Drainage content | `content/modules/03-drainage.mdx` | 4h | ⬜ |
-| Bowel section | Include detailed protocol | 2h | ⬜ |
-| Liver/gallbladder section | Include castor oil packs | 2h | ⬜ |
-| Kidneys section | Hydration protocols | 1h | ⬜ |
-| Lymph section | Dry brushing, rebounding | 1h | ⬜ |
-| Sweat section | Sauna protocols | 1h | ⬜ |
+| Write Drainage content | `content/modules/03-drainage.mdx` | 4h | ✅ |
+| Bowel section | Include detailed protocol | 2h | ✅ |
+| Liver/gallbladder section | Include castor oil packs | 2h | ✅ |
+| Kidneys section | Hydration protocols | 1h | ✅ |
+| Lymph section | Dry brushing, rebounding | 1h | ✅ |
+| Sweat section | Sauna protocols | 1h | ✅ |
 | Record audio (5-7 min) | `public/audio/03-drainage.mp3` | 1h | ⬜ |
-| Create pathway diagram | Visual of all 5 pathways | 3h | ⬜ |
-| Add tool links | Link to Drainage Readiness | 1h | ⬜ |
-| Evidence badges | Mark Solid/Emerging/Controversial | 1h | ⬜ |
-| Safety flags | Add clinician prompts | 1h | ⬜ |
+| Create pathway diagram | Visual of all 5 pathways | 3h | ✅ |
+| Add tool links | Link to Drainage Readiness | 1h | ✅ |
+| Evidence badges | Mark Solid/Emerging/Controversial | 1h | ✅ |
+| Safety flags | Add clinician prompts | 1h | ✅ |
 
 ### Day 3: Module 04 - Detox I: Binders
 
 | Task | File/Component | Time | Status |
 |------|---------------|------|--------|
-| Write Binders content | `content/modules/04-binders.mdx` | 4h | ⬜ |
-| CSM titration schedule | Week 1: ¼ scoop, Week 2: ½ scoop, Week 3+: full | 2h | ⬜ |
-| Timing protocols | 30-60min before meals, 2hr from meds/vitamins | 2h | ⬜ |
-| Fat-soluble vitamins | A,D,E,K supplementation timing | 1h | ⬜ |
-| CSM+Welchol combo | For better tolerance protocol | 1h | ⬜ |
-| Interactions section | Drug/supplement interactions | 2h | ⬜ |
-| Side effects guide | Common issues and solutions | 2h | ⬜ |
-| Binder comparison table | CSM vs Welchol vs charcoal vs chlorella | 2h | ⬜ |
+| Write Binders content | `content/modules/04-binders.mdx` | 4h | ✅ |
+| CSM titration schedule | Week 1: ¼ scoop, Week 2: ½ scoop, Week 3+: full | 2h | ✅ |
+| Timing protocols | 30-60min before meals, 2hr from meds/vitamins | 2h | ✅ |
+| Fat-soluble vitamins | A,D,E,K supplementation timing | 1h | ✅ |
+| CSM+Welchol combo | For better tolerance protocol | 1h | ✅ |
+| Interactions section | Drug/supplement interactions | 2h | ✅ |
+| Side effects guide | Common issues and solutions | 2h | ✅ |
+| Binder comparison table | CSM vs Welchol vs charcoal vs chlorella | 2h | ✅ |
 | Record audio | `public/audio/04-binders.mp3` | 1h | ⬜ |
-| Create timing diagram | Visual schedule | 2h | ⬜ |
-| Link Binder Planner | Tool integration | 1h | ⬜ |
-| Add safety warnings | Critical timing info | 1h | ⬜ |
+| Create timing diagram | Visual schedule | 2h | ✅ |
+| Link Binder Planner | Tool integration | 1h | ✅ |
+| Add safety warnings | Critical timing info | 1h | ✅ |
 
 ### Day 4: Module 05 - Detox II: Antifungals
 
 | Task | File/Component | Time | Status |
 |------|---------------|------|--------|
-| Write Antifungals content | `content/modules/05-antifungals.mdx` | 4h | ⬜ |
-| Sporanox titration | Week 1: 100mg daily, Week 2: 100mg 2x daily | 2h | ⬜ |
-| When/if decision tree | Clear criteria for use | 2h | ⬜ |
-| Liver monitoring | Every 2-4 weeks during treatment | 2h | ⬜ |
-| Natural alternatives | Neem, Biopure O3, oregano oil protocols | 2h | ⬜ |
-| Natural vs prescription | Comparison and protocols | 2h | ⬜ |
-| Safety monitoring | Liver function, die-off | 2h | ⬜ |
+| Write Antifungals content | `content/modules/05-antifungals.mdx` | 4h | ✅ |
+| Sporanox titration | Week 1: 100mg daily, Week 2: 100mg 2x daily | 2h | ✅ |
+| When/if decision tree | Clear criteria for use | 2h | ✅ |
+| Liver monitoring | Every 2-4 weeks during treatment | 2h | ✅ |
+| Natural alternatives | Neem, Biopure O3, oregano oil protocols | 2h | ✅ |
+| Natural vs prescription | Comparison and protocols | 2h | ✅ |
+| Safety monitoring | Liver function, die-off | 2h | ✅ |
 | Record audio | `public/audio/05-antifungals.mp3` | 1h | ⬜ |
-| Create decision flowchart | When to use antifungals | 2h | ⬜ |
-| Multiple safety flags | High-risk content flags | 2h | ⬜ |
+| Create decision flowchart | When to use antifungals | 2h | ✅ |
+| Multiple safety flags | High-risk content flags | 2h | ✅ |
 
 ### Day 5: Module 06 - Managing Herx
 
 | Task | File/Component | Time | Status |
 |------|---------------|------|--------|
-| Write Herx content | `content/modules/06-herx.mdx` | 4h | ⬜ |
-| Slowdown protocol | Step-by-step guide | 2h | ⬜ |
-| Red flags section | When to stop/seek help | 2h | ⬜ |
-| Support strategies | Binders, hydration, rest | 2h | ⬜ |
+| Write Herx content | `content/modules/06-herx.mdx` | 4h | ✅ |
+| Slowdown protocol | Step-by-step guide | 2h | ✅ |
+| Red flags section | When to stop/seek help | 2h | ✅ |
+| Support strategies | Binders, hydration, rest | 2h | ✅ |
 | Record audio | `public/audio/06-herx.mp3` | 1h | ⬜ |
-| Severity scale diagram | Visual guide | 2h | ⬜ |
-| Link Herx Toolkit | Tool integration | 1h | ⬜ |
-| Emergency protocol box | Highlighted safety info | 2h | ⬜ |
+| Severity scale diagram | Visual guide | 2h | ✅ |
+| Link Herx Toolkit | Tool integration | 1h | ✅ |
+| Emergency protocol box | Highlighted safety info | 2h | ✅ |
 
 ### Day 6: Module 07 - Supportive Modalities
 
 | Task | File/Component | Time | Status |
 |------|---------------|------|--------|
-| Write Modalities content | `content/modules/07-modalities.mdx` | 4h | ⬜ |
-| Sauna protocols | IR vs traditional, 110-130°F start, 30-45min goal | 2h | ⬜ |
-| HBOT section | 60-90min, 1.3-2.0 ATA, 3-5x/week protocol | 2h | ⬜ |
-| Peptide protocols | BPC-157, KPV, TA-1, LL-37 overview | 2h | ⬜ |
-| Nasal care | Xlear spray 2-4x daily, Dave Asprey protocol | 1h | ⬜ |
-| Sleep optimization | Melatonin 1-3mg for glymphatic support | 2h | ⬜ |
-| Strength training | Exercise protocols | 1h | ⬜ |
+| Write Modalities content | `content/modules/07-modalities.mdx` | 4h | ✅ |
+| Sauna protocols | IR vs traditional, 110-130°F start, 30-45min goal | 2h | ✅ |
+| HBOT section | 60-90min, 1.3-2.0 ATA, 3-5x/week protocol | 2h | ✅ |
+| Peptide protocols | BPC-157, KPV, TA-1, LL-37 overview | 2h | ✅ |
+| Nasal care | Xlear spray 2-4x daily, Dave Asprey protocol | 1h | ✅ |
+| Sleep optimization | Melatonin 1-3mg for glymphatic support | 2h | ✅ |
+| Strength training | Exercise protocols | 1h | ✅ |
 | Record audio | `public/audio/07-modalities.mp3` | 1h | ⬜ |
 | Create modality grid | Visual comparison | 2h | ⬜ |
-| Link Sauna Ramp-Up tool | Tool integration | 1h | ⬜ |
+| Link Sauna Ramp-Up tool | Tool integration | 1h | ✅ |
 
 ### Day 7: Module 08 - Diet & Pantry
 

@@ -10,7 +10,7 @@ interface DoThisNowProps {
   timeframe?: string
 }
 
-export function DoThisNow({ 
+function DoThisNow({ 
   title, 
   action, 
   urgency = 'medium',
@@ -79,3 +79,5 @@ export function DoThisNow({
     </div>
   )
 }
+
+export default DoThisNow;

@@ -25,7 +25,8 @@
       "Bash(npm run type-check:*)",
       "Bash(npx shadcn@latest add:*)",
       "Bash(git rm:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(lsof:*)"
     ],
     "deny": []
   }

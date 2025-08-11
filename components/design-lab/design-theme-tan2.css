@@ -1,0 +1,584 @@
+/**
+ * @fileoverview Tan-2 Theme - Modern health dashboard inspired design
+ * Clean, soft aesthetic with beige/tan base, rounded cards, and gentle shadows
+ */
+
+/* ============================================
+   TAN-2 MODERN HEALTH THEME
+   ============================================ */
+
+.design-theme-tan2 {
+  /* ==================== CORE COLOR PALETTE ==================== */
+  /* Soft beige/tan backgrounds inspired by the image */
+  --bg-primary: 240 237 231;           /* #f0ede7 - Soft beige background */
+  --bg-secondary: 245 242 237;         /* #f5f2ed - Slightly lighter */
+  --surface: 255 255 255;              /* #ffffff - Pure white for cards */
+  --surface-hover: 252 252 251;        /* Subtle hover state */
+  --surface-elevated: 255 255 255;     /* Elevated cards */
+  
+  /* Text Colors - High contrast for readability */
+  --text-primary: 33 33 33;            /* #212121 - Almost black for main text */
+  --text-secondary: 107 114 128;       /* #6b7280 - Gray for secondary text */
+  --text-muted: 156 163 175;           /* #9ca3af - Light gray for subtle text */
+  --text-inverse: 255 255 255;         /* White text on dark backgrounds */
+  
+  /* Accent Colors - Soft, muted tones */
+  --accent-primary: 251 146 60;        /* #fb923c - Warm orange (like the star icon) */
+  --accent-secondary: 134 188 134;     /* #86bc86 - Soft green for positive metrics */
+  --accent-tertiary: 171 143 114;      /* #ab8f72 - Tan/brown for neutral elements */
+  
+  /* Status Colors - Health-oriented */
+  --status-positive: 134 188 134;      /* #86bc86 - Green for improvements */
+  --status-negative: 239 68 68;        /* #ef4444 - Red for declines */
+  --status-neutral: 156 163 175;       /* #9ca3af - Gray for unchanged */
+  --status-warning: 251 191 36;        /* #fbbf24 - Yellow for warnings */
+  
+  /* Icon Colors */
+  --icon-primary: 171 143 114;         /* #ab8f72 - Tan/brown */
+  --icon-secondary: 251 146 60;        /* #fb923c - Orange */
+  --icon-success: 134 188 134;         /* #86bc86 - Green */
+  --icon-muted: 209 213 219;           /* #d1d5db - Light gray */
+  
+  /* Component-specific */
+  --background: 240 237 231;
+  --foreground: 33 33 33;
+  --card: 255 255 255;
+  --card-foreground: 33 33 33;
+  --border: 229 231 235;               /* #e5e7eb - Very light gray */
+  --input: 255 255 255;
+  --ring: 251 146 60;                  /* Orange focus ring */
+  
+  /* ==================== SHADOWS (Ultra soft) ==================== */
+  --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+  
+  /* Card shadows - very subtle */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.06);
+  
+  /* ==================== SPACING ==================== */
+  --space-xs: 0.5rem;     /* 8px */
+  --space-sm: 0.75rem;    /* 12px */
+  --space-md: 1rem;       /* 16px */
+  --space-lg: 1.5rem;     /* 24px */
+  --space-xl: 2rem;       /* 32px */
+  --space-2xl: 3rem;      /* 48px */
+  --space-3xl: 4rem;      /* 64px */
+  
+  /* ==================== BORDER RADIUS ==================== */
+  --radius-sm: 0.5rem;    /* 8px */
+  --radius-md: 0.75rem;   /* 12px */
+  --radius-lg: 1rem;      /* 16px - default for cards */
+  --radius-xl: 1.25rem;   /* 20px - for larger cards */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;  /* Fully rounded */
+  
+  /* ==================== TRANSITIONS ==================== */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+.design-theme-tan2 {
+  background: rgb(var(--bg-primary));
+  color: rgb(var(--text-primary));
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   TYPOGRAPHY
+   ============================================ */
+
+.design-theme-tan2 h1,
+.design-theme-tan2 h2,
+.design-theme-tan2 h3,
+.design-theme-tan2 h4 {
+  color: rgb(var(--text-primary));
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.design-theme-tan2 h1 {
+  font-size: 3.5rem;    /* 56px - for big numbers like "87" */
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.design-theme-tan2 h2 {
+  font-size: 1.5rem;    /* 24px */
+  font-weight: 600;
+}
+
+.design-theme-tan2 h3 {
+  font-size: 1.125rem;  /* 18px */
+  font-weight: 600;
+}
+
+.design-theme-tan2 h4 {
+  font-size: 1rem;      /* 16px */
+  font-weight: 500;
+}
+
+.design-theme-tan2 p {
+  color: rgb(var(--text-secondary));
+  line-height: 1.6;
+}
+
+.design-theme-tan2 .text-muted {
+  color: rgb(var(--text-muted));
+  font-size: 0.875rem;
+}
+
+/* Large display numbers */
+.design-theme-tan2 .display-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgb(var(--text-primary));
+  letter-spacing: -0.02em;
+}
+
+/* Metric values */
+.design-theme-tan2 .metric-value {
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgb(var(--text-primary));
+}
+
+/* Metric labels */
+.design-theme-tan2 .metric-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(var(--text-primary));
+  margin-top: 0.25rem;
+}
+
+/* Metric sublabels */
+.design-theme-tan2 .metric-sublabel {
+  font-size: 0.875rem;
+  color: rgb(var(--text-secondary));
+  font-weight: 400;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+
+.design-theme-tan2 .card {
+  background: rgb(var(--surface));
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+  border: none;
+  transition: all var(--transition-base);
+}
+
+.design-theme-tan2 .card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-1px);
+}
+
+/* Main health score card */
+.design-theme-tan2 .card-primary {
+  background: rgb(var(--surface));
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Metric cards grid */
+.design-theme-tan2 .metric-card {
+  background: rgb(var(--surface));
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.design-theme-tan2 button,
+.design-theme-tan2 .btn {
+  background: transparent;
+  color: rgb(var(--text-secondary));
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  font-weight: 500;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.design-theme-tan2 button:hover,
+.design-theme-tan2 .btn:hover {
+  background: rgb(var(--bg-secondary));
+  color: rgb(var(--text-primary));
+}
+
+/* Tab-like buttons */
+.design-theme-tan2 .btn-tab {
+  background: transparent;
+  color: rgb(var(--text-secondary));
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-weight: 500;
+}
+
+.design-theme-tan2 .btn-tab:hover {
+  background: rgb(var(--surface) / 0.5);
+}
+
+.design-theme-tan2 .btn-tab.active {
+  background: rgb(var(--surface));
+  color: rgb(var(--text-primary));
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   BADGES & INDICATORS
+   ============================================ */
+
+/* Positive change indicator */
+.design-theme-tan2 .indicator-positive {
+  color: rgb(var(--status-positive));
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.design-theme-tan2 .indicator-positive::before {
+  content: '↑';
+  font-size: 0.75rem;
+}
+
+/* Negative change indicator */
+.design-theme-tan2 .indicator-negative {
+  color: rgb(var(--status-negative));
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.design-theme-tan2 .indicator-negative::before {
+  content: '↓';
+  font-size: 0.75rem;
+}
+
+/* ============================================
+   PROGRESS RINGS & CIRCLES
+   ============================================ */
+
+/* Circular progress ring */
+.design-theme-tan2 .progress-ring {
+  width: 120px;
+  height: 120px;
+  position: relative;
+}
+
+.design-theme-tan2 .progress-ring svg {
+  transform: rotate(-90deg);
+}
+
+.design-theme-tan2 .progress-ring-bg {
+  stroke: rgb(var(--border));
+  stroke-width: 8;
+  fill: none;
+}
+
+.design-theme-tan2 .progress-ring-fill {
+  stroke: rgb(var(--status-positive));
+  stroke-width: 8;
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dashoffset var(--transition-slow);
+}
+
+/* ============================================
+   ICONS
+   ============================================ */
+
+.design-theme-tan2 .icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: rgb(var(--icon-primary));
+}
+
+.design-theme-tan2 .icon-sm {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.design-theme-tan2 .icon-lg {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Icon containers */
+.design-theme-tan2 .icon-container {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(var(--bg-secondary));
+}
+
+/* Colored icons */
+.design-theme-tan2 .icon-orange {
+  color: rgb(var(--icon-secondary));
+}
+
+.design-theme-tan2 .icon-green {
+  color: rgb(var(--icon-success));
+}
+
+.design-theme-tan2 .icon-tan {
+  color: rgb(var(--icon-primary));
+}
+
+/* ============================================
+   SPECIAL COMPONENTS
+   ============================================ */
+
+/* Health score display */
+.design-theme-tan2 .health-score {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.design-theme-tan2 .health-score-number {
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  color: rgb(var(--text-primary));
+}
+
+.design-theme-tan2 .health-score-change {
+  color: rgb(var(--status-positive));
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin-left: var(--space-sm);
+}
+
+.design-theme-tan2 .health-score-label {
+  color: rgb(var(--text-secondary));
+  font-size: 1rem;
+  margin-top: var(--space-xs);
+}
+
+/* Navigation tabs */
+.design-theme-tan2 .nav-tabs {
+  display: flex;
+  gap: var(--space-xl);
+  padding: var(--space-md) 0;
+  border-top: 1px solid rgb(var(--border));
+  margin-top: var(--space-lg);
+}
+
+.design-theme-tan2 .nav-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  color: rgb(var(--text-secondary));
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.design-theme-tan2 .nav-tab:hover {
+  color: rgb(var(--text-primary));
+}
+
+.design-theme-tan2 .nav-tab.active {
+  color: rgb(var(--text-primary));
+}
+
+/* Metric grid */
+.design-theme-tan2 .metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-md);
+}
+
+/* Celebration text */
+.design-theme-tan2 .celebration-text {
+  color: rgb(var(--text-secondary));
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+/* Icon placeholder for celebration - use SVG icon component instead */
+.design-theme-tan2 .celebration-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-block;
+}
+
+/* ============================================
+   INPUTS & FORMS
+   ============================================ */
+
+.design-theme-tan2 input,
+.design-theme-tan2 textarea,
+.design-theme-tan2 select {
+  background: rgb(var(--surface));
+  border: 1px solid rgb(var(--border));
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  color: rgb(var(--text-primary));
+  font-size: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.design-theme-tan2 input:focus,
+.design-theme-tan2 textarea:focus,
+.design-theme-tan2 select:focus {
+  outline: none;
+  border-color: rgb(var(--ring));
+  box-shadow: 0 0 0 3px rgb(var(--ring) / 0.1);
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+/* Soft backgrounds */
+.design-theme-tan2 .bg-soft-orange {
+  background: rgb(251 146 60 / 0.1);
+}
+
+.design-theme-tan2 .bg-soft-green {
+  background: rgb(134 188 134 / 0.1);
+}
+
+.design-theme-tan2 .bg-soft-tan {
+  background: rgb(171 143 114 / 0.1);
+}
+
+/* Text colors */
+.design-theme-tan2 .text-orange {
+  color: rgb(var(--icon-secondary));
+}
+
+.design-theme-tan2 .text-green {
+  color: rgb(var(--status-positive));
+}
+
+.design-theme-tan2 .text-tan {
+  color: rgb(var(--icon-primary));
+}
+
+/* Dividers */
+.design-theme-tan2 .divider {
+  height: 1px;
+  background: rgb(var(--border));
+  margin: var(--space-lg) 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 640px) {
+  .design-theme-tan2 .health-score-number {
+    font-size: 3rem;
+  }
+  
+  .design-theme-tan2 .metric-value {
+    font-size: 1.5rem;
+  }
+  
+  .design-theme-tan2 .card {
+    padding: var(--space-md);
+  }
+  
+  .design-theme-tan2 .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes tan2-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tan2-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.design-theme-tan2 .animate-fade-in {
+  animation: tan2-fade-in 0.3s ease-out;
+}
+
+.design-theme-tan2 .animate-pulse {
+  animation: tan2-pulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+.design-theme-tan2 *:focus-visible {
+  outline: 2px solid rgb(var(--ring));
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .design-theme-tan2 * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .design-theme-tan2 {
+    --text-primary: 0 0 0;
+    --text-secondary: 33 33 33;
+    --border: 0 0 0;
+  }
+}

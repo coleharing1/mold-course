@@ -7,7 +7,7 @@ interface EvidenceBadgeProps {
   tooltip?: string
 }
 
-export function EvidenceBadge({ level, tooltip }: EvidenceBadgeProps) {
+function EvidenceBadge({ level, tooltip }: EvidenceBadgeProps) {
   const config = {
     solid: {
       bg: 'bg-green-100',
@@ -54,3 +54,5 @@ export function EvidenceBadge({ level, tooltip }: EvidenceBadgeProps) {
     </div>
   )
 }
+
+export default EvidenceBadge;

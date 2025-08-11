@@ -8,7 +8,7 @@ interface SafetyFlagProps {
   title?: string
 }
 
-export function SafetyFlag({ type, message, title }: SafetyFlagProps) {
+function SafetyFlag({ type, message, title }: SafetyFlagProps) {
   const config = {
     critical: {
       bg: 'bg-red-50',
@@ -62,3 +62,5 @@ export function SafetyFlag({ type, message, title }: SafetyFlagProps) {
     </div>
   )
 }
+
+export default SafetyFlag;

@@ -359,7 +359,7 @@ export function SeverityAssessment({ onComplete }: SeverityAssessmentProps) {
           />
           <div className="text-xs text-gray-500 flex justify-between">
             <span>Normal temperature</span>
-            <span>High fever (>103°F)</span>
+            <span>High fever (&gt;103°F)</span>
           </div>
         </div>
 

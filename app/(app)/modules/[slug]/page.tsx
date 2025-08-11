@@ -171,6 +171,81 @@ const moduleData = {
     nextModule: '02-testing-diagnosis',
     previousModule: '00-quick-start'
   },
+  '02-testing-diagnosis': {
+    title: 'Testing & Diagnosis',
+    description: 'Understand all testing options and make informed decisions about mold and mycotoxin testing',
+    moduleNumber: 2,
+    duration: '75 minutes',
+    difficulty: 'beginner',
+    category: 'foundation',
+    progress: 0,
+    objectives: [
+      'Understand environmental testing options (ERMI, HERTSMI-2)',
+      'Learn about DIY testing methods and their limitations',
+      'Navigate medical testing for mycotoxins in your body',
+      'Interpret biomarker tests that indicate mold illness',
+      'Use VCS testing as a screening tool',
+      'Understand genetic susceptibility factors'
+    ],
+    lessons: [
+      {
+        id: 1,
+        title: 'Environmental Testing Overview',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'Understanding home and building tests'
+      },
+      {
+        id: 2,
+        title: 'DIY Testing Methods',
+        type: 'exercise',
+        duration: '10 min',
+        completed: false,
+        description: 'Affordable testing you can do yourself'
+      },
+      {
+        id: 3,
+        title: 'Medical Testing - Mycotoxins',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'Testing for mold in your body'
+      },
+      {
+        id: 4,
+        title: 'Biomarker Testing',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'Blood tests that indicate CIRS/mold illness'
+      },
+      {
+        id: 5,
+        title: 'VCS Testing',
+        type: 'exercise',
+        duration: '10 min',
+        completed: false,
+        description: 'Visual Contrast Sensitivity as screening tool'
+      },
+      {
+        id: 6,
+        title: 'Genetic Testing - HLA-DR',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Understanding genetic susceptibility'
+      }
+    ],
+    resources: [
+      { title: 'Lab Comparison Chart', type: 'pdf', size: '890 KB' },
+      { title: 'Test Interpretation Guide', type: 'pdf', size: '456 KB' },
+      { title: 'Insurance Code List', type: 'pdf', size: '234 KB' },
+      { title: 'Sample Test Results', type: 'pdf', size: '1.2 MB' }
+    ],
+    nextModule: '03-drainage-pathways',
+    previousModule: '01-identify-exposure'
+  },
   '03-drainage-pathways': {
     title: 'Open Drainage Pathways',
     description: 'Essential 2-4 week preparation before starting any mold detox protocol',
@@ -247,6 +322,148 @@ const moduleData = {
     nextModule: '04-mycotoxin-binders',
     previousModule: '02-testing-diagnosis'
   },
+  '04-mycotoxin-binders': {
+    title: 'Mycotoxin Binders',
+    description: 'Essential binder protocols to safely remove mycotoxins from your body',
+    moduleNumber: 4,
+    duration: '85 minutes',
+    difficulty: 'intermediate',
+    category: 'detox',
+    progress: 0,
+    objectives: [
+      'Understand the science behind mycotoxin binding',
+      'Master CSM (Cholestyramine) protocol - the gold standard',
+      'Learn Welchol as alternative for CSM-intolerant patients',
+      'Understand natural binder options and their limitations',
+      'Master critical timing protocols (30-60 min before meals)',
+      'Troubleshoot common binder side effects and interactions'
+    ],
+    lessons: [
+      {
+        id: 1,
+        title: 'Binder Science & Why They Work',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'Enterohepatic recirculation and bile acid sequestration'
+      },
+      {
+        id: 2,
+        title: 'CSM Protocol - The Gold Standard',
+        type: 'reading',
+        duration: '20 min',
+        completed: false,
+        description: '4g 4x daily protocol with titration schedule'
+      },
+      {
+        id: 3,
+        title: 'Welchol Alternative Protocol',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'For patients who cannot tolerate CSM (25% as effective)'
+      },
+      {
+        id: 4,
+        title: 'Natural Binders Overview',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'Charcoal, chlorella, MCP, clay - pros and cons'
+      },
+      {
+        id: 5,
+        title: 'Timing Mastery',
+        type: 'exercise',
+        duration: '10 min',
+        completed: false,
+        description: 'Critical 30-60 min before meals, 2+ hours from meds'
+      },
+      {
+        id: 6,
+        title: 'Troubleshooting & Side Effects',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Constipation, nutrient depletion, herx management'
+      }
+    ],
+    resources: [
+      { title: 'CSM Prescription Script Template', type: 'pdf', size: '2 pages' },
+      { title: 'Binder Timing Chart', type: 'pdf', size: '1 page' },
+      { title: 'Natural Binder Comparison', type: 'pdf', size: '4 pages' },
+      { title: 'Troubleshooting Flowchart', type: 'pdf', size: '3 pages' }
+    ],
+    nextModule: '05-antifungals',
+    previousModule: '03-drainage-pathways'
+  },
+  '05-antifungals': {
+    title: 'Antifungal Protocols',
+    description: 'Prescription and natural antifungal protocols for colonization treatment',
+    moduleNumber: 5,
+    duration: '70 minutes',
+    difficulty: 'intermediate',
+    category: 'detox',
+    progress: 0,
+    objectives: [
+      'Determine if you need antifungals (only 20-30% of patients do)',
+      'Master Itraconazole protocol - 100mg daily to 100mg 2x daily',
+      'Understand other prescription options (Fluconazole, Nystatin)',
+      'Learn natural antifungal rotation strategies',
+      'Manage die-off reactions with severity scale (1-10)',
+      'Monitor liver function and drug interactions'
+    ],
+    lessons: [
+      {
+        id: 1,
+        title: 'Do You Need Antifungals?',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'Colonization vs exposure assessment criteria'
+      },
+      {
+        id: 2,
+        title: 'Itraconazole (Sporanox) Protocol',
+        type: 'reading',
+        duration: '20 min',
+        completed: false,
+        description: 'Gold standard: 100mg daily → 100mg 2x daily'
+      },
+      {
+        id: 3,
+        title: 'Other Prescription Options',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'Fluconazole, Nystatin, Amphotericin B comparison'
+      },
+      {
+        id: 4,
+        title: 'Natural Antifungal Protocols',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Neem, oregano oil, O3 oils with rotation'
+      },
+      {
+        id: 5,
+        title: 'Die-off Management',
+        type: 'exercise',
+        duration: '10 min',
+        completed: false,
+        description: 'Severity scale 1-10 with action protocols'
+      }
+    ],
+    resources: [
+      { title: 'Itraconazole Prescription Script', type: 'pdf', size: '2 pages' },
+      { title: 'Liver Monitoring Schedule', type: 'pdf', size: '1 page' },
+      { title: 'Natural Antifungal Rotation Chart', type: 'pdf', size: '3 pages' },
+      { title: 'Die-off Emergency Kit', type: 'pdf', size: '2 pages' }
+    ],
+    nextModule: '06-herx-management',
+    previousModule: '04-mycotoxin-binders'
+  },
   '06-herx-management': {
     title: 'Herx Management - Riding the Waves',
     description: 'Safely manage detox reactions and prevent dangerous symptoms during treatment',
@@ -313,6 +530,274 @@ const moduleData = {
     ],
     nextModule: '07-supportive-modalities',
     previousModule: '05-antifungals'
+  },
+  '07-supportive-modalities': {
+    title: 'Supportive Modalities',
+    description: 'Enhance your detox with sauna, HBOT, massage, and other supportive therapies',
+    moduleNumber: 7,
+    duration: '55 minutes',
+    difficulty: 'intermediate',
+    category: 'support',
+    progress: 0,
+    objectives: [
+      'Master infrared sauna protocols for mycotoxin elimination',
+      'Understand HBOT basics and when it\'s beneficial',
+      'Learn lymphatic drainage massage techniques',
+      'Implement grounding/earthing for inflammation reduction',
+      'Use coffee enemas safely for liver support',
+      'Optimize sleep and stress management for healing'
+    ],
+    lessons: [
+      {
+        id: 1,
+        title: 'Infrared Sauna Protocols',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'Temperature, timing, and safety protocols'
+      },
+      {
+        id: 2,
+        title: 'HBOT - Hyperbaric Oxygen',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'When to consider and what to expect'
+      },
+      {
+        id: 3,
+        title: 'Lymphatic Drainage',
+        type: 'exercise',
+        duration: '10 min',
+        completed: false,
+        description: 'Self-massage and professional techniques'
+      },
+      {
+        id: 4,
+        title: 'Grounding & Stress Management',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Natural inflammation reduction techniques'
+      },
+      {
+        id: 5,
+        title: 'Coffee Enemas (Advanced)',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Liver support protocol with safety considerations'
+      }
+    ],
+    resources: [
+      { title: 'Sauna Protocol Guide', type: 'pdf', size: '6 pages' },
+      { title: 'Lymphatic Massage Video Series', type: 'video', size: '25 min' },
+      { title: 'Coffee Enema Safety Checklist', type: 'pdf', size: '3 pages' },
+      { title: 'HBOT Provider Directory', type: 'pdf', size: '8 pages' }
+    ],
+    nextModule: '08-diet-nutrition',
+    previousModule: '06-herx-management'
+  },
+  '08-diet-nutrition': {
+    title: 'Diet & Nutrition',
+    description: 'Anti-inflammatory nutrition protocols to support mold detox and healing',
+    moduleNumber: 8,
+    duration: '50 minutes',
+    difficulty: 'beginner',
+    category: 'support',
+    progress: 0,
+    objectives: [
+      'Eliminate dietary sources of mycotoxins',
+      'Implement anti-inflammatory meal planning',
+      'Support liver detox with specific nutrients',
+      'Optimize gut health during treatment',
+      'Balance blood sugar for stable energy',
+      'Create sustainable meal prep systems'
+    ],
+    lessons: [
+      {
+        id: 1,
+        title: 'Low-Mold Diet Essentials',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'Foods to avoid and safe alternatives'
+      },
+      {
+        id: 2,
+        title: 'Anti-Inflammatory Protocols',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Reducing inflammation through nutrition'
+      },
+      {
+        id: 3,
+        title: 'Liver Support Nutrition',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Nutrients that enhance detoxification'
+      },
+      {
+        id: 4,
+        title: 'Gut Health During Detox',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Probiotics, prebiotics, and gut support'
+      },
+      {
+        id: 5,
+        title: 'Meal Planning & Prep',
+        type: 'exercise',
+        duration: '5 min',
+        completed: false,
+        description: 'Sustainable systems for healthy eating'
+      }
+    ],
+    resources: [
+      { title: 'Low-Mold Food Lists', type: 'pdf', size: '12 pages' },
+      { title: '7-Day Meal Plan', type: 'pdf', size: '15 pages' },
+      { title: 'Anti-Inflammatory Recipes', type: 'pdf', size: '25 pages' },
+      { title: 'Supplement Timing Chart', type: 'pdf', size: '2 pages' }
+    ],
+    nextModule: '09-retesting-prevention',
+    previousModule: '07-supportive-modalities'
+  },
+  '09-retesting-prevention': {
+    title: 'Retesting & Prevention',
+    description: 'Know when to retest, how to interpret results, and prevent future exposure',
+    moduleNumber: 9,
+    duration: '45 minutes',
+    difficulty: 'intermediate',
+    category: 'maintenance',
+    progress: 0,
+    objectives: [
+      'Understand optimal retesting timeline (6-9 months minimum)',
+      'Interpret follow-up test results correctly',
+      'Implement maintenance protocols for long-term health',
+      'Prevent re-exposure in your environment',
+      'Recognize early warning signs of re-exposure',
+      'Build resilience for occasional exposures'
+    ],
+    lessons: [
+      {
+        id: 1,
+        title: 'When & What to Retest',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'Optimal timing and test selection'
+      },
+      {
+        id: 2,
+        title: 'Interpreting Follow-up Results',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Understanding improvement patterns'
+      },
+      {
+        id: 3,
+        title: 'Maintenance Protocols',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Long-term support strategies'
+      },
+      {
+        id: 4,
+        title: 'Prevention Strategies',
+        type: 'exercise',
+        duration: '10 min',
+        completed: false,
+        description: 'Avoiding future mold exposure'
+      }
+    ],
+    resources: [
+      { title: 'Retest Timeline Calculator', type: 'tool', size: 'Interactive' },
+      { title: 'Maintenance Protocol Guide', type: 'pdf', size: '8 pages' },
+      { title: 'Prevention Checklist', type: 'pdf', size: '4 pages' },
+      { title: 'Travel Safety Guide', type: 'pdf', size: '6 pages' }
+    ],
+    nextModule: '10-advanced-protocols',
+    previousModule: '08-diet-nutrition'
+  },
+  '10-advanced-protocols': {
+    title: 'Advanced Protocols',
+    description: 'Advanced therapies for complex cases and treatment-resistant mold illness',
+    moduleNumber: 10,
+    duration: '65 minutes',
+    difficulty: 'advanced',
+    category: 'advanced',
+    progress: 0,
+    objectives: [
+      'Understand when advanced protocols are needed',
+      'Learn HBOT protocols (2.0-2.4 ATA)',
+      'Master peptide protocols (BPC-157, KPV, TA-1)',
+      'Implement IV therapy protocols (glutathione, PC)',
+      'Address biofilm disruption strategies',
+      'Navigate neural retraining programs (DNRS)'
+    ],
+    lessons: [
+      {
+        id: 1,
+        title: 'When to Consider Advanced Protocols',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Criteria for complex case management'
+      },
+      {
+        id: 2,
+        title: 'Advanced HBOT Protocols',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'High-pressure protocols (2.0-2.4 ATA)'
+      },
+      {
+        id: 3,
+        title: 'Peptide Protocols',
+        type: 'reading',
+        duration: '15 min',
+        completed: false,
+        description: 'BPC-157, KPV, TA-1, LL-37 protocols'
+      },
+      {
+        id: 4,
+        title: 'IV Therapy Protocols',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Glutathione, phosphatidylcholine, ozone'
+      },
+      {
+        id: 5,
+        title: 'Biofilm Disruption',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Advanced biofilm protocols'
+      },
+      {
+        id: 6,
+        title: 'Neural Retraining (DNRS)',
+        type: 'reading',
+        duration: '5 min',
+        completed: false,
+        description: 'Limbic system retraining programs'
+      }
+    ],
+    resources: [
+      { title: 'Advanced HBOT Provider Directory', type: 'pdf', size: '20 pages' },
+      { title: 'Peptide Dosing Protocols', type: 'pdf', size: '12 pages' },
+      { title: 'IV Therapy Safety Guidelines', type: 'pdf', size: '8 pages' },
+      { title: 'DNRS Program Comparison', type: 'pdf', size: '6 pages' }
+    ],
+    nextModule: null,
+    previousModule: '09-retesting-prevention'
   },
   '01-understanding-mold': {
     title: 'Understanding Mold Illness',
@@ -604,12 +1089,6 @@ export default function ModulePage() {
         </Card>
       )}
 
-      {/* Module Resources Section */}
-      <ModuleResources 
-        moduleSlug={params.slug as string} 
-        moduleTitle={module.title}
-      />
-
       {/* Tabs for Lessons and Resources */}
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList className="grid w-full grid-cols-2">
@@ -694,28 +1173,10 @@ export default function ModulePage() {
         </TabsContent>
 
         <TabsContent value="resources" className="mt-6">
-          <div className="grid gap-4">
-            {module.resources.map((resource, index) => (
-              <Card key={index}>
-                <CardContent className="p-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <Download className="h-5 w-5 text-gray-400" />
-                      <div>
-                        <h4 className="font-medium">{resource.title}</h4>
-                        <p className="text-sm text-gray-600">
-                          {resource.type.toUpperCase()} • {resource.size}
-                        </p>
-                      </div>
-                    </div>
-                    <Button variant="outline" size="sm">
-                      Download
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <ModuleResources 
+            moduleSlug={params.slug as string} 
+            moduleTitle={module.title}
+          />
         </TabsContent>
       </Tabs>
 

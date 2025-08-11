@@ -29,7 +29,9 @@
       "Bash(lsof:*)",
       "Bash(npx eslint:*)",
       "Bash(git push:*)",
-      "Bash(git diff:*)"
+      "Bash(git diff:*)",
+      "Bash(PORT=3005 npm run dev)",
+      "Bash(kill:*)"
     ],
     "deny": []
   }

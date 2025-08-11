@@ -17,7 +17,7 @@ export const Module = defineDocumentType(() => ({
     },
     category: {
       type: 'enum',
-      options: ['foundation', 'assessment', 'detox', 'lifestyle', 'advanced'],
+      options: ['foundation', 'assessment', 'detox', 'lifestyle', 'advanced', 'treatment', 'maintenance'],
       required: true
     },
     objectives: { type: 'list', of: { type: 'string' }, required: true },
@@ -25,13 +25,29 @@ export const Module = defineDocumentType(() => ({
     tags: { type: 'list', of: { type: 'string' }, default: [] },
     status: {
       type: 'enum',
-      options: ['published', 'draft'],
+      options: ['published', 'draft', 'gated'],
       default: 'draft'
     },
     publishedAt: { type: 'date' },
     updatedAt: { type: 'date' },
     tldr: { type: 'string' },
     readingTime: { type: 'number' },
+    // Additional fields found in frontmatter
+    evidenceLevel: { 
+      type: 'enum',
+      options: ['solid', 'emerging', 'controversial', 'solid-emerging', 'mixed'],
+      required: false
+    },
+    safetyLevel: {
+      type: 'enum', 
+      options: ['low', 'moderate', 'high', 'critical'],
+      required: false
+    },
+    gatingRequirement: { type: 'string', required: false },
+    keyTakeaways: { type: 'list', of: { type: 'string' }, default: [] },
+    nextModule: { type: 'string', required: false },
+    previousModule: { type: 'string', required: false },
+    audioUrl: { type: 'string', required: false },
   },
   computedFields: {
     url: {
@@ -50,7 +66,7 @@ export const Module = defineDocumentType(() => ({
 }))
 
 export const Lesson = defineDocumentType(() => ({
-  name: 'Lesson',
+  name: 'Lesson', 
   filePathPattern: `lessons/**/*.mdx`,
   contentType: 'mdx',
   fields: {
@@ -59,9 +75,9 @@ export const Lesson = defineDocumentType(() => ({
     moduleSlug: { type: 'string', required: true },
     lessonNumber: { type: 'number', required: true },
     duration: { type: 'string', required: true },
-    type: {
+    lessonType: {
       type: 'enum',
-      options: ['video', 'reading', 'exercise', 'quiz', 'resource'],
+      options: ['video', 'reading', 'exercise', 'quiz', 'resource', 'protocol'],
       required: true
     },
     videoUrl: { type: 'string' },
@@ -119,9 +135,40 @@ export const Resource = defineDocumentType(() => ({
   },
 }))
 
+export const Quiz = defineDocumentType(() => ({
+  name: 'Quiz',
+  filePathPattern: `quiz/**/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: { type: 'string', required: true },
+    description: { type: 'string', required: true },
+    category: {
+      type: 'enum',
+      options: ['email', 'guide', 'assessment'],
+      required: true
+    },
+    order: { type: 'number', required: false },
+    status: {
+      type: 'enum',
+      options: ['published', 'draft'],
+      default: 'draft'
+    },
+  },
+  computedFields: {
+    url: {
+      type: 'string',
+      resolve: (quiz) => `/quiz/${quiz._raw.sourceFileName.replace(/\.mdx$/, '')}`,
+    },
+    slug: {
+      type: 'string',
+      resolve: (quiz) => quiz._raw.sourceFileName.replace(/\.mdx$/, ''),
+    },
+  },
+}))
+
 export default makeSource({
   contentDirPath: 'content',
-  documentTypes: [Module, Lesson, Resource],
+  documentTypes: [Module, Lesson, Resource, Quiz],
   mdx: {
     remarkPlugins: [],
     rehypePlugins: [],

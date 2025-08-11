@@ -73,16 +73,16 @@ export default function SitemapDevPage() {
   // Calculate project stats with real-time updates
   const projectStats = React.useMemo(() => {
     const totalModules = 11
-    const completedModules = 8 // 00-07 complete, 08 partial
+    const completedModules = 7 // 00-06 have complete lesson structure, 07-10 are overview only
     const totalTools = 9
     const completedTools = 2 // Exposure Checklist, Drainage Readiness
     const totalPages = realTimeStats?.pagesCount || 31
-    const totalComponents = realTimeStats?.componentsCount || 61
-    const totalMDXContent = realTimeStats?.contentFiles || 16
-    const totalTypeScriptFiles = realTimeStats?.totalFiles || 121
+    const totalComponents = realTimeStats?.componentsCount || 75 // Updated with all module components
+    const totalMDXContent = realTimeStats?.contentFiles || 48 // 11 modules + 37 lessons
+    const totalTypeScriptFiles = realTimeStats?.totalFiles || 135 // Updated count
 
     // Lines of code - use real-time stats if available
-    const linesWritten = realTimeStats?.linesOfCode || 40456
+    const linesWritten = realTimeStats?.linesOfCode || 45000 // Updated with new lessons
     const estimatedTotalLines = 75000 // Realistic full project estimate
     const linesRemaining = estimatedTotalLines - linesWritten
 
@@ -278,65 +278,68 @@ export default function SitemapDevPage() {
         {
           path: '/modules/00-quick-start',
           label: 'Module 00: Quick Start',
-          description: '5-step emergency protocol',
+          description: '5 lessons - Emergency protocol (Stop exposure, Assessment, Tracking)',
+          completed: true,
         },
         {
           path: '/modules/01-identify-exposure',
           label: 'Module 01: Identify Exposure',
-          description: 'Finding and addressing mold sources',
+          description: '6 lessons - Visual inspection, Room audit, Hidden mold, Vehicles',
+          completed: true,
         },
         {
           path: '/modules/02-testing-diagnosis',
           label: 'Module 02: Testing & Diagnosis',
-          description: 'Environmental and medical testing',
+          description: '6 lessons - ERMI/HERTSMI-2, Mycotoxins, Biomarkers, VCS, HLA-DR',
+          completed: true,
         },
         {
           path: '/modules/03-drainage-pathways',
-          label: 'Module 03: Drainage Pathways',
-          description: 'All 5 pathways - bowel, liver, kidneys, lymph, sweat',
+          label: 'Module 03: Open Drainage',
+          description: '6 lessons - Bowel, Liver, Kidneys, Lymph, Sweat (80% for 7 days)',
           completed: true,
         },
         {
           path: '/modules/04-binders',
           label: 'Module 04: Mycotoxin Binders',
-          description: 'CSM titration (1/4 → 1/2 → full scoop)',
+          description: '6 lessons - CSM protocol, Welchol, Natural, Timing mastery',
           completed: true,
         },
         {
           path: '/modules/05-antifungals',
           label: 'Module 05: Antifungals',
-          description: 'Sporanox 100mg → 200mg daily protocol',
+          description: '5 lessons - Sporanox, Fluconazole, Natural, Die-off management',
           completed: true,
         },
         {
           path: '/modules/06-herx-management',
           label: 'Module 06: Herx Management',
-          description: 'Managing detox reactions safely',
+          description: '5 lessons - Understanding, Severity, Strategies, Emergency',
           completed: true,
         },
         {
           path: '/modules/07-supportive-modalities',
-          label: 'Module 07: Supporting Modalities',
-          description: 'Sauna, HBOT, peptides, nasal care',
-          completed: true,
+          label: 'Module 07: Supportive Modalities',
+          description: 'Overview only - Sauna, HBOT, peptides, nasal care',
+          inProgress: true,
         },
         {
-          path: '/modules/08-diet-pantry',
-          label: 'Module 08: Diet & Pantry',
-          description: 'Low-mold foods, Japanese sweet potatoes',
+          path: '/modules/08-diet-nutrition',
+          label: 'Module 08: Diet & Nutrition',
+          description: 'Overview only - Low-mold foods, Japanese sweet potatoes',
           inProgress: true,
         },
         {
           path: '/modules/09-retesting-prevention',
           label: 'Module 09: Retesting & Prevention',
-          description: 'VCS every 3mo, ERMI <2, HERTSMI-2 <10',
-          pending: true,
+          description: 'Overview only - VCS every 3mo, ERMI <2, HERTSMI-2 <10',
+          inProgress: true,
         },
         {
           path: '/modules/10-advanced-protocols',
           label: 'Module 10: Advanced Protocols',
-          description: 'HBOT, peptides, ozone therapy',
-          pending: true,
+          description: 'Overview only - HBOT 2.0-2.4 ATA, peptides, ozone therapy',
+          inProgress: true,
         },
       ],
     },
@@ -1102,6 +1105,21 @@ export default function SitemapDevPage() {
               Modules
             </a>
             <a
+              href="/lessons-preview"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md px-3 py-1.5 text-sm font-medium transition-colors"
+              style={{ backgroundColor: 'rgba(34, 197, 94, 0.1)', color: 'rgb(21, 128, 61)' }}
+              onMouseEnter={(e) =>
+                (e.currentTarget.style.backgroundColor = 'rgba(34, 197, 94, 0.2)')
+              }
+              onMouseLeave={(e) =>
+                (e.currentTarget.style.backgroundColor = 'rgba(34, 197, 94, 0.1)')
+              }
+            >
+              📚 Lessons Preview
+            </a>
+            <a
               href="/onboarding"
               target="_blank"
               rel="noopener noreferrer"
@@ -1237,25 +1255,25 @@ export default function SitemapDevPage() {
           }}
         >
           <h2 className="mb-4 text-lg font-semibold" style={{ color: 'rgb(44, 44, 44)' }}>
-            Recent Updates (2025-01-15)
+            Recent Updates (2025-08-11)
           </h2>
           <div className="space-y-2 text-sm">
             <div className="flex items-start gap-2">
               <CheckCircle2 className="h-4 w-4" style={{ color: 'rgb(76, 175, 134)' }} />
               <span className="font-medium" style={{ color: 'rgb(107, 107, 107)' }}>
-                Design Lab with 10 themes - Professional Lucide icons throughout
+                Module 04 & 05 complete with two-tier structure (11 detailed lessons)
               </span>
             </div>
             <div className="flex items-start gap-2">
               <CheckCircle2 className="h-4 w-4" style={{ color: 'rgb(76, 175, 134)' }} />
               <span className="font-medium" style={{ color: 'rgb(107, 107, 107)' }}>
-                Sitemap updated with tan earthy theme and SVG icons
+                Module 06 Herx Management with 5 lessons (severity scales, emergency protocols)
               </span>
             </div>
             <div className="flex items-start gap-2">
               <CheckCircle2 className="h-4 w-4" style={{ color: 'rgb(76, 175, 134)' }} />
               <span className="text-gray-700">
-                7 modules complete (03-07) with MDX content and safety features
+                37 total lesson files created across 7 modules (00-06)
               </span>
             </div>
             <div className="flex items-start gap-2">
@@ -1267,7 +1285,7 @@ export default function SitemapDevPage() {
             <div className="flex items-start gap-2">
               <CheckCircle2 className="h-4 w-4" style={{ color: 'rgb(76, 175, 134)' }} />
               <span className="text-gray-700">
-                Module gating logic with prerequisite checking system
+                CSM protocol with titration schedules and Kajsa&apos;s personal quotes
               </span>
             </div>
             <div className="flex items-start gap-2">
@@ -1443,11 +1461,11 @@ export default function SitemapDevPage() {
                 <ul className="space-y-1 text-sm text-gray-700">
                   <li className="flex items-start gap-1">
                     <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
-                    Module 03: Drainage Pathways (5 systems)
+                    Module 03: Open Drainage Pathways (5 systems)
                   </li>
                   <li className="flex items-start gap-1">
                     <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
-                    Module 04: Binders with CSM titration
+                    Module 04: Mycotoxin Binders with CSM titration
                   </li>
                   <li className="flex items-start gap-1">
                     <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
@@ -1459,7 +1477,7 @@ export default function SitemapDevPage() {
                   </li>
                   <li className="flex items-start gap-1">
                     <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
-                    Module 07: Supporting Modalities (HBOT, peptides)
+                    Module 07: Supportive Modalities (HBOT, peptides)
                   </li>
                 </ul>
               </div>

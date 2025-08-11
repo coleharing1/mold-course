@@ -7,6 +7,455 @@ This document maintains a reverse-chronological log of all significant changes, 
 
 ---
 
+## 2025-08-11 - Module 04 & 05 Implementation with Two-Tier Structure
+
+### Summary
+Completed comprehensive restructuring of Module 04 (Mycotoxin Binders) and Module 05 (Antifungals) following the established two-tier architecture pattern. Created 11 detailed lesson files covering binder protocols, antifungal treatments, and die-off management. Added Kajsa's personal quotes, medical disclaimers, and cost transparency throughout.
+
+### Module 04 - Mycotoxin Binders Implementation
+**Files Created (6 lessons):**
+- `01-binder-science.mdx` - Enterohepatic recirculation and why binders are essential
+- `02-cholestyramine-csm.mdx` - Gold standard CSM protocol with titration schedules
+- `03-welchol-alternative.mdx` - Alternative for CSM-intolerant patients (25% as effective)
+- `04-natural-binders.mdx` - Non-prescription options (charcoal, chlorella, MCP, clay)
+- `05-timing-mastery.mdx` - Critical 30-60 min before meals, 2+ hours from medications
+- `06-troubleshooting.mdx` - Constipation solutions, herx management
+
+**Module 04 Updates:**
+- Reduced from 591 lines to 272 line overview format
+- Added Kajsa's quote: "prescription medications were the turning point"
+- Added medical disclaimer gate requirement
+- Critical safety: 2-4 weeks drainage before starting binders
+- Cost breakdown: $80-200/month for prescription, $50-150 for natural
+
+### Module 05 - Antifungals Implementation
+**Files Created (5 lessons):**
+- `01-do-you-need-antifungals.mdx` - Colonization vs exposure assessment (only 20-30% need)
+- `02-itraconazole-sporanox.mdx` - Gold standard protocol: 100mg daily → 100mg 2x daily
+- `03-other-prescription-options.mdx` - Fluconazole, Nystatin, Amphotericin B comparison
+- `04-natural-antifungal-protocols.mdx` - Neem, oregano, O3 oils with rotation strategies
+- `05-die-off-management.mdx` - Severity scale 1-10 with specific action protocols
+
+**Module 05 Updates:**
+- Reduced from 652 lines to 289 line overview format
+- Added Kajsa's self-advocacy quote about telehealth doctors
+- Added liver monitoring schedule (every 2-4 weeks)
+- Critical safety: Must be on stable binders for 2-4 weeks first
+- Cost breakdown: $270-610/month prescription, $195-410/month natural
+
+### Content Enhancements Added
+**Safety Improvements:**
+- Liver monitoring requirements for antifungals
+- Die-off severity scale with emergency criteria
+- Drug interaction warnings (statins, benzodiazepines)
+- Natural doesn't mean harmless warnings
+
+**Practical Details:**
+- Specific dosing schedules for all medications
+- Take CSM with applesauce or yogurt
+- Itraconazole with acidic drink and fatty meal
+- Phone alarm strategies for binder timing
+- Emergency die-off kit checklist
+
+### Technical Patterns Maintained
+- Consistent frontmatter across all 11 lesson files
+- Lessons are 250-400 lines each with detailed protocols
+- Main modules reduced to ~250-300 line overviews
+- Safety warnings prominent throughout
+- Evidence badges and medical disclaimers
+
+### Impact
+- **Organization**: Clean separation of overview vs detailed lesson content
+- **Safety**: Clear warnings about liver monitoring and die-off reactions
+- **Practicality**: Actionable protocols with specific dosing and timing
+- **Cost Transparency**: Users can budget for treatment options
+- **Patient Empowerment**: Self-advocacy guidance for getting prescriptions
+
+---
+
+## 2025-08-11 - Module Content Restructuring to Two-Tier System
+
+### Summary
+Major restructuring of module content architecture to implement a two-tier system with module overviews and separate lesson files. Completed Module 00 and Module 02 restructuring, creating 11 new lesson files with proper frontmatter and safety-focused content. Fixed critical safety issues in Module 00 that incorrectly promoted immediate binder use.
+
+### Critical Safety Fix in Module 00
+**Problem Discovered:**
+- Module 00 originally had "Emergency Binder Protocol" as Lesson 4
+- Promoted starting binders immediately in emergency situations
+- This is the #1 mistake causing severe Herxheimer reactions
+
+**Solution Implemented:**
+- Changed Lesson 4 to "Understanding Binders (Don't Start Yet!)"
+- Added extensive warnings about retoxification dangers
+- Emphasized 2-4 week drainage preparation requirement
+- Included real stories of people who got severely sick from early binder use
+
+### Module Architecture Change
+**Previous Structure:**
+- Single large MDX file per module (500-700 lines)
+- All lessons combined in one file
+- Difficult to maintain and scale
+
+**New Two-Tier Structure:**
+- Main module file: Overview only (200-250 lines)
+- Separate lesson files: Detailed content (250-350 lines each)
+- Pattern: `/content/modules/[module].mdx` + `/content/lessons/[module]/[lesson].mdx`
+
+### Files Created (11 New Lesson Files)
+
+**Module 00 - Quick Start (5 lessons):**
+- `01-stop-exposure-now.mdx` - Emergency exposure cessation protocol
+- `02-quick-environmental-assessment.mdx` - 5-minute home/car/workplace evaluation
+- `03-basic-symptom-tracking.mdx` - Medical/legal documentation
+- `04-understanding-binders-dont-start-yet.mdx` - Critical safety lesson
+- `05-finding-help-fast.mdx` - Practitioner directories and resources
+
+**Module 02 - Testing & Diagnosis (6 lessons):**
+- `01-environmental-testing-overview.mdx` - ERMI/HERTSMI-2 testing
+- `02-diy-testing-methods.mdx` - Petri dishes and tape lifts
+- `03-medical-testing-mycotoxins.mdx` - Urine mycotoxin testing
+- `04-biomarker-testing.mdx` - C4a, TGF-β1, MMP-9 with lab codes
+- `05-vcs-testing.mdx` - Visual contrast sensitivity
+- `06-genetic-testing-hla-dr.mdx` - HLA-DR susceptibility (new content)
+
+### Module Updates
+**Module 00 (`00-quick-start.mdx`):**
+- Reduced from 256 lines to overview format
+- Added emergency timeline breakdown
+- Enhanced safety warnings throughout
+- Added cost breakdown ($1,285-2,690 emergency budget)
+- Included Kajsa's personal story quote
+
+**Module 02 (`02-testing-diagnosis.mdx`):**
+- Reduced from 680 lines to 200 line overview
+- Moved detailed content to 6 separate lesson files
+- Added comprehensive lab recommendations
+- Included practitioner codes for direct ordering
+- Added insurance coverage tips with CPT codes
+
+### Lesson Frontmatter Standard
+Established consistent frontmatter for all lessons:
+```yaml
+title: "Lesson Title"
+description: "Brief description"
+moduleSlug: "module-slug"
+lessonNumber: 1-6
+duration: "5-15 minutes"
+type: "reading|exercise|resource"
+keyTakeaways: [3-4 items]
+actionItems: [2-3 items]
+status: "published"
+```
+
+### Content Enhancements
+**Safety Improvements:**
+- Added SafetyFlag components for critical warnings
+- Emphasized drainage timeline (2-4 weeks minimum)
+- Included retoxification explanations
+- Added real patient stories as warnings
+
+**Resource Additions:**
+- Practitioner directories (ISEAI, SurvivingMold, ILADS)
+- Telehealth options with pricing
+- Support group recommendations
+- Insurance navigation strategies
+- Crisis hotline numbers
+
+### Impact
+- **Safety**: Prevents dangerous early binder use that causes severe reactions
+- **Organization**: Clean separation of overview vs detailed content
+- **Scalability**: Easy to add/modify individual lessons
+- **Consistency**: Uniform structure across all modules
+- **Navigation**: Clear progression through numbered lessons
+
+### Files Modified/Deleted
+**Deleted (moved content to lessons):**
+- Removed detailed lesson content from main module files
+- Cleaned up 500+ lines from each module file
+
+**Modified:**
+- `content/modules/00-quick-start.mdx` - Now overview only
+- `content/modules/02-testing-diagnosis.mdx` - Now overview only
+
+### Next Steps
+- Apply same restructuring pattern to remaining 9 modules
+- Set up Contentlayer to parse lesson files
+- Create lesson navigation components
+- Implement module/lesson routing in Next.js
+
+---
+
+## 2025-08-11 - Module Structure Cleanup & Consistency
+
+### Summary  
+Identified and resolved major module naming inconsistencies across the codebase. Found 16 MDX files when there should only be 11, including 6 duplicates and wrong numbering. Successfully cleaned up module structure, created missing Module 10 (Advanced Protocols), and updated all component references to use consistent module IDs.
+
+### Module Cleanup Completed
+**Files Deleted (6 duplicates/wrong numbers):**
+- `03-drainage.mdx` - duplicate of 03-drainage-pathways
+- `04-mycotoxin-binders.mdx` - duplicate of 04-binders  
+- `05-binder-protocols-csm.mdx` - wrong module number
+- `06-antifungal-protocols.mdx` - wrong module number
+- `07-herx-management.mdx` - wrong module number
+- `08-supporting-modalities.mdx` - wrong module number
+
+**Files Renamed (2 files):**
+- `09-diet-nutrition.mdx` → `08-diet-nutrition.mdx`
+- `10-retesting-prevention.mdx` → `09-retesting-prevention.mdx`
+
+**Files Created:**
+- `10-advanced-protocols.mdx` - 11,636 lines of comprehensive advanced therapy content
+
+### Module 10 Content Created
+Comprehensive advanced protocols module including:
+- Advanced HBOT protocols (2.0-2.4 ATA)
+- Peptide protocols (BPC-157, KPV, TA-1, LL-37)
+- IV therapies (glutathione, phosphatidylcholine, ozone)
+- Biofilm disruption strategies
+- Neural retraining programs (DNRS)
+- Advanced supplement protocols
+
+### Component Updates
+Updated all components to use standardized module IDs:
+- `app/(app)/modules/page.tsx` - Fixed module array with all 11 modules
+- `components/dashboard/progress-widget.tsx` - Updated module tracking
+- `components/dashboard/next-action.tsx` - Fixed progression logic
+- `app/sitemap-dev/page.tsx` - Updated module paths
+
+### Final Module Structure (11 Total)
+- ✅ Module 00: Quick Start Guide
+- ✅ Module 01: Identify Exposure  
+- ✅ Module 02: Testing & Diagnosis
+- ✅ Module 03: Open Drainage Pathways
+- ✅ Module 04: Mycotoxin Binders
+- ✅ Module 05: Antifungals
+- ✅ Module 06: Herx Management
+- ✅ Module 07: Supportive Modalities
+- ✅ Module 08: Diet & Nutrition
+- ✅ Module 09: Retesting & Prevention
+- ✅ Module 10: Advanced Protocols
+
+### Impact
+- Resolved confusing module structure (16 files → 11 files)
+- Fixed broken navigation and progress tracking
+- Ensured consistent module IDs throughout codebase
+- Added comprehensive advanced content for complex cases
+
+---
+
+## 2025-08-11 - Course Structure Enhancement & Safety Improvements
+
+### Summary
+Completed comprehensive course structure documentation with detailed lesson breakdowns, resources, and tools for all 11 modules. Made critical safety improvements based on AI audit feedback, particularly fixing dangerous emergency binder protocol in Module 00. Added Kajsa's personal quotes, cost transparency, and enhanced safety gates throughout.
+
+### Critical Safety Fix
+**Module 00 Emergency Binder Issue:**
+- **Problem**: Original Module 00 suggested starting binders immediately in emergency situations
+- **Risk**: Starting binders without proper drainage (2-4 weeks) can cause severe Herxheimer reactions
+- **Solution**: Changed Lesson 4 from "Emergency Binder Protocol" to "Understanding Binders (Don't Start Yet!)"
+- **Impact**: Prevents new users from making the #1 mistake that causes severe reactions
+
+### Major Documentation Created
+- `_docs/course-structure-detailed.md` - 1000+ line comprehensive course blueprint
+- `_docs/course-structure-cheatsheet.md` - Quick reference with build status
+- Each module now has 5-6 detailed lessons with specific content outlines
+
+### Course Structure Enhancements
+**Each Module Now Includes:**
+- 5-6 detailed lessons with specific content outlines
+- 5+ downloadable resources (checklists, templates, guides)
+- Cost breakdowns for tests, supplements, and treatments
+- Kajsa's Corner personal experience quotes
+- Evidence and safety level ratings
+- Tool integrations
+- Clear prerequisites and gating logic
+
+### Safety Improvements Implemented
+1. **Medical Disclaimer Gates**: Added required acknowledgment before Modules 03, 04, 05, and 10
+2. **Drainage Score Calculator**: Transparent breakdown (Bowels 40%, Hydration 20%, Sweating 20%, Lymph 10%, Liver 10%)
+3. **Critical Safety Notice**: Added to top of course structure emphasizing proper sequencing
+4. **Retesting Timeline**: Updated from "NOT before 6 months" to "3-6 months minimum, 7 months typical"
+5. **ERMI/HERTSMI Note**: Added context about conventional vs environmental medicine standards
+
+### Content Additions
+**Kajsa's Personal Quotes Added:**
+- Module 00: Initial discovery and symptoms story
+- Module 04: "Prescription medications were the turning point"
+- Module 05: Self-advocacy with telehealth doctors
+- Module 07: Sauna and strength training importance
+- Module 08: Diet changes and Japanese sweet potatoes
+- Bonus: 7-month retest success story
+
+**Cost Transparency Added Throughout:**
+- Testing: $10-500 depending on type
+- Supplements: $50-150/month per category
+- Prescriptions: $50-200/month
+- Equipment: $30-5000 (moisture meters to saunas)
+- Total 6-month protocol: $2,500-4,500
+
+### Files Modified
+- `_docs/course-structure-detailed.md` - Major safety updates and enhancements
+- All module MDX files - Added safety warnings and cost information
+- Dashboard components - Updated with new module structure
+
+### Key Decisions
+- **Safety First**: Emergency module focuses on drainage, not binders
+- **Transparency**: Added costs to help budget-conscious users
+- **Authenticity**: Used Kajsa's exact words for personal connection
+- **Clarity**: Made drainage score calculation completely transparent
+- **Compliance**: Added medical disclaimers to high-risk content
+
+### Problems Solved
+- Fixed dangerous suggestion to start binders without drainage
+- Clarified confusing retesting timeline
+- Made gating logic transparent to users
+- Added missing cost information throughout
+
+### Next Steps
+- Implement interactive visual roadmap for dashboard
+- Continue Phase 2 tool development
+- Add audio narration to modules
+- Implement email automation sequences
+
+---
+
+## 2025-08-10 - Real-Time Analytics Dashboard Implementation
+
+### Summary
+Created a sophisticated real-time project analytics dashboard with live metrics, automatic updates, and comprehensive tracking. Built full-stack solution with Next.js API routes and React hooks for dynamic data visualization. Fixed timeline accuracy and productivity metrics based on actual work patterns.
+
+### Major Features Implemented
+**Real-Time Dashboard Components:**
+- Live elapsed time counter (updates every second)
+- Auto-refreshing stats API (5-minute intervals)
+- Dynamic code analysis with file counting
+- Responsive mobile/desktop design
+- Earth-tone themed UI with Tan Earthy palette
+
+### Technical Implementation
+
+#### Frontend (`/app/sitemap-dev/page.tsx`)
+**Key Changes:**
+- Added React hooks for real-time state management
+- Implemented dual update cycles (1s for timer, 5min for stats)
+- Created responsive grid layouts with Tailwind breakpoints
+- Applied tan earthy theme consistently
+- Removed efficiency metric per request
+- Fixed productive hours to 11h 9m (11.15 hours)
+
+#### Backend API (`/app/api/project-stats/route.ts`)
+**Functionality:**
+- Recursive file system traversal
+- Line counting for all code files
+- File type categorization
+- Git integration for commit info
+- Excludes build directories and node_modules
+
+### Metrics and Calculations
+
+#### Time Tracking
+```javascript
+// Fixed Values
+projectStartDate = '2025-08-09T14:57:00' // Aug 9, 2:57 PM
+actualHoursWorked = 11.15 // 11 hours 9 minutes
+
+// Calculated Metrics
+avgLinesPerHour = 40,456 / 11.15 = ~3,630 lines/hour
+avgHoursPerDay = 11.15 / (hoursElapsed / 24) = ~8.9 hours/day
+```
+
+#### Progress Calculation (56% Overall)
+```javascript
+Phase 0 (Setup): 100% × 0.15 = 15%
+Phase 1 (MVP): 80% × 0.35 = 28%
+Phase 2 (Enhancement): 35% × 0.35 = 12.25%
+Phase 3 (Production): 5% × 0.15 = 0.75%
+Total: 56%
+```
+
+### Visual Design Updates
+**Dashboard Header:**
+- Icon + title with loading spinner
+- Last update timestamp
+- Large progress percentage display
+- Estimated completion date
+
+**Metric Cards:**
+- Productive Hours: 11h 9m (fixed)
+- Est. Remaining: Calculated from velocity
+- Lines/Hour: ~3,630
+- Avg Hours/Day: ~8.9
+
+**Progress Indicators:**
+- Modules: 8/11 (73%)
+- Tools: 2/9 (22%)
+- Code: 40.5k lines (54%)
+- Components: 61 files
+- Pages: 31 routes
+- Files: 121 total
+
+### Mobile Responsiveness
+- Column layout on mobile (<640px)
+- Row layout on desktop (>768px)
+- Responsive text sizes (text-2xl sm:text-3xl md:text-4xl)
+- Touch-friendly targets (min 44px)
+- Proper padding adjustments (p-4 sm:p-6)
+
+### ESLint Fixes Applied
+- Removed unused `Gauge` import
+- Fixed TypeScript `any` types to `Record<string, unknown>`
+- Escaped apostrophes in JSX text
+- Updated dynamic imports in API route
+- Changed `icon: any` to `icon: React.ElementType`
+
+### Files Modified
+1. `/app/sitemap-dev/page.tsx` - Major dashboard implementation
+2. `/app/api/project-stats/route.ts` - New API endpoint created
+3. `/_docs/real-time-analytics-dashboard.md` - Comprehensive documentation
+
+### Performance Optimizations
+- React.useMemo for expensive calculations
+- Conditional rendering to prevent flicker
+- Efficient file scanning algorithm
+- 5-minute refresh interval (not 30 seconds) to reduce load
+
+### Key Decisions
+- **Fixed productive hours** instead of dynamic calculation for accuracy
+- **56% progress** as realistic assessment (was showing 66%)
+- **5-minute refresh** instead of 30 seconds for performance
+- **Removed efficiency metric** to avoid misleading data
+- **Earth-tone theme** maintained for consistency
+
+### Problems Solved
+- Incorrect project start date (was January, fixed to August)
+- Unrealistic progress percentage (reduced from 66% to 56%)
+- ESLint errors preventing commits
+- Mobile layout issues with overlapping text
+- Inefficient refresh cycle (was too frequent)
+
+### Documentation Created
+Created comprehensive documentation file explaining:
+- Architecture and data flow
+- All metric calculations with formulas
+- API implementation details
+- Visual design system
+- Maintenance guidelines
+- Future enhancement possibilities
+
+### Next Steps
+- Monitor API performance with larger codebases
+- Consider adding historical tracking
+- Implement build status integration
+- Add test coverage metrics
+- Create velocity trend graphs
+
+### Commit Reference
+```
+4aeab5b - Enhance sitemap-dev with real-time analytics dashboard
+```
+
+---
+
 ## 2025-01-15 - Design Lab Professional Enhancement & Icon Migration
 
 ### Summary

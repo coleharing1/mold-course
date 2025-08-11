@@ -8,6 +8,8 @@ import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Alert, AlertDescription } from '@/components/ui/alert'
+import { ModuleResources } from '@/components/modules/module-resources'
 import { 
   ArrowLeft, 
   Clock, 
@@ -21,7 +23,10 @@ import {
   Download,
   ChevronRight,
   Target,
-  AlertCircle
+  AlertCircle,
+  Shield,
+  Activity,
+  AlertTriangle
 } from 'lucide-react'
 
 // Mock data - will come from Contentlayer
@@ -90,6 +95,224 @@ const moduleData = {
     ],
     nextModule: '01-understanding-mold',
     previousModule: null
+  },
+  '01-identify-exposure': {
+    title: 'Identify Your Exposure',
+    description: 'Learn to find and eliminate all sources of mold exposure in your environment',
+    moduleNumber: 1,
+    duration: '60 minutes',
+    difficulty: 'beginner',
+    category: 'foundation',
+    progress: 0,
+    objectives: [
+      'Master visual mold identification techniques',
+      'Conduct systematic home and workplace assessments',
+      'Find hidden mold without destructive testing',
+      'Evaluate vehicle and social space contamination',
+      'Eliminate dietary sources of mycotoxins',
+      'Create comprehensive exposure elimination plan'
+    ],
+    lessons: [
+      {
+        id: 1,
+        title: 'Visual Inspection Mastery',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Learn to spot mold like a professional inspector'
+      },
+      {
+        id: 2,
+        title: 'Room-by-Room Home Audit',
+        type: 'exercise',
+        duration: '15 min',
+        completed: false,
+        description: 'Systematic approach to checking every space'
+      },
+      {
+        id: 3,
+        title: 'Hidden Mold Detection',
+        type: 'reading',
+        duration: '12 min',
+        completed: false,
+        description: 'Finding mold without destructive testing'
+      },
+      {
+        id: 4,
+        title: 'Vehicle Contamination',
+        type: 'exercise',
+        duration: '10 min',
+        completed: false,
+        description: 'Cars are often overlooked mold sources'
+      },
+      {
+        id: 5,
+        title: 'Workplace & Other Spaces',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Evaluate all environments you frequent'
+      },
+      {
+        id: 6,
+        title: 'Mold in Food Supply',
+        type: 'reading',
+        duration: '5 min',
+        completed: false,
+        description: 'Dietary sources of mycotoxin exposure'
+      }
+    ],
+    resources: [
+      { title: 'Exposure & Dampness Checklist', type: 'pdf', size: '345 KB' },
+      { title: 'Mold Identification Chart', type: 'pdf', size: '892 KB' },
+      { title: 'Vehicle Inspection Guide', type: 'pdf', size: '234 KB' },
+      { title: 'Food Safety Guidelines', type: 'pdf', size: '156 KB' }
+    ],
+    nextModule: '02-testing-diagnosis',
+    previousModule: '00-quick-start'
+  },
+  '03-drainage-pathways': {
+    title: 'Open Drainage Pathways',
+    description: 'Essential 2-4 week preparation before starting any mold detox protocol',
+    moduleNumber: 3,
+    duration: '90 minutes',
+    difficulty: 'intermediate',
+    category: 'detox',
+    progress: 0,
+    objectives: [
+      'Understand why drainage MUST come before binders',
+      'Optimize bowel movements for primary toxin elimination',
+      'Support liver and gallbladder function for toxin processing',
+      'Achieve optimal hydration and kidney support',
+      'Activate lymphatic system for cellular waste transport',
+      'Use skin and sweating for backup toxin elimination',
+      'Reach 80% drainage readiness for 7 consecutive days'
+    ],
+    lessons: [
+      {
+        id: 1,
+        title: 'Why Drainage Matters',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'The science of detox pathways and why they must come before binders'
+      },
+      {
+        id: 2,
+        title: 'Bowel Optimization',
+        type: 'exercise',
+        duration: '20 min',
+        completed: false,
+        description: 'Achieving 1-3 daily bowel movements through targeted protocols'
+      },
+      {
+        id: 3,
+        title: 'Liver & Gallbladder Support',
+        type: 'reading',
+        duration: '20 min',
+        completed: false,
+        description: 'Optimizing bile flow and liver function for safe detoxification'
+      },
+      {
+        id: 4,
+        title: 'Kidney & Urinary Support',
+        type: 'exercise',
+        duration: '15 min',
+        completed: false,
+        description: 'Optimizing hydration and kidney function for toxin elimination'
+      },
+      {
+        id: 5,
+        title: 'Lymphatic Activation',
+        type: 'exercise',
+        duration: '15 min',
+        completed: false,
+        description: 'Moving lymph fluid to transport cellular waste for elimination'
+      },
+      {
+        id: 6,
+        title: 'Sweat & Skin Detox',
+        type: 'exercise',
+        duration: '10 min',
+        completed: false,
+        description: 'Activating your largest organ for toxin elimination through sweating'
+      }
+    ],
+    resources: [
+      { title: 'Drainage Supplements Guide', type: 'pdf', size: '15 pages' },
+      { title: 'Castor Oil Pack Protocol', type: 'pdf', size: '8 pages' },
+      { title: 'Coffee Enema Guide (Advanced)', type: 'pdf', size: '12 pages' },
+      { title: 'Daily Drainage Checklist', type: 'pdf', size: '6 pages' }
+    ],
+    nextModule: '04-mycotoxin-binders',
+    previousModule: '02-testing-diagnosis'
+  },
+  '06-herx-management': {
+    title: 'Herx Management - Riding the Waves',
+    description: 'Safely manage detox reactions and prevent dangerous symptoms during treatment',
+    moduleNumber: 6,
+    duration: '60 minutes',
+    difficulty: 'intermediate',
+    category: 'safety',
+    progress: 0,
+    objectives: [
+      'Recognize normal vs dangerous Herx reactions',
+      'Master severity assessment techniques (1-10 scale)',
+      'Learn specific management strategies by severity level',
+      'Know emergency protocols and red flag symptoms',
+      'Implement prevention strategies for future protocols'
+    ],
+    lessons: [
+      {
+        id: 1,
+        title: 'Understanding Herx Reactions',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'The science of die-off and what happens biochemically'
+      },
+      {
+        id: 2,
+        title: 'Severity Assessment',
+        type: 'exercise',
+        duration: '10 min',
+        completed: false,
+        description: 'Rating reactions 1-10 and recognizing patterns'
+      },
+      {
+        id: 3,
+        title: 'Management Strategies',
+        type: 'reading',
+        duration: '20 min',
+        completed: false,
+        description: 'Specific interventions for each severity level'
+      },
+      {
+        id: 4,
+        title: 'Emergency Protocols',
+        type: 'exercise',
+        duration: '10 min',
+        completed: false,
+        description: 'When to stop everything and seek help'
+      },
+      {
+        id: 5,
+        title: 'Prevention Strategies',
+        type: 'reading',
+        duration: '10 min',
+        completed: false,
+        description: 'Minimizing future reactions through better protocols'
+      }
+    ],
+    resources: [
+      { title: 'Herx Severity Scale Visual Guide', type: 'pdf', size: '8 pages' },
+      { title: 'Emergency Contact Template', type: 'pdf', size: '4 pages' },
+      { title: 'Supplement Emergency Kit Guide', type: 'pdf', size: '10 pages' },
+      { title: 'Detox Bath Recipe Collection', type: 'pdf', size: '6 pages' },
+      { title: 'Herx Recovery Timeline Guide', type: 'pdf', size: '12 pages' }
+    ],
+    nextModule: '07-supportive-modalities',
+    previousModule: '05-antifungals'
   },
   '01-understanding-mold': {
     title: 'Understanding Mold Illness',
@@ -300,6 +523,93 @@ export default function ModulePage() {
         </CardContent>
       </Card>
 
+      {/* Special tools section for Module 03 - Drainage Readiness */}
+      {params.slug === '03-drainage-pathways' && (
+        <Card className="bg-green-50 border-green-200 mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Shield className="w-5 h-5 text-green-600" />
+              Drainage Readiness Tool - Required for Progress
+            </CardTitle>
+            <CardDescription>
+              Track your daily progress toward the required 80% readiness score for 7 consecutive days before accessing binders
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="flex items-center justify-between p-3 bg-white rounded-lg border">
+                <div>
+                  <p className="font-medium text-gray-900">Current Status</p>
+                  <p className="text-sm text-gray-600">Track daily across all 5 drainage pathways</p>
+                </div>
+                <Link href="/tools/drainage-readiness">
+                  <Button className="bg-green-600 hover:bg-green-700">
+                    <Activity className="w-4 h-4 mr-2" />
+                    Access Tool
+                  </Button>
+                </Link>
+              </div>
+              <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
+                <div className="flex items-start gap-2">
+                  <AlertTriangle className="w-5 h-5 text-amber-600 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <p className="font-medium text-amber-900 text-sm">Critical Safety Gate</p>
+                    <p className="text-amber-800 text-sm">
+                      Module 04 (Binders) will remain locked until you achieve 80% drainage readiness for 7 consecutive days. 
+                      This prevents dangerous detox reactions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {params.slug === '06-herx-management' && (
+        <Card className="bg-red-50 border-red-200 mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <AlertTriangle className="w-5 h-5 text-red-600" />
+              Critical Safety Warning - Herx Reactions Can Be Dangerous
+            </CardTitle>
+            <CardDescription>
+              Never "push through" severe symptoms. This module teaches you when to stop treatment and seek medical help.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div className="border border-red-300 bg-red-50 rounded-lg p-4">
+                <div className="flex items-start gap-2">
+                  <AlertTriangle className="h-4 w-4 text-red-600 mt-0.5 flex-shrink-0" />
+                  <div className="text-sm">
+                    <strong>Emergency Threshold:</strong> Seek immediate help for severity 9-10 reactions or any red flag symptoms like chest pain, difficulty breathing, or severe confusion.
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center justify-between p-3 bg-white rounded-lg border">
+                <div>
+                  <p className="font-medium text-gray-900">Herx Toolkit - Assessment & Management</p>
+                  <p className="text-sm text-gray-600">Rate severity, get personalized protocols, and track patterns</p>
+                </div>
+                <Link href="/tools/herx-toolkit">
+                  <Button className="bg-red-600 hover:bg-red-700">
+                    <Activity className="w-4 h-4 mr-2" />
+                    Open Herx Toolkit
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* Module Resources Section */}
+      <ModuleResources 
+        moduleSlug={params.slug as string} 
+        moduleTitle={module.title}
+      />
+
       {/* Tabs for Lessons and Resources */}
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList className="grid w-full grid-cols-2">
@@ -332,13 +642,16 @@ export default function ModulePage() {
           {/* Lessons List */}
           <div className="space-y-3">
             {module.lessons.map((lesson) => (
-              <Card 
+              <Link 
                 key={lesson.id}
-                className={`cursor-pointer transition-all hover:shadow-md ${
-                  lesson.completed ? 'bg-gray-50' : ''
-                }`}
+                href={`/modules/${params.slug}/lessons/${lesson.id.toString().padStart(2, '0')}-${lesson.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}
               >
-                <CardContent className="p-4">
+                <Card 
+                  className={`cursor-pointer transition-all hover:shadow-md ${
+                    lesson.completed ? 'bg-gray-50' : ''
+                  }`}
+                >
+                  <CardContent className="p-4">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4 flex-1">
                       {/* Status Icon */}
@@ -375,6 +688,7 @@ export default function ModulePage() {
                   </div>
                 </CardContent>
               </Card>
+              </Link>
             ))}
           </div>
         </TabsContent>

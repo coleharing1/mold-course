@@ -45,10 +45,16 @@ export function NextActionCard() {
     // Check module progress to find the next incomplete lesson
     const modules = [
       { id: '00-quick-start', title: 'Quick Start Guide', totalLessons: 5 },
-      { id: '01-understanding-mold', title: 'Understanding Mold', totalLessons: 8 },
-      { id: '02-exposure-assessment', title: 'Exposure Assessment', totalLessons: 10 },
-      { id: '03-drainage-pathways', title: 'Drainage Pathways', totalLessons: 7, requires: '02-exposure-assessment' },
-      { id: '04-binder-protocols', title: 'Binder Protocols', totalLessons: 9, requiresDrainage: true },
+      { id: '01-identify-exposure', title: 'Identify Exposure', totalLessons: 8 },
+      { id: '02-testing-diagnosis', title: 'Testing & Diagnosis', totalLessons: 10, requires: '01-identify-exposure' },
+      { id: '03-drainage-pathways', title: 'Open Drainage Pathways', totalLessons: 7, requires: '02-testing-diagnosis' },
+      { id: '04-mycotoxin-binders', title: 'Mycotoxin Binders', totalLessons: 9, requiresDrainage: true },
+      { id: '05-antifungals', title: 'Antifungals', totalLessons: 8, requires: '04-mycotoxin-binders' },
+      { id: '06-herx-management', title: 'Herx Management', totalLessons: 6, requires: '04-mycotoxin-binders' },
+      { id: '07-supportive-modalities', title: 'Supportive Modalities', totalLessons: 10, requires: '04-mycotoxin-binders' },
+      { id: '08-diet-nutrition', title: 'Diet & Nutrition', totalLessons: 8 },
+      { id: '09-retesting-prevention', title: 'Retesting & Prevention', totalLessons: 7, requiresCompletion: 50 },
+      { id: '10-advanced-protocols', title: 'Advanced Protocols', totalLessons: 12, requires: '05-antifungals' },
     ]
 
     // Find the next action

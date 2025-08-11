@@ -7,7 +7,7 @@ interface VisualDiagramProps {
   type: 'quick-start' | 'exposure-inspection' | 'drainage-pathways' | 'testing-flowchart' | 'binder-timing' | 'herx-scale' | 'drainage-timeline' | 'binder-schedule'
 }
 
-export default function VisualDiagram({ type }: VisualDiagramProps) {
+export function VisualDiagram({ type }: VisualDiagramProps) {
   switch (type) {
     case 'quick-start':
       return <ModuleQuickStart />

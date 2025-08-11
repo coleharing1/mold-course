@@ -5,7 +5,7 @@ import { AlertCircle, CheckCircle, Clock } from 'lucide-react'
 interface DoThisNowProps {
   title: string
   action: string
-  urgency?: 'high' | 'medium' | 'low'
+  urgency?: 'critical' | 'high' | 'medium' | 'low'
   checklist?: string[]
   timeframe?: string
 }
@@ -18,6 +18,13 @@ function DoThisNow({
   timeframe
 }: DoThisNowProps) {
   const urgencyStyles = {
+    critical: {
+      bg: 'bg-red-100',
+      border: 'border-red-600',
+      icon: 'text-red-700',
+      title: 'text-red-900',
+      text: 'text-red-800'
+    },
     high: {
       bg: 'bg-red-50',
       border: 'border-red-500',

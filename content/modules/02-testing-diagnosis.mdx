@@ -16,27 +16,48 @@ tags: ["testing", "diagnosis", "mycotoxins", "labs", "ERMI", "urine"]
 status: "published"
 publishedAt: "2024-01-01"
 updatedAt: "2024-01-01"
+tldr: "Test environment with ERMI ($290) and body with urine mycotoxin test ($300-400). Both are essential. Order directly from labs without doctor. Retest after 3-6 months of treatment."
+readingTime: 10
 ---
 
+import { DoThisNow } from '@/components/modules/do-this-now'
+import { EvidenceBadge } from '@/components/modules/evidence-badge'
+import { SafetyFlag } from '@/components/modules/safety-flag'
+import { ToolPreview } from '@/components/modules/tool-preview'
+import { TestingFlowchart, ComparisonTable, CostBreakdown } from '@/components/modules/testing-components'
+
+## TL;DR Summary
+
+<div className="bg-blue-50 p-4 rounded-lg mb-6 border-l-4 border-blue-500">
+  <p className="font-semibold text-blue-900 mb-2">Module Summary in 50 Words:</p>
+  <p className="text-blue-800">
+    Test your environment with ERMI ($290) to find mold sources. Test your body with urine mycotoxin testing ($300-400) to measure toxic load. Both tests can be ordered directly online without a doctor. Retest after 3-6 months to track progress. Don't guess - testing is essential for proper treatment.
+  </p>
+</div>
+
 ## Testing: Your Roadmap to Recovery
+
+<TestingFlowchart />
 
 Once you've identified potential mold exposure, testing confirms what you're dealing with. This module covers both **environmental testing** (mold in your space) and **medical testing** (mycotoxins in your body).
 
 > **💡 Pro Tip:** Most people benefit from doing BOTH types of testing - environmental to find the source, medical to understand your body's toxic burden.
 
-## Two Types of Testing
+## Environmental vs Medical Testing
 
-### 🏠 Environmental Testing
-**Purpose:** Confirm mold presence in your environment  
-**Cost:** $30-350  
-**Timeline:** 3-7 days for results  
-**Best for:** Identifying source of exposure
+<ComparisonTable />
 
-### 🩺 Medical Testing  
-**Purpose:** Detect mycotoxins in your body  
-**Cost:** $200-600  
-**Timeline:** 1-2 weeks for results  
-**Best for:** Understanding toxic load and tracking progress
+<DoThisNow 
+  title="Order Both Tests Today"
+  action="Start with ERMI environmental test ($290) and urine mycotoxin test ($300-400). You need both to understand your exposure and body burden. Order directly online - no doctor required."
+  urgency="high"
+  checklist={[
+    "Order ERMI test from EnviroBiomics",
+    "Order MycoTOX urine test from Mosaic Diagnostics",
+    "Schedule collection for first morning urine",
+    "Take photos of all test results for records"
+  ]}
+/>
 
 ## Environmental Testing Options
 
@@ -216,15 +237,14 @@ Important markers to check:
 - **Rupa Health:** Order labs through their platform
 - **Dr. Crista:** Mold specialist consultations
 
-## Cost Comparison Table
+## Complete Cost Breakdown
 
-| Test Type | DIY Cost | Through Practitioner | What You Get |
-|-----------|----------|---------------------|--------------|
-| ERMI | $290 | $400-500 | Environmental assessment |
-| Urine Mycotoxin | $300-400 | $500-700 | Body burden of toxins |
-| VCS | $15 | $50-100 | Quick neurological screen |
-| Blood Panel | N/A | $300-500 | Immune response |
-| Full Workup | $600-800 | $1200-2000 | Complete picture |
+<CostBreakdown />
+
+<SafetyFlag 
+  type="info"
+  message="Most insurance doesn't cover mycotoxin testing. Budget $600-800 for initial testing (ERMI + urine mycotoxin). This investment is crucial for proper treatment and tracking progress."
+/>
 
 ## Your Testing Strategy
 
@@ -295,6 +315,17 @@ Your mycotoxin types determine:
 - Multiple mycotoxins at extreme levels
 - Severe neurological symptoms present
 - Immune markers critically abnormal
+
+## 🛠️ Helpful Tools
+
+<div className="my-6">
+  <ToolPreview
+    name="Testing Decision Helper"
+    description="Interactive guide to help you choose the right tests based on your symptoms and budget"
+    href="/tools/testing-helper"
+    status="coming-soon"
+  />
+</div>
 
 ## Next Module
 

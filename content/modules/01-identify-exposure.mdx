@@ -16,13 +16,36 @@ tags: ["exposure", "assessment", "environment", "testing"]
 status: "published"
 publishedAt: "2024-01-01"
 updatedAt: "2024-01-01"
+tldr: "Check home, office, and car for mold. Look for water damage, musty smells, and visible growth. Test with ERMI if unsure. Leave or remediate immediately - you cannot heal while exposed."
+readingTime: 8
 ---
+
+import { DoThisNow } from '@/components/modules/do-this-now'
+import { EvidenceBadge } from '@/components/modules/evidence-badge'
+import { SafetyFlag } from '@/components/modules/safety-flag'
+import { ToolPreview } from '@/components/modules/tool-preview'
+import { ExposureInspectionDiagram } from '@/components/modules/visual-diagrams'
+import { ChecklistComponent } from '@/components/modules/checklist-component'
+
+## TL;DR Summary
+
+<div className="bg-blue-50 p-4 rounded-lg mb-6 border-l-4 border-blue-500">
+  <p className="font-semibold text-blue-900 mb-2">Module Summary in 50 Words:</p>
+  <p className="text-blue-800">
+    Systematically check every environment you frequent - home, office, car. Look for water damage, musty smells, visible mold. Pay special attention to bathrooms, basements, HVAC systems. Test with ERMI if suspicious. You must leave or properly remediate - no detox protocol works while you're still exposed.
+  </p>
+</div>
 
 ## The First Step to Healing: Finding Your Exposure
 
+<ExposureInspectionDiagram />
+
 **You cannot heal while still being exposed to mold.** This module will help you systematically identify all sources of mold exposure in your life. Finding and eliminating exposure is absolutely critical - without this step, no amount of detox will work.
 
-> **⚠️ Critical:** Living or working in a moldy environment can prevent healing, even if you're following perfect detox protocols.
+<SafetyFlag 
+  type="critical"
+  message="Living or working in a moldy environment can prevent healing, even if you're following perfect detox protocols. You must address exposure before starting any detox."
+/>
 
 ## Why Identifying Exposure Matters
 
@@ -185,6 +208,28 @@ Many people don't realize food can be a significant source of mold exposure.
 - Check expiration dates regularly
 - When in doubt, throw it out
 
+## Low-Cost Immediate Actions
+
+<ChecklistComponent title="Quick Actions You Can Take Today (Under $50)" items={[
+  "Buy N95 masks to wear in moldy areas ($20-30)",
+  "Get moisture meter to check walls ($15-25)",
+  "Purchase mold test plates from Amazon ($30)",
+  "Install humidity monitors in each room ($20)",
+  "Buy DampRid for problem areas ($10)",
+  "Get HEPA vacuum bags if you have compatible vacuum ($20)",
+  "Download free mold inspection apps for documentation",
+  "Take photos of all suspected mold for records",
+  "Create plastic barriers with sheets and tape ($10)",
+  "Start a symptom diary (free)"
+]} />
+
+<DoThisNow 
+  title="Start These Today"
+  action="Even if you can't afford professional remediation yet, these low-cost actions can significantly reduce your exposure while you plan next steps."
+  urgency="high"
+  timeframe="Within 24 hours"
+/>
+
 ## Your Environmental Action Plan
 
 ### Option 1: Remediation (If Staying)
@@ -300,6 +345,17 @@ While planning your long-term solution:
 - [ ] Make decision: remediate or relocate
 - [ ] Begin remediation or moving process
 - [ ] Test any new environment before committing
+
+## 🛠️ Helpful Tools
+
+<div className="my-6">
+  <ToolPreview
+    name="Exposure Checklist"
+    description="Interactive room-by-room assessment to systematically identify all mold sources"
+    href="/tools/exposure-checklist"
+    status="available"
+  />
+</div>
 
 ## Next Steps
 

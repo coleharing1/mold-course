@@ -30,6 +30,8 @@ export const Module = defineDocumentType(() => ({
     },
     publishedAt: { type: 'date' },
     updatedAt: { type: 'date' },
+    tldr: { type: 'string' },
+    readingTime: { type: 'number' },
   },
   computedFields: {
     url: {
@@ -40,7 +42,7 @@ export const Module = defineDocumentType(() => ({
       type: 'string',
       resolve: (module) => module._raw.sourceFileName.replace(/\.mdx$/, ''),
     },
-    readingTime: {
+    readingTimeComputed: {
       type: 'json',
       resolve: (module) => readingTime(module.body.raw),
     },

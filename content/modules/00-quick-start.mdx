@@ -16,9 +16,28 @@ tags: ["essential", "beginner", "quick-start", "foundation"]
 status: "published"
 publishedAt: "2024-01-01"
 updatedAt: "2024-01-01"
+tldr: "Stop exposure immediately, open drainage pathways for 2-4 weeks, then start binders slowly. Recovery takes 3-6 months with consistent protocol. Never skip drainage prep or you'll make symptoms worse."
+readingTime: 7
 ---
 
+import { DoThisNow } from '@/components/modules/do-this-now'
+import { EvidenceBadge } from '@/components/modules/evidence-badge'
+import { SafetyFlag } from '@/components/modules/safety-flag'
+import { ToolPreview } from '@/components/modules/tool-preview'
+import { ModuleQuickStart } from '@/components/modules/visual-diagrams'
+
+## TL;DR Summary
+
+<div className="bg-blue-50 p-4 rounded-lg mb-6 border-l-4 border-blue-500">
+  <p className="font-semibold text-blue-900 mb-2">Quick Start in 50 Words:</p>
+  <p className="text-blue-800">
+    Stop mold exposure immediately - check home, office, car. Open drainage pathways for 2-4 weeks with daily bowel movements, hydration, and sweating. Only then start binders (charcoal, chlorella, or prescription CSM). Recovery takes 3-6 months minimum. Never skip drainage prep or symptoms will worsen dramatically.
+  </p>
+</div>
+
 ## Your 5-Step Quick Start to Mold Recovery
+
+<ModuleQuickStart />
 
 If you suspect mold exposure or have tested positive for mycotoxins, these are the **exact 5 steps** you need to take right now. This guide is based on real recovery experiences and proven protocols.
 
@@ -41,7 +60,11 @@ If you suspect mold exposure or have tested positive for mycotoxins, these are t
 - Symptoms worsen in certain locations
 - Others in the same space have similar symptoms
 
-> **DO THIS NOW:** If you find mold, document it with photos and either remediate properly or **leave the environment**. Moving may be your best option.
+<DoThisNow 
+  title="Immediate Action Required"
+  action="If you find mold, document it with photos and either remediate properly or leave the environment. Moving may be your best option."
+  urgency="high"
+/>
 
 ## Step 2: Reduce Further Exposure ✅
 
@@ -61,7 +84,10 @@ If you can't leave immediately, minimize exposure while planning your exit.
 
 ## Step 3: Prepare Your Body for Detox ✅
 
-**⚠️ CRITICAL: You MUST open drainage pathways for 2-4 weeks BEFORE starting binders**
+<SafetyFlag 
+  type="critical"
+  message="You MUST open drainage pathways for 2-4 weeks BEFORE starting binders. Skipping this step can cause severe Herxheimer reactions and make symptoms dramatically worse."
+/>
 
 ### The 5 Drainage Pathways (Track Daily):
 1. **💩 Bowel Movements** - MUST have 1-3 daily before starting binders
@@ -110,7 +136,12 @@ Once drainage is open, begin removing mycotoxins with the right approach.
 - If symptoms worsen (Herx reaction), reduce dose
 
 ### Most Effective Protocol (Prescription):
-**Cholestyramine (CSM)** - The gold standard
+
+<div className="flex items-center gap-2 mb-2">
+  <span className="font-semibold">Cholestyramine (CSM) - The gold standard</span>
+  <EvidenceBadge level="solid" />
+</div>
+
 - 4g packets, 4x daily for 30 days
 - Then 2x daily for maintenance
 - Requires doctor prescription (use telehealth if needed)
@@ -169,6 +200,29 @@ Recovery takes 3-6 months minimum. Stay consistent with these practices.
 - [ ] Get test results back
 - [ ] Start first binder (if drainage ready)
 - [ ] Find mold-literate practitioner
+
+## 🛠️ Relevant Tools
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+  <ToolPreview
+    name="Exposure Checklist"
+    description="Room-by-room assessment to identify mold sources"
+    href="/tools/exposure-checklist"
+    status="available"
+  />
+  <ToolPreview
+    name="Drainage Readiness Score"
+    description="Track your readiness before starting binders"
+    href="/tools/drainage-readiness"
+    status="available"
+  />
+  <ToolPreview
+    name="Binder Timing Planner"
+    description="Schedule binders around meals and supplements"
+    href="/tools/binder-planner"
+    status="available"
+  />
+</div>
 
 ## 📚 Next Steps
 Once you've completed these 5 steps, continue to **Module 01: Identify Your Exposure** for detailed environmental assessment and testing strategies.

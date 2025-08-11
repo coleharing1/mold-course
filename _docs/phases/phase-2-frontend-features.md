@@ -6,9 +6,10 @@ Based on Opus4-Project-overview.md Phase 2 specifications. This phase completes 
 **Duration:** 4 weeks
 **Prerequisites:** Phase 1 completed and deployed
 
-## Success Criteria (Per Opus4 Spec)
-- [ ] All 10 modules complete with MDX content and audio
-- [ ] 6 additional tools functional (9 total)
+## Success Criteria (Per Opus4 Spec + Kajsa's Guide)
+- [ ] All 11 modules complete with MDX content and audio (added Advanced Protocols)
+- [ ] 10+ tools functional (added Supplement Scheduler)
+- [ ] Resources Center with product recommendations and practitioner directory
 - [ ] Community forum operational (optional tier)
 - [ ] Advanced analytics with PostHog configured
 - [ ] Email automation sequences active (Resend)
@@ -17,6 +18,9 @@ Based on Opus4-Project-overview.md Phase 2 specifications. This phase completes 
 - [ ] Gamification features active (badges, streaks)
 - [ ] All content has evidence badges and safety flags
 - [ ] Module gating fully implemented
+- [ ] Specific dosing/timing protocols integrated throughout
+- [ ] Test interpretation guides with thresholds
+- [ ] Cleaning alternatives and safety warnings about bleach
 
 ## Week 1: Complete Remaining Modules
 
@@ -41,10 +45,13 @@ Based on Opus4-Project-overview.md Phase 2 specifications. This phase completes 
 | Task | File/Component | Time | Status |
 |------|---------------|------|--------|
 | Write Binders content | `content/modules/04-binders.mdx` | 4h | ⬜ |
-| Timing protocols | Detailed spacing from food/meds | 2h | ⬜ |
+| CSM titration schedule | Week 1: ¼ scoop, Week 2: ½ scoop, Week 3+: full | 2h | ⬜ |
+| Timing protocols | 30-60min before meals, 2hr from meds/vitamins | 2h | ⬜ |
+| Fat-soluble vitamins | A,D,E,K supplementation timing | 1h | ⬜ |
+| CSM+Welchol combo | For better tolerance protocol | 1h | ⬜ |
 | Interactions section | Drug/supplement interactions | 2h | ⬜ |
 | Side effects guide | Common issues and solutions | 2h | ⬜ |
-| Binder comparison table | CSM vs alternatives | 2h | ⬜ |
+| Binder comparison table | CSM vs Welchol vs charcoal vs chlorella | 2h | ⬜ |
 | Record audio | `public/audio/04-binders.mp3` | 1h | ⬜ |
 | Create timing diagram | Visual schedule | 2h | ⬜ |
 | Link Binder Planner | Tool integration | 1h | ⬜ |
@@ -55,8 +62,10 @@ Based on Opus4-Project-overview.md Phase 2 specifications. This phase completes 
 | Task | File/Component | Time | Status |
 |------|---------------|------|--------|
 | Write Antifungals content | `content/modules/05-antifungals.mdx` | 4h | ⬜ |
+| Sporanox titration | Week 1: 100mg daily, Week 2: 100mg 2x daily | 2h | ⬜ |
 | When/if decision tree | Clear criteria for use | 2h | ⬜ |
-| Monitoring section | Lab markers to track | 2h | ⬜ |
+| Liver monitoring | Every 2-4 weeks during treatment | 2h | ⬜ |
+| Natural alternatives | Neem, Biopure O3, oregano oil protocols | 2h | ⬜ |
 | Natural vs prescription | Comparison and protocols | 2h | ⬜ |
 | Safety monitoring | Liver function, die-off | 2h | ⬜ |
 | Record audio | `public/audio/05-antifungals.mp3` | 1h | ⬜ |
@@ -81,10 +90,12 @@ Based on Opus4-Project-overview.md Phase 2 specifications. This phase completes 
 | Task | File/Component | Time | Status |
 |------|---------------|------|--------|
 | Write Modalities content | `content/modules/07-modalities.mdx` | 4h | ⬜ |
-| Sauna protocols | IR vs traditional, ramp-up | 2h | ⬜ |
+| Sauna protocols | IR vs traditional, 110-130°F start, 30-45min goal | 2h | ⬜ |
+| HBOT section | 60-90min, 1.3-2.0 ATA, 3-5x/week protocol | 2h | ⬜ |
+| Peptide protocols | BPC-157, KPV, TA-1, LL-37 overview | 2h | ⬜ |
+| Nasal care | Xlear spray 2-4x daily, Dave Asprey protocol | 1h | ⬜ |
+| Sleep optimization | Melatonin 1-3mg for glymphatic support | 2h | ⬜ |
 | Strength training | Exercise protocols | 1h | ⬜ |
-| Nasal care | Rinses, sprays | 1h | ⬜ |
-| Sleep optimization | Protocols for better sleep | 2h | ⬜ |
 | Record audio | `public/audio/07-modalities.mp3` | 1h | ⬜ |
 | Create modality grid | Visual comparison | 2h | ⬜ |
 | Link Sauna Ramp-Up tool | Tool integration | 1h | ⬜ |
@@ -94,11 +105,13 @@ Based on Opus4-Project-overview.md Phase 2 specifications. This phase completes 
 | Task | File/Component | Time | Status |
 |------|---------------|------|--------|
 | Write Diet content | `content/modules/08-diet.mdx` | 4h | ⬜ |
-| Low-mold foods list | Comprehensive guide | 2h | ⬜ |
-| Low-amylose section | Starch considerations | 2h | ⬜ |
+| Low-mold foods list | Avoid peanuts, cashews, aged cheese, corn | 2h | ⬜ |
+| Low-amylose section | Japanese sweet potatoes as safe carb | 2h | ⬜ |
+| Food prep methods | Soaking produce in vinegar/baking soda | 1h | ⬜ |
+| Restaurant guide | Strategies for eating out safely | 2h | ⬜ |
 | Meal planning guide | Weekly planning tips | 2h | ⬜ |
 | Record audio | `public/audio/08-diet.mp3` | 1h | ⬜ |
-| Food comparison chart | Good vs avoid | 2h | ⬜ |
+| Food comparison chart | Good vs avoid with mold risk levels | 2h | ⬜ |
 | Link Diet Builder | Tool integration | 1h | ⬜ |
 | Grocery list builder | Interactive checklist | 2h | ⬜ |
 
@@ -107,12 +120,29 @@ Based on Opus4-Project-overview.md Phase 2 specifications. This phase completes 
 | Task | File/Component | Time | Status |
 |------|---------------|------|--------|
 | Write Prevention content | `content/modules/09-prevention.mdx` | 4h | ⬜ |
-| VCS testing cadence | Every 3 months protocol | 2h | ⬜ |
+| VCS testing cadence | Every 3 months, Column C/D patterns | 2h | ⬜ |
+| Urine mycotoxin timing | 3-6 months, interpreting results | 2h | ⬜ |
+| Home testing protocols | ERMI <2, HERTSMI-2 <10 thresholds | 2h | ⬜ |
 | Relapse plan | What to do if re-exposed | 2h | ⬜ |
+| Mold-prone cities list | Houston, New Orleans, Tampa, Miami risks | 1h | ⬜ |
 | Long-term maintenance | Ongoing protocols | 2h | ⬜ |
 | Record audio | `public/audio/09-prevention.mp3` | 1h | ⬜ |
 | Prevention checklist | Monthly review items | 2h | ⬜ |
 | Link Retesting Scheduler | Tool integration | 1h | ⬜ |
+
+### Day 8.5: Module 10 - Advanced Protocols (NEW)
+
+| Task | File/Component | Time | Status |
+|------|---------------|------|--------|
+| Write Advanced content | `content/modules/10-advanced-protocols.mdx` | 4h | ⬜ |
+| HBOT protocols | 60-90min, 1.3-2.0 ATA, 3-5x/week | 2h | ⬜ |
+| Peptide overview | BPC-157, KPV, TA-1, LL-37 uses | 3h | ⬜ |
+| Ozone therapy | IV protocols, home machines | 2h | ⬜ |
+| Supplement timing | NAC 2x daily, melatonin 1-3mg nightly | 2h | ⬜ |
+| Advanced supplements | Glutathione, calcium D-glucarate, DIM | 2h | ⬜ |
+| Practitioner resources | Finding HBOT centers, peptide providers | 2h | ⬜ |
+| Safety considerations | Contraindications, monitoring | 2h | ⬜ |
+| Record audio | `public/audio/10-advanced.mp3` | 1h | ⬜ |
 
 ## Week 2: Advanced Interactive Tools
 
@@ -122,7 +152,10 @@ Based on Opus4-Project-overview.md Phase 2 specifications. This phase completes 
 |------|---------------|------|--------|
 | Create tool page | `app/(app)/tools/testing-helper/page.tsx` | 3h | ⬜ |
 | Env vs medical flow | `components/tools/testing/decision-flow.tsx` | 4h | ⬜ |
-| Cost calculator | `lib/calculations/testing-costs.ts` | 3h | ⬜ |
+| VCS interpretation | Column C/D deficits, Row E patterns | 2h | ⬜ |
+| Test thresholds guide | ERMI <2, HERTSMI-2 <10, MMP-9 elevation | 2h | ⬜ |
+| Cost calculator | $10 VCS, $300 urine, $600 DNA tests | 3h | ⬜ |
+| Lab recommendations | RealTime, Mosaic with codes (AQWXV4Cs) | 2h | ⬜ |
 | Insurance checker | `components/tools/testing/insurance.tsx` | 2h | ⬜ |
 | Caveats display | `components/tools/testing/caveats.tsx` | 2h | ⬜ |
 | Print clinician sheet | `lib/tools/clinician-sheet.ts` | 3h | ⬜ |
@@ -192,6 +225,35 @@ Based on Opus4-Project-overview.md Phase 2 specifications. This phase completes 
 | Emergency contacts | `components/tools/reexposure/contacts.tsx` | 2h | ⬜ |
 | Home check protocol | `components/tools/reexposure/home-check.tsx` | 2h | ⬜ |
 | Save incident | `app/api/tools/reexposure/route.ts` | 2h | ⬜ |
+
+### Day 18.25: Supplement Scheduler Tool (NEW)
+
+| Task | File/Component | Time | Status |
+|------|---------------|------|--------|
+| Create tool page | `app/(app)/tools/supplement-scheduler/page.tsx` | 3h | ⬜ |
+| Supplement database | All supplements with dosing/timing | 3h | ⬜ |
+| Interaction checker | CSM spacing, vitamin conflicts | 3h | ⬜ |
+| Daily schedule builder | `components/tools/supplements/scheduler.tsx` | 3h | ⬜ |
+| Reminder system | Push notification setup | 2h | ⬜ |
+| Titration tracker | Track CSM/Sporanox increases | 2h | ⬜ |
+| Export to calendar | iCal/Google calendar export | 2h | ⬜ |
+| Save schedule | `app/api/tools/supplements/route.ts` | 2h | ⬜ |
+
+### Day 18.5: Resources Center (NEW)
+
+| Task | File/Component | Time | Status |
+|------|---------------|------|--------|
+| Create resources layout | `app/(app)/resources/page.tsx` | 2h | ⬜ |
+| Product recommendations | `app/(app)/resources/products/page.tsx` | 3h | ⬜ |
+| Air purifiers section | Levoit, Winix models with links | 2h | ⬜ |
+| Water filters guide | Shower, sink filter recommendations | 2h | ⬜ |
+| Mold cleaners list | EC3, Concrobium, HomeBiotic products | 2h | ⬜ |
+| Supplement directory | NAC, melatonin, glutathione dosing | 3h | ⬜ |
+| Testing kit sources | RealTime, Mosaic with practitioner codes | 2h | ⬜ |
+| Cleaning alternatives | Why not bleach, H2O2/vinegar protocols | 2h | ⬜ |
+| Practitioner directory | Surviving Mold certified list | 2h | ⬜ |
+| Telehealth scripts | How to get CSM/Sporanox prescriptions | 2h | ⬜ |
+| Product search/filter | `components/resources/product-filter.tsx` | 2h | ⬜ |
 
 ## Week 3: Community & Gamification
 

@@ -6,6 +6,9 @@ import { NextActionCard } from '@/components/dashboard/next-action'
 import { ReadinessStatus } from '@/components/dashboard/readiness-status'
 import { StreakCounter } from '@/components/dashboard/streak-counter'
 import { BadgesDisplay } from '@/components/dashboard/badges'
+import { RetestCountdown } from '@/components/dashboard/retest-countdown'
+import { DailyTip } from '@/components/dashboard/daily-tip'
+import { CommunityHighlight } from '@/components/dashboard/community-highlight'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, BookOpen } from 'lucide-react'
@@ -53,8 +56,15 @@ export default function Dashboard() {
         </TabsContent>
       </Tabs>
 
-      {/* Additional Info Section */}
-      <div className="grid gap-6 md:grid-cols-2">
+      {/* Additional Dashboard Widgets */}
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Retest Countdown */}
+        <RetestCountdown />
+        
+        {/* Daily Tip */}
+        <DailyTip />
+
+        {/* Recent Modules */}
         <Card>
           <CardHeader>
             <CardTitle>Recent Modules</CardTitle>
@@ -91,43 +101,10 @@ export default function Dashboard() {
             </div>
           </CardContent>
         </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>Daily Tip</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-sm text-gray-600">
-              <strong>Hydration is key!</strong> Aim for at least 64oz of clean, filtered water
-              daily to support your body&apos;s natural detoxification processes. Add a pinch of
-              high-quality sea salt to help with mineral balance.
-            </p>
-            <div className="mt-4">
-              <Link href="/library/hydration-guide">
-                <Button variant="outline" size="sm">
-                  Learn More
-                  <ArrowRight className="ml-2 h-3 w-3" />
-                </Button>
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
       </div>
 
       {/* Community Highlight */}
-      <Card>
-        <CardHeader>
-          <CardTitle>Community Highlight</CardTitle>
-          <CardDescription>Success story from a fellow student</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <blockquote className="border-l-4 border-primary-200 pl-4 italic text-gray-600">
-            &ldquo;After following the drainage protocol for 2 weeks, my brain fog has significantly
-            improved. The step-by-step approach made all the difference!&rdquo;
-          </blockquote>
-          <p className="mt-2 text-sm text-gray-500">- Sarah M., Module 4 Student</p>
-        </CardContent>
-      </Card>
+      <CommunityHighlight />
     </div>
   )
 }

@@ -596,3 +596,6 @@ export function ModuleQuickStart() {
     </div>
   )
 }
+
+// Default export for MDX compatibility
+export default VisualDiagram

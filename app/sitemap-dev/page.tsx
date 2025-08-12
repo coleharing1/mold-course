@@ -33,6 +33,7 @@ import {
   Timer,
   RefreshCw,
   Cpu,
+  ShoppingCart,
 } from 'lucide-react'
 
 export default function SitemapDevPage() {
@@ -48,10 +49,10 @@ export default function SitemapDevPage() {
       setCurrentTime(now)
       setClientTime(now.toLocaleTimeString())
     }
-    
+
     // Set initial time immediately on client mount
     updateTime()
-    
+
     const timer = setInterval(updateTime, 1000)
     return () => clearInterval(timer)
   }, [])
@@ -83,7 +84,7 @@ export default function SitemapDevPage() {
     const totalModules = 11
     const completedModules = 11 // All modules have lesson structure with 51 lessons total
     const totalTools = 11
-          const completedTools = 11 // All tools now complete!
+    const completedTools = 11 // All tools now complete!
     const totalPages = realTimeStats?.pagesCount || 45 // Increased with library, tools, quiz pages
     const totalComponents = realTimeStats?.componentsCount || 120 // Major increase with tools and library components
     const totalMDXContent = realTimeStats?.contentFiles || 71 // 11 modules + 51 lessons + 9 resources
@@ -274,7 +275,8 @@ export default function SitemapDevPage() {
         {
           path: '/progress',
           label: 'My Progress',
-          description: 'Comprehensive progress tracking with module completion, achievements, and analytics',
+          description:
+            'Comprehensive progress tracking with module completion, achievements, and analytics',
           completed: true,
         },
         { path: '/onboarding', label: 'Onboarding Wizard', description: '5-step onboarding flow' },
@@ -352,13 +354,57 @@ export default function SitemapDevPage() {
         {
           path: '/modules/10-advanced-protocols',
           label: 'Module 10: Advanced Protocols',
-          description: '6 lessons - Advanced HBOT, IV therapy, peptide stacking, biofilm disruption',
+          description:
+            '6 lessons - Advanced HBOT, IV therapy, peptide stacking, biofilm disruption',
           inProgress: true,
         },
       ],
     },
     {
-              title: 'Interactive Tools (11/11 Complete)',
+      title: 'Products & Resources Hub (Complete)',
+      icon: ShoppingCart,
+      routes: [
+        {
+          path: '/products',
+          label: 'Complete Products Database',
+          description:
+            "Kajsa's personally tested products - 37 items across 5 categories with affiliate links",
+          completed: true,
+        },
+        {
+          path: '/products?category=air-purifiers',
+          label: 'Air Purifiers & Home Protection',
+          description: 'HEPA filters, ozone machines, and home protection systems',
+          completed: true,
+        },
+        {
+          path: '/products?category=cleaning',
+          label: 'Cleaning & Household Products',
+          description: 'Mold-safe cleaners, detergents, pillow protectors, and water filters',
+          completed: true,
+        },
+        {
+          path: '/products?category=testing',
+          label: 'Mold Testing Supplies',
+          description: 'DIY test kits, professional lab tests, and mycotoxin panels',
+          completed: true,
+        },
+        {
+          path: '/products?category=respiratory',
+          label: 'Nasal & Respiratory Support',
+          description: 'Xlear nasal spray, neti pots, and sinus rinse protocols',
+          completed: true,
+        },
+        {
+          path: '/products?category=supplements',
+          label: 'Supplements for Detox Support',
+          description: 'Binders, antifungals, liver support, and complete protocol kits',
+          completed: true,
+        },
+      ],
+    },
+    {
+      title: 'Interactive Tools (11/11 Complete)',
       icon: Wrench,
       routes: [
         {
@@ -1886,7 +1932,8 @@ export default function SitemapDevPage() {
               <div className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-green-400"></span>
                 <span className="flex items-center gap-1 font-medium text-green-700">
-                                      <CheckCircle className="h-3 w-3" />11 of 11 Interactive Tools Complete
+                  <CheckCircle className="h-3 w-3" />
+                  11 of 11 Interactive Tools Complete
                 </span>
               </div>
               <div className="flex items-center gap-2">
@@ -2186,7 +2233,7 @@ export default function SitemapDevPage() {
               {/* Week 4: Partially Complete */}
               <div className="mb-4">
                 <h4 className="mb-2 font-medium text-gray-900">
-                                     Week 4: Interactive Tools (✅ 11 of 11 Complete)
+                  Week 4: Interactive Tools (✅ 11 of 11 Complete)
                 </h4>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <div>

@@ -13,12 +13,14 @@ import {
   Settings,
   HelpCircle,
   BarChart3,
+  ShoppingCart,
 } from 'lucide-react'
 
 const navigation = [
   { name: 'Dashboard', href: '/dashboard', icon: Home },
   { name: 'Modules', href: '/modules', icon: BookOpen },
   { name: 'Tools', href: '/tools', icon: Wrench },
+  { name: 'Products', href: '/products', icon: ShoppingCart },
   { name: 'My Progress', href: '/progress', icon: TrendingUp },
   { name: 'Resources', href: '/library', icon: Library },
   { name: 'Community', href: '/community', icon: Users },

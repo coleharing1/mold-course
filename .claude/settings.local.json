@@ -33,7 +33,8 @@
       "Bash(PORT=3005 npm run dev)",
       "Bash(kill:*)",
       "Bash(npm ls:*)",
-      "Bash(true)"
+      "Bash(true)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }

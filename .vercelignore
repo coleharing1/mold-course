@@ -1,0 +1,25 @@
+# Scripts that use canvas/puppeteer
+scripts/
+/scripts
+
+# Test files
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+
+# Development files
+.env.local
+.env.development
+vitest.config.ts
+playwright.config.ts
+
+# Documentation
+_docs/
+Saved_Prompts/
+
+# Other
+.DS_Store
+*.log
+coverage/
+.nyc_output/

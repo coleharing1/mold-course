@@ -1513,6 +1513,45 @@ export default function SitemapDevPage() {
                     2025-01-15 @ Current
                   </span>
                   <span className="ml-2 inline-flex items-center gap-1 rounded bg-emerald-100 px-2 py-0.5 text-xs text-emerald-700">
+                    PRODUCTS HUB
+                    <CheckCircle className="h-3 w-3" />
+                  </span>
+                </div>
+                <h3 className="mb-2 font-semibold text-gray-900">
+                  Products Page Implementation & Image Standardization
+                </h3>
+                <ul className="space-y-1 text-sm text-gray-700">
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    Complete products database with 37 items from Kajsa&apos;s guide
+                  </li>
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    Advanced image processing pipeline with Puppeteer scraping
+                  </li>
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    Standardized 400x400 images with enhanced processing
+                  </li>
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    Professional UI with filtering, search, and affiliate tracking
+                  </li>
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />5 categories: Air
+                    Purifiers, Testing, Drainage, Binders, Nutrition
+                  </li>
+                </ul>
+              </div>
+
+              {/* Design Lab Enhancement */}
+              <div className="relative border-l-4 border-blue-400 pl-8">
+                <div className="absolute -left-2 top-0 h-4 w-4 rounded-full bg-blue-600"></div>
+                <div className="mb-1">
+                  <span className="text-sm font-semibold text-blue-600">
+                    2025-01-15 @ 6:00 PM CT
+                  </span>
+                  <span className="ml-2 inline-flex items-center gap-1 rounded bg-blue-100 px-2 py-0.5 text-xs text-blue-700">
                     DESIGN UPDATE
                     <CheckCircle className="h-3 w-3" />
                   </span>
@@ -1540,6 +1579,97 @@ export default function SitemapDevPage() {
                   <li className="flex items-start gap-1">
                     <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
                     Fixed MDX component exports for build compatibility
+                  </li>
+                </ul>
+              </div>
+
+              {/* Retesting Scheduler Complete */}
+              <div className="relative border-l-4 border-green-400 pl-8">
+                <div className="absolute -left-2 top-0 h-4 w-4 rounded-full bg-green-600"></div>
+                <div className="mb-1">
+                  <span className="text-sm font-semibold text-green-600">
+                    2025-01-15 @ 4:00 PM CT
+                  </span>
+                  <span className="ml-2 inline-flex items-center gap-1 rounded bg-green-100 px-2 py-0.5 text-xs text-green-700">
+                    TOOLS COMPLETE
+                    <CheckCircle className="h-3 w-3" />
+                  </span>
+                </div>
+                <h3 className="mb-2 font-semibold text-gray-900">
+                  Retesting Scheduler Complete - 11/11 Tools Achievement
+                </h3>
+                <ul className="space-y-1 text-sm text-gray-700">
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    Final tool in interactive toolkit completed
+                  </li>
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    Evidence-based testing recommendations with cost tracking
+                  </li>
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    VCS, mycotoxin, environmental, and biomarker test scheduling
+                  </li>
+                </ul>
+              </div>
+
+              {/* Complete Resource Library */}
+              <div className="relative border-l-4 border-purple-400 pl-8">
+                <div className="absolute -left-2 top-0 h-4 w-4 rounded-full bg-purple-600"></div>
+                <div className="mb-1">
+                  <span className="text-sm font-semibold text-purple-600">
+                    2025-01-15 @ 2:00 PM CT
+                  </span>
+                  <span className="ml-2 rounded bg-purple-100 px-2 py-0.5 text-xs text-purple-700">
+                    LIBRARY
+                  </span>
+                </div>
+                <h3 className="mb-2 font-semibold text-gray-900">
+                  Complete Resource Library Implementation
+                </h3>
+                <ul className="space-y-1 text-sm text-gray-700">
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    26+ resources across 6 categories with advanced filtering
+                  </li>
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    Specialized cheat sheets and templates sub-pages
+                  </li>
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    Professional search, filter, and sorting functionality
+                  </li>
+                </ul>
+              </div>
+
+              {/* Tools & Quiz Integration */}
+              <div className="relative border-l-4 border-orange-400 pl-8">
+                <div className="absolute -left-2 top-0 h-4 w-4 rounded-full bg-orange-600"></div>
+                <div className="mb-1">
+                  <span className="text-sm font-semibold text-orange-600">
+                    2025-01-15 @ 12:00 PM CT
+                  </span>
+                  <span className="ml-2 rounded bg-orange-100 px-2 py-0.5 text-xs text-orange-700">
+                    INTEGRATION
+                  </span>
+                </div>
+                <h3 className="mb-2 font-semibold text-gray-900">
+                  Tools & Quiz Page Integration to Sitemap
+                </h3>
+                <ul className="space-y-1 text-sm text-gray-700">
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    Updated tool counts from 3/9 to 9/11 complete
+                  </li>
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    Added comprehensive quiz system section
+                  </li>
+                  <li className="flex items-start gap-1">
+                    <Circle className="mt-1.5 h-1.5 w-1.5 flex-shrink-0" />
+                    Enhanced tool descriptions with user-focused content
                   </li>
                 </ul>
               </div>

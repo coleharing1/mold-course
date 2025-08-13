@@ -1,7 +1,8 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import Image from 'next/image'
 import {
   ExternalLink,
   ShoppingCart,
@@ -25,60 +26,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { cn } from '@/lib/utils'
 
-let localImageMap: Record<string, string> | null = null
-async function loadLocalImageMap(): Promise<Record<string, string>> {
-  if (localImageMap) return localImageMap
-  try {
-    const res = await fetch('/product-images.json', { cache: 'no-store' })
-    if (!res.ok) return {}
-    const data = (await res.json()) as Record<string, string>
-    localImageMap = data
-    return data
-  } catch {
-    return {}
-  }
-}
-
-async function findLocalImageFor(url: string): Promise<string | null> {
-  if (!url) return null
-  const map = await loadLocalImageMap()
-  if (map[url]) return map[url]
-  // Handle variants when multiple products share same URL
-  for (let i = 2; i <= 5; i++) {
-    const key = `${url}#${i}`
-    if (map[key]) return map[key]
-  }
-  return null
-}
-
-// Lightweight client cache for scraped images (per session)
-const scrapedImageCache = new Map<string, string>()
-
-async function fetchScrapedImage(productUrl: string): Promise<string | null> {
-  if (!productUrl) return null
-
-  // First priority: check for processed local images
-  const localHit = await findLocalImageFor(productUrl)
-  if (localHit) return localHit
-
-  // Second priority: check session cache
-  if (scrapedImageCache.has(productUrl)) return scrapedImageCache.get(productUrl) as string
-
-  // Last resort: fetch from API (but this should rarely happen now)
-  try {
-    const res = await fetch(`/api/scrape-image?url=${encodeURIComponent(productUrl)}`)
-    if (!res.ok) return null
-    const data = (await res.json()) as { imageUrl?: string }
-    if (data.imageUrl) {
-      scrapedImageCache.set(productUrl, data.imageUrl)
-      return data.imageUrl
-    }
-    return null
-  } catch {
-    return null
-  }
-}
-
 interface Product {
   id: string
   name: string
@@ -97,48 +44,21 @@ interface Product {
   image?: string
 }
 
-// Category-based placeholder images
-const getCategoryImage = (category: string, productId: string) => {
-  const images: { [key: string]: string[] } & { diet: string[] } = {
-    environmental: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop', // air purifier
-      'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=400&h=400&fit=crop', // cleaning supplies
-      'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop', // laundry
-      'https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=400&h=400&fit=crop', // home products
-    ],
-    testing: [
-      'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&h=400&fit=crop', // lab test
-      'https://images.unsplash.com/photo-1579154204601-01588f351e67?w=400&h=400&fit=crop', // test kit
-      'https://images.unsplash.com/photo-1576671081837-49000212a370?w=400&h=400&fit=crop', // medical test
-    ],
-    drainage: [
-      'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400&h=400&fit=crop', // herbs/tea
-      'https://images.unsplash.com/photo-1563910489261-4e224b87ac96?w=400&h=400&fit=crop', // nasal spray
-    ],
-    binders: [
-      'https://images.unsplash.com/photo-1550572017-4fcdbb59cc32?w=400&h=400&fit=crop', // supplement pills
-      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop', // medicine bottle
-      'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&h=400&fit=crop', // supplement jar
-    ],
-    antifungals: [
-      'https://images.unsplash.com/photo-1471193945509-9ad0617afabf?w=400&h=400&fit=crop', // supplements
-      'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=400&h=400&fit=crop', // vitamins
-    ],
-    diet: [
-      'https://images.unsplash.com/photo-1509909756405-be0199881695?w=400&h=400&fit=crop', // coffee
-      'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop', // supplements
-      'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=400&h=400&fit=crop', // probiotics
-    ],
+// Category-based placeholder images (fallback only)
+const getCategoryImage = (category: string) => {
+  const categoryImages: Record<string, string> = {
+    environmental: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop',
+    testing: 'https://images.unsplash.com/photo-1582719508461-905c673771fd?w=400&h=400&fit=crop',
+    drainage: 'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?w=400&h=400&fit=crop',
+    binders: 'https://images.unsplash.com/photo-1629321048873-e7f5e7261e0f?w=400&h=400&fit=crop',
+    antifungals:
+      'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop',
+    supplements:
+      'https://images.unsplash.com/photo-1596116762424-01639b22c9f0?w=400&h=400&fit=crop',
+    diet: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop',
+    tools: 'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=400&h=400&fit=crop',
   }
-
-  const categoryImages = images[category]
-  const pool: string[] =
-    Array.isArray(categoryImages) && categoryImages.length > 0 ? categoryImages : images['diet']!
-  const length = pool.length
-  if (length === 0) return images['diet']![0]
-  const parsed = Number.parseInt(productId)
-  const index = Number.isFinite(parsed) ? parsed % length : 0
-  return pool[index]
+  return categoryImages[category] || categoryImages.supplements
 }
 
 const products: Product[] = [
@@ -710,7 +630,6 @@ export default function ProductsPage() {
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   const [showFilters, setShowFilters] = useState(false)
   const [savedProducts, setSavedProducts] = useState<string[]>([])
-  // Removed imageOverrides state as we now use direct mapping
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory
@@ -724,34 +643,6 @@ export default function ProductsPage() {
   })
 
   const featuredProducts = products.filter((product) => product.featured)
-
-  // Prefetch images for visible products when filters change
-  useEffect(() => {
-    // Load processed images for ALL products
-    const toResolve = filteredProducts
-
-    let cancelled = false
-    ;(async () => {
-      const entries = await Promise.all(
-        toResolve.map(async (p) => {
-          const img = await fetchScrapedImage(p.url)
-          return [p.id, img] as const
-        })
-      )
-      if (cancelled) return
-      const overrides: Record<string, string> = {}
-      for (const [id, img] of entries) {
-        if (img) overrides[id] = img
-      }
-      if (Object.keys(overrides).length > 0) {
-        setImageOverrides((prev) => ({ ...prev, ...overrides }))
-      }
-    })()
-
-    return () => {
-      cancelled = true
-    }
-  }, [filteredProducts])
 
   const resolveImage = (product: Product) => {
     // Direct mapping to enhanced images - bypass problematic URL-based system
@@ -794,8 +685,8 @@ export default function ProductsPage() {
       '36': '/product-images-enhanced/f8f4f8bc405cec63.png', // Under-Sink Filter
     }
 
-    // Always use enhanced images first, fallback to category placeholders only if needed
-    return enhancedImageMap[product.id] || getCategoryImage(product.category, product.id)
+    // Use enhanced images first, fallback to category placeholders
+    return enhancedImageMap[product.id] || getCategoryImage(product.category)
   }
 
   const getPriorityColor = (priority: string) => {
@@ -948,11 +839,13 @@ export default function ProductsPage() {
 
                   {/* Standardized Product Image */}
                   <div className="relative mb-4 h-48 w-full overflow-hidden rounded-lg border border-gray-200 bg-white">
-                    <img
+                    <Image
                       src={resolveImage(product)}
                       alt={product.name}
-                      className="h-full w-full object-contain"
-                      loading="eager"
+                      fill
+                      className="object-contain"
+                      priority
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     />
                     {product.discount && (
                       <div className="absolute bottom-2 right-2 rounded bg-red-500 px-2 py-1 text-xs font-bold text-white">
@@ -1185,13 +1078,16 @@ export default function ProductsPage() {
                 >
                   <Card className="group flex h-[420px] flex-col overflow-hidden transition-all hover:shadow-lg">
                     {/* Standardized Product Image */}
-                    <div className="relative h-48 w-full overflow-hidden border-b border-gray-200 bg-white">
-                      <img
-                        src={resolveImage(product)}
-                        alt={product.name}
-                        className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                        loading="lazy"
-                      />
+                    <div className="relative h-48 w-full border-b border-gray-200 bg-white">
+                      <div className="relative h-full w-full overflow-hidden">
+                        <Image
+                          src={resolveImage(product)}
+                          alt={product.name}
+                          fill
+                          className="object-contain transition-transform duration-300 group-hover:scale-105"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        />
+                      </div>
                       {product.discount && (
                         <div className="absolute right-2 top-2 rounded bg-red-500 px-2 py-1 text-xs font-bold text-white">
                           -{product.discount}%
@@ -1322,11 +1218,12 @@ export default function ProductsPage() {
                       <div className="flex flex-col gap-4 sm:flex-row">
                         {/* List View Image */}
                         <div className="relative h-28 w-28 flex-shrink-0 overflow-hidden rounded-lg border border-gray-200 bg-white md:h-32 md:w-32">
-                          <img
+                          <Image
                             src={resolveImage(product)}
                             alt={product.name}
-                            className="h-full w-full object-contain"
-                            loading="lazy"
+                            fill
+                            className="object-contain"
+                            sizes="(max-width: 768px) 112px, 128px"
                           />
                           {product.discount && (
                             <div className="absolute right-1 top-1 rounded bg-red-500 px-2 py-0.5 text-xs font-bold text-white">

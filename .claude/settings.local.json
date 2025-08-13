@@ -34,7 +34,10 @@
       "Bash(kill:*)",
       "Bash(npm ls:*)",
       "Bash(true)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(for page in \"/\" \"/products\" \"/tools/protocol-builder\" \"/modules\" \"/dashboard\")",
+      "Bash(do echo \"Testing $page...\")",
+      "Bash(done)"
     ],
     "deny": []
   }

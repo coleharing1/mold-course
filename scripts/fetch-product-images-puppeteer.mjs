@@ -13,6 +13,7 @@ const ROOT = process.cwd()
 const MD_PATH = path.join(ROOT, 'project_brainstorm', 'Product-URLs.md')
 const OUT_DIR = path.join(ROOT, 'public', 'product-images')
 const MAP_PATH = path.join(ROOT, 'public', 'product-images.json')
+const NAME_MAP_PATH = path.join(ROOT, 'public', 'product-images-by-name.json')
 
 const ALLOWED_HOSTS = new Set([
   'amzn.to', 'www.amazon.com', 'amazon.com',
@@ -47,6 +48,13 @@ async function readUrlsFromMarkdown(mdPath) {
 function fileNameFor(url) {
   const hash = crypto.createHash('md5').update(url).digest('hex').slice(0, 16)
   return hash
+}
+
+function slugifyName(name) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '')
 }
 
 async function ensureDir(dir) {
@@ -93,6 +101,7 @@ async function extractImageUrl(page) {
   try {
     await ensureDir(OUT_DIR)
     const mapping = await readJsonIfExists(MAP_PATH)
+    const nameMapping = await readJsonIfExists(NAME_MAP_PATH)
     const entries = await readUrlsFromMarkdown(MD_PATH)
     const seenUrl = {}
     const failures = []
@@ -124,7 +133,9 @@ async function extractImageUrl(page) {
             const base = fileNameFor(key) + ext
             const outPath = path.join(OUT_DIR, base)
             await fs.writeFile(outPath, buf)
-            mapping[key] = `/product-images/${base}`
+            const local = `/product-images/${base}`
+            mapping[key] = local
+            nameMapping[slugifyName(item.name)] = local
             console.log('ok')
           } else {
             // Fallback: page screenshot
@@ -132,7 +143,9 @@ async function extractImageUrl(page) {
             const outPath = path.join(OUT_DIR, base)
             const buf = await page.screenshot({ type: 'png', fullPage: false })
             await fs.writeFile(outPath, buf)
-            mapping[key] = `/product-images/${base}`
+            const local = `/product-images/${base}`
+            mapping[key] = local
+            nameMapping[slugifyName(item.name)] = local
             console.log('screenshot')
           }
         } finally {
@@ -145,7 +158,9 @@ async function extractImageUrl(page) {
     }
 
     await fs.writeFile(MAP_PATH, JSON.stringify(mapping, null, 2), 'utf8')
+    await fs.writeFile(NAME_MAP_PATH, JSON.stringify(nameMapping, null, 2), 'utf8')
     console.log(`Wrote mapping to ${MAP_PATH}`)
+    console.log(`Wrote name mapping to ${NAME_MAP_PATH}`)
     if (failures.length) {
       console.log(`Failures (${failures.length}):`)
       for (const f of failures) console.log('-', f.url, '=>', f.error)

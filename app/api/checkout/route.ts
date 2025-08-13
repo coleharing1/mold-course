@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
-import { stripe } from '@/lib/stripe/client'
+import { getStripe } from '@/lib/stripe/client'
 import { STRIPE_CONFIG } from '@/lib/stripe/config'
 import { authOptions } from '@/lib/auth/auth-options'
 import { prisma } from '@/lib/db/prisma'
@@ -9,15 +9,17 @@ export async function POST(req: Request) {
   try {
     // Get user session
     const session = await getServerSession(authOptions)
-    
+
     if (!session?.user?.email) {
-      return NextResponse.json(
-        { error: 'You must be logged in to purchase' },
-        { status: 401 }
-      )
+      return NextResponse.json({ error: 'You must be logged in to purchase' }, { status: 401 })
     }
 
     const { priceId, planType, billingPeriod } = await req.json()
+
+    // If missing Stripe config (preview builds), short-circuit gracefully
+    if (!process.env['STRIPE_SECRET_KEY']) {
+      return NextResponse.json({ error: 'Checkout temporarily unavailable' }, { status: 503 })
+    }
 
     // Validate the price ID
     const validPriceIds = [
@@ -29,10 +31,7 @@ export async function POST(req: Request) {
     ]
 
     if (!validPriceIds.includes(priceId)) {
-      return NextResponse.json(
-        { error: 'Invalid price selection' },
-        { status: 400 }
-      )
+      return NextResponse.json({ error: 'Invalid price selection' }, { status: 400 })
     }
 
     // Get or create Stripe customer
@@ -43,15 +42,13 @@ export async function POST(req: Request) {
     })
 
     if (!user) {
-      return NextResponse.json(
-        { error: 'User not found' },
-        { status: 404 }
-      )
+      return NextResponse.json({ error: 'User not found' }, { status: 404 })
     }
 
     // Check if user already has a Stripe customer ID
-    const existingPurchase = user.purchases.find(p => p.stripeCustomerId)
-    
+    const existingPurchase = user.purchases.find((p) => p.stripeCustomerId)
+
+    const stripe = getStripe()
     if (existingPurchase?.stripeCustomerId) {
       customer = await stripe.customers.retrieve(existingPurchase.stripeCustomerId)
     } else {
@@ -70,7 +67,18 @@ export async function POST(req: Request) {
     const cancelUrl = `${baseUrl}/checkout/cancelled`
 
     // Create checkout session based on plan type
-    const sessionConfig: any = {
+    interface SessionConfig {
+      customer: string
+      payment_method_types: string[]
+      line_items: { price: string; quantity: number }[]
+      mode: 'payment' | 'subscription'
+      success_url: string
+      cancel_url: string
+      metadata: Record<string, string>
+      subscription_data?: { metadata: Record<string, string> }
+      payment_intent_data?: { metadata: Record<string, string> }
+    }
+    const sessionConfig: SessionConfig = {
       customer: customer.id,
       payment_method_types: ['card'],
       line_items: [
@@ -116,11 +124,16 @@ export async function POST(req: Request) {
       data: {
         userId: user.id,
         sku: `${planType}-${billingPeriod || 'onetime'}`,
-        amount: planType === 'core' 
-          ? (billingPeriod === 'annual' ? STRIPE_CONFIG.prices.core.discounted : STRIPE_CONFIG.prices.core.oneTime)
-          : planType === 'plus'
-          ? (billingPeriod === 'annual' ? STRIPE_CONFIG.prices.plus.annual * 12 : STRIPE_CONFIG.prices.plus.monthly)
-          : STRIPE_CONFIG.prices.vip.oneTime,
+        amount:
+          planType === 'core'
+            ? billingPeriod === 'annual'
+              ? STRIPE_CONFIG.prices.core.discounted
+              : STRIPE_CONFIG.prices.core.oneTime
+            : planType === 'plus'
+              ? billingPeriod === 'annual'
+                ? STRIPE_CONFIG.prices.plus.annual * 12
+                : STRIPE_CONFIG.prices.plus.monthly
+              : STRIPE_CONFIG.prices.vip.oneTime,
         currency: 'usd',
         status: 'pending',
         stripeCustomerId: customer.id,
@@ -133,9 +146,6 @@ export async function POST(req: Request) {
     })
   } catch (error) {
     console.error('Checkout error:', error)
-    return NextResponse.json(
-      { error: 'Failed to create checkout session' },
-      { status: 500 }
-    )
+    return NextResponse.json({ error: 'Failed to create checkout session' }, { status: 500 })
   }
 }
